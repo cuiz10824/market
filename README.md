@@ -2,11 +2,24 @@
 
 白底黑字的本地 H5 网页，上栏为历史涨跌，下栏为统计预测。上涨红色，下跌绿色。按用户提供的表格设置沪深300、能源、医药、消费、制造业、金融、科技七行，以及当天、周、月、三月、半年五个周期。
 
+## 目录结构
+
+```text
+market/
+├── data/          # 历史数据、数据库和来源快照
+├── html/          # 前端网页、样式、浏览器脚本和 Windows 启动入口
+├── code/          # 后端、数据脚本、测试，以及后续预测算法
+│   ├── server.py
+│   ├── tools/
+│   └── tests/
+└── README.md
+```
+
 ## Windows 使用
 
-1. 下载本仓库 ZIP 并解压，保持所有文件在同一个文件夹。
-2. **直接打开**：双击 `index.html`，无需安装任何东西。可查看明确标注的虚构演示、导入 CSV 并计算实际涨跌及预测。
-3. **在线行情**：安装官方 Python 3.10 或更新版本，然后双击 `启动网页.bat`。浏览器会自动打开页面；保持命令窗口开启。无需 pip 或 npm 安装。关闭命令窗口停止服务。
+1. 下载本仓库 ZIP 并解压，保留解压后的目录结构。
+2. **直接打开**：双击 `html/index.html`，无需安装任何东西。可查看明确标注的虚构演示、导入 CSV 并计算实际涨跌及预测。
+3. **在线行情**：安装官方 Python 3.10 或更新版本，然后双击 `html/启动网页.bat`。浏览器会自动打开页面；保持命令窗口开启。无需 pip 或 npm 安装。关闭命令窗口停止服务。
 4. 若浏览器没有自动打开，在本机浏览器访问 `http://127.0.0.1:8765`。若命令窗口报端口占用，先关闭之前启动的本程序。
 
 在线模式通过本地 Python 服务访问东方财富公开 HTTPS 行情接口。不需要账号或 API 密钥；接口可用性及数据质量取决于第三方，不保证长期稳定。如果无法获取，会明确显示错误并保留原有数据，绝不自动切换为虚构行情。
@@ -45,14 +58,16 @@ date,name,close
 
 ```sh
 cd /workspace/market
-python server.py --no-browser
+python code/server.py --no-browser
 ```
 
 无第三方运行依赖。静态资源用原生 HTML/CSS/JavaScript，本地服务只绑定回环地址。在线接口仅提供七个固定指数，无法指定任意代理目的地。
 
 ```sh
-node --test tests/model.test.cjs
+node --test code/tests/model.test.cjs
+cd code
 python -m unittest discover -s tests -v
+cd ..
 ```
 
 测试覆盖历史周期、预测计算、CSV 校验、接口返回解析。真实行情连接另需网络允许 `push2his.eastmoney.com`；模拟接口测试或演示运行通过，不代表真实行情已验证。
@@ -62,9 +77,9 @@ python -m unittest discover -s tests -v
 历史数据已按行业整理在 [data](data/README.md)，包括分类 CSV、可直接查询的 SQLite、原始快照、来源和质量记录。研究数据与网页的在线行情、虚构演示相互独立，本次不改变网页的数据加载逻辑。数据库 CSV 使用真实指数名称，不能直接当作网页旧版七行别名 CSV 导入。
 
 ```sh
-python tools/market_data.py audit
-python tools/market_data.py build
-python tools/market_data.py fetch --provider tencent
+python code/tools/market_data.py audit
+python code/tools/market_data.py build
+python code/tools/market_data.py fetch --provider tencent
 ```
 
 这些命令均无需 pip 安装。构建和审计不需要联网，获取新行情需要相应来源的网络访问权限。

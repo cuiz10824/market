@@ -1,6 +1,6 @@
 const {test} = require('node:test');
 const assert = require('node:assert/strict');
-const M = require('../model.js');
+const M = require('../../html/model.js');
 test('all horizons compare the correct closing prices', () => {
   const s = Array.from({length: 140}, (_, i) => ({close: 100 + i}));
   for (const h of M.horizons) assert.equal(M.actual(s,h), (239/(239-h)-1)*100);

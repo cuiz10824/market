@@ -16,7 +16,7 @@ import urllib.request
 import urllib.parse
 import zipfile
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'data'
 FIELDS = ['date', 'code', 'name', 'close']
 RELEASE = '2026-10-17'

@@ -13,7 +13,7 @@ from pathlib import Path
 
 SECTORS = [('沪深300', '000300'), ('能源', '000928'), ('医药', '000933'),
            ('消费', '000932'), ('制造业', '000930'), ('金融', '000934'), ('科技', '000935')]
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1] / 'html'
 
 
 def parse_history(payload, name, code):

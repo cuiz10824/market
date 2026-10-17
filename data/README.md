@@ -53,16 +53,16 @@ SHA-256验证证明本地文件与记录的来源快照一致；格式校验通�
 
 ```sh
 # 离线重建分类CSV和SQLite：原始快照已在仓库
-python tools/market_data.py build
+python code/tools/market_data.py build
 
 # 全量核对原始快照、哈希、日期、价格及CSV/SQLite一致性
-python tools/market_data.py audit
+python code/tools/market_data.py audit
 
 # 更新14条目标与参照指数；保留独立的中证与申万口径
-python tools/market_data.py fetch --provider tencent
+python code/tools/market_data.py fetch --provider tencent
 
 # 只更新指定代码
-python tools/market_data.py fetch --provider tencent --codes 000510 399989
+python code/tools/market_data.py fetch --provider tencent --codes 000510 399989
 ```
 
 腾讯访问目标为 `proxy.finance.qq.com`，东方财富为 `push2his.eastmoney.com`。失败返回非零状态，不会拿虚构数据替换；较短或更旧的响应不能覆盖既有历史。申万社区旧样本不由这个更新命令刷新。
@@ -72,7 +72,7 @@ python tools/market_data.py fetch --provider tencent --codes 000510 399989
 若要重新从上游完整归档导入，先从对应Release取得归档和清单，再执行：
 
 ```sh
-python tools/market_data.py import-release --archive /path/to/qlib_bin.tar.gz --manifest /path/to/qlib_bin.manifest.json
+python code/tools/market_data.py import-release --archive /path/to/qlib_bin.tar.gz --manifest /path/to/qlib_bin.manifest.json
 ```
 
 脚本校验清单中的归档大小和SHA-256，只读取选定文件，不解压执行任意代码。完整上游日历语义校验的首次执行记录保存在 `sources/investment_data/2026-10-17/upstream_validation.json`。
