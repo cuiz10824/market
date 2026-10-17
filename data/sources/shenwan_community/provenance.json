@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/wnt0801/a-stock-industry-rotation",
+  "commit": "73b521a3250f532a66d3ce930b59be56c5e01e1b",
+  "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+  "sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+  "retrieved_at": "2026-10-17T14:00:59.946574+00:00",
+  "upstream_claimed_source": "AKShare, Shenwan industry indices",
+  "verification": "Community historical sample; upstream numbers not independently verified. README claims 27 industries; file contains 28. Not live market data."
+}

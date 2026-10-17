@@ -1,0 +1,33 @@
+{
+  "category": "市场参照",
+  "code": "000985",
+  "name": "中证全指",
+  "secid": "1.000985",
+  "note": "宽基对照",
+  "status": "downloaded",
+  "rows": 5289,
+  "start": "2005-01-04",
+  "end": "2026-10-16",
+  "source": {
+    "provider": "tencent",
+    "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000985%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+    "raw_path": "data/sources/tencent/000985.json",
+    "raw_sha256": "57d898171f439e4399061bc5fd44f6490c2ff497cfc809ec981f1a1771cc258b",
+    "retrieved_at": "2026-10-17T14:03:38.237188+00:00",
+    "price_basis": "vendor_unadjusted_daily_index_points",
+    "precision": "source decimal string; independent verification incomplete"
+  },
+  "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+  "csv": "data/indices/市场参照/000985.csv",
+  "csv_sha256": "ac5689fc1207b99aa7955987ebfdc7f956f21cd99704f037635dd744a5f2f90a",
+  "quality": {
+    "reference_calendar_end": "2026-10-16",
+    "missing_observations_within_range": 0,
+    "missing_dates": [],
+    "reference_trading_days_since_last_observation": 0,
+    "independently_verified": false,
+    "warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset."
+    ]
+  }
+}

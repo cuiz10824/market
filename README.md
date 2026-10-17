@@ -19,7 +19,7 @@
 | 能源 | 中证能源 | 000928 |
 | 医药 | 中证医药 | 000933 |
 | 消费 | 中证消费 | 000932 |
-| 制造业 | 中证工业（近似） | 000930 |
+| 制造业 | 中证800工业（近似，行情简称800工业） | 000930 |
 | 金融 | 中证金融 | 000934 |
 | 科技 | 中证信息（近似） | 000935 |
 
@@ -56,3 +56,15 @@ python -m unittest discover -s tests -v
 ```
 
 测试覆盖历史周期、预测计算、CSV 校验、接口返回解析。真实行情连接另需网络允许 `push2his.eastmoney.com`；模拟接口测试或演示运行通过，不代表真实行情已验证。
+
+## 历史研究数据库
+
+历史数据已按行业整理在 [data](data/README.md)，包括分类 CSV、可直接查询的 SQLite、原始快照、来源和质量记录。研究数据与网页的在线行情、虚构演示相互独立，本次不改变网页的数据加载逻辑。数据库 CSV 使用真实指数名称，不能直接当作网页旧版七行别名 CSV 导入。
+
+```sh
+python tools/market_data.py audit
+python tools/market_data.py build
+python tools/market_data.py fetch --provider tencent
+```
+
+这些命令均无需 pip 安装。构建和审计不需要联网，获取新行情需要相应来源的网络访问权限。

@@ -1,0 +1,33 @@
+{
+  "category": "医药",
+  "code": "000933",
+  "name": "中证医药",
+  "secid": "1.000933",
+  "note": "广义医药卫生，区别于中证医疗",
+  "status": "downloaded",
+  "rows": 4198,
+  "start": "2009-07-03",
+  "end": "2026-10-16",
+  "source": {
+    "provider": "tencent",
+    "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000933%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+    "raw_path": "data/sources/tencent/000933.json",
+    "raw_sha256": "ff578d15d9e5a80630907404f7ee6e3e4298983413a73e451032b4f84a95d93e",
+    "retrieved_at": "2026-10-17T14:03:17.877183+00:00",
+    "price_basis": "vendor_unadjusted_daily_index_points",
+    "precision": "source decimal string; independent verification incomplete"
+  },
+  "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+  "csv": "data/indices/医药/000933.csv",
+  "csv_sha256": "99817a59cc72dbfba1d3f728755225b8e96f892459b5010901303796882c726b",
+  "quality": {
+    "reference_calendar_end": "2026-10-16",
+    "missing_observations_within_range": 0,
+    "missing_dates": [],
+    "reference_trading_days_since_last_observation": 0,
+    "independently_verified": false,
+    "warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset."
+    ]
+  }
+}

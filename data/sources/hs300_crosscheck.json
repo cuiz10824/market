@@ -1,0 +1,10 @@
+{
+  "compared_rows": 5289,
+  "max_absolute_close_difference": 0.010000000000218279,
+  "differences_greater_than_0_005": 96,
+  "sources": [
+    "eastmoney",
+    "investment_data"
+  ],
+  "note": "Agreement is not proof of independent origins or general validation of other series."
+}

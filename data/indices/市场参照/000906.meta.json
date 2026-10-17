@@ -1,0 +1,33 @@
+{
+  "category": "市场参照",
+  "code": "000906",
+  "name": "中证800",
+  "secid": "1.000906",
+  "note": "宽基对照",
+  "status": "downloaded",
+  "rows": 5289,
+  "start": "2005-01-04",
+  "end": "2026-10-16",
+  "source": {
+    "provider": "tencent",
+    "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000906%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+    "raw_path": "data/sources/tencent/000906.json",
+    "raw_sha256": "2d70fce6306c6f9e84c19b465df023dc9660c9f10394a2b41c6a1edf749e90cd",
+    "retrieved_at": "2026-10-17T14:03:29.966201+00:00",
+    "price_basis": "vendor_unadjusted_daily_index_points",
+    "precision": "source decimal string; independent verification incomplete"
+  },
+  "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+  "csv": "data/indices/市场参照/000906.csv",
+  "csv_sha256": "9e3a98bd4b6a762c82ccd431a2b8642d44a9d356c16d9a21f97b30c58dbee8f8",
+  "quality": {
+    "reference_calendar_end": "2026-10-16",
+    "missing_observations_within_range": 0,
+    "missing_dates": [],
+    "reference_trading_days_since_last_observation": 0,
+    "independently_verified": false,
+    "warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset."
+    ]
+  }
+}

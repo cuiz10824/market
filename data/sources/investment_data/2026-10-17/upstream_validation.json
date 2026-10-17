@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "executed_at": "2026-10-17T14:06:05.918620+00:00",
+  "validator_source": "https://raw.githubusercontent.com/chenditc/investment_data/b8c129b4d9b838f050eac8b1135111b3b79fc894/qlib/validate_archive.py",
+  "validator_sha256": "6e6bf6f227e2aed1a3bf545a6844db78a146b0e3bdfafd39cb2f16779e2567da",
+  "require_publishable": true,
+  "result": {
+    "archive_sha256": "sha256:648e5a705f89631b50213d618f2d6dc64b9ca9d464509911c4eafea867c99a23",
+    "manifest_sha256": "sha256:8f137c6e7914caf7ccd156b1be5792a7e733393c35e6b946debd4090f0dfae81",
+    "archive_size_bytes": 568306436,
+    "target_trade_date": "2026-10-16",
+    "future_start_date": "2026-10-19",
+    "future_end_date": "2026-12-31"
+  },
+  "notes": "Executed upstream validator successfully against full local archive before selecting files; future calendar is not future price observations."
+}

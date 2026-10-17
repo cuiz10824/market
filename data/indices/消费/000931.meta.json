@@ -1,0 +1,33 @@
+{
+  "category": "消费",
+  "code": "000931",
+  "name": "800可选",
+  "secid": "1.000931",
+  "note": "中证800可选消费指数，与主要消费分开。",
+  "status": "downloaded",
+  "rows": 5289,
+  "start": "2005-01-04",
+  "end": "2026-10-16",
+  "source": {
+    "provider": "tencent",
+    "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000931%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+    "raw_path": "data/sources/tencent/000931.json",
+    "raw_sha256": "e2121ec12c74dbcb1909c33679a7597c5ab17bfa34154d20e082014e554d17c3",
+    "retrieved_at": "2026-10-17T14:03:17.855222+00:00",
+    "price_basis": "vendor_unadjusted_daily_index_points",
+    "precision": "source decimal string; independent verification incomplete"
+  },
+  "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+  "csv": "data/indices/消费/000931.csv",
+  "csv_sha256": "af12ac0289fcd06ee590ef563dd9bd3cdb7b8a5b701fb6f0401902dd628696e8",
+  "quality": {
+    "reference_calendar_end": "2026-10-16",
+    "missing_observations_within_range": 0,
+    "missing_dates": [],
+    "reference_trading_days_since_last_observation": 0,
+    "independently_verified": false,
+    "warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset."
+    ]
+  }
+}

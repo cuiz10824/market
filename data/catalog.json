@@ -1,0 +1,1775 @@
+{
+  "schema_version": 1,
+  "series": [
+    {
+      "category": "沪深300",
+      "code": "000300",
+      "name": "沪深300",
+      "secid": "1.000300",
+      "note": "宽基指数",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "eastmoney",
+        "url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=101&fqt=0&lmt=10000&end=20500101&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61",
+        "raw_path": "data/sources/eastmoney/000300.json",
+        "raw_sha256": "b5c10e75b1041383a81c4e7921daa7fd9ce9b0d037edda725e08c5add1ca0403",
+        "price_basis": "vendor_price_index_points",
+        "precision": "source decimal string"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/沪深300/000300.csv",
+      "csv_sha256": "59dd7c1a5f9a9c0e2ab6c26861d86e1530e4f40e07fa9a1c6905e7995d8adde4",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "中证A500",
+      "code": "000510",
+      "name": "中证A500",
+      "secid": "1.000510",
+      "note": "宽基指数；历史可能包含发布前回溯数据",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000510%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000510.json",
+        "raw_sha256": "1fcb3ccd910dcfe33f1626db7182c31bcc9f60317722a3565a6b0f86c324c7f2",
+        "retrieved_at": "2026-10-17T14:03:12.172227+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/中证A500/000510.csv",
+      "csv_sha256": "b485a43df264228c8c5376b76347b4b1f1cb10a17d606bd610514b8018ad830d",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "000932",
+      "name": "中证消费",
+      "secid": "1.000932",
+      "note": "主要消费；不等同于全部消费行业",
+      "status": "downloaded",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000932%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000932.json",
+        "raw_sha256": "5d803a52688ebb371b1da6017b0ec4096d2cdfa37b17b838fa2552cf1a54c059",
+        "retrieved_at": "2026-10-17T14:03:12.764999+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/000932.csv",
+      "csv_sha256": "b646c763c662033b17de217361ecfb9217d5a07ee7f74db62d63669c1778a55b",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "000931",
+      "name": "800可选",
+      "secid": "1.000931",
+      "note": "中证800可选消费指数，与主要消费分开。",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000931%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000931.json",
+        "raw_sha256": "e2121ec12c74dbcb1909c33679a7597c5ab17bfa34154d20e082014e554d17c3",
+        "retrieved_at": "2026-10-17T14:03:17.855222+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/000931.csv",
+      "csv_sha256": "af12ac0289fcd06ee590ef563dd9bd3cdb7b8a5b701fb6f0401902dd628696e8",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "医疗",
+      "code": "399989",
+      "name": "中证医疗",
+      "secid": "0.399989",
+      "note": "医疗器械及服务等，区别于广义医药",
+      "status": "downloaded",
+      "rows": 2719,
+      "start": "2015-08-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sz399989%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/399989.json",
+        "raw_sha256": "04468473055fa6c5b1394ac2e993dd1390b72613f7e574c5322ba15d2effc1fb",
+        "retrieved_at": "2026-10-17T14:03:16.785670+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/医疗/399989.csv",
+      "csv_sha256": "4106641ffd914431f3cba3ecb98bf41a17634515640a626444b3542a13eb2be2",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "医药",
+      "code": "000933",
+      "name": "中证医药",
+      "secid": "1.000933",
+      "note": "广义医药卫生，区别于中证医疗",
+      "status": "downloaded",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000933%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000933.json",
+        "raw_sha256": "ff578d15d9e5a80630907404f7ee6e3e4298983413a73e451032b4f84a95d93e",
+        "retrieved_at": "2026-10-17T14:03:17.877183+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/医药/000933.csv",
+      "csv_sha256": "99817a59cc72dbfba1d3f728755225b8e96f892459b5010901303796882c726b",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "金融",
+      "code": "000934",
+      "name": "中证金融",
+      "secid": "1.000934",
+      "note": "金融行业指数",
+      "status": "downloaded",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000934%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000934.json",
+        "raw_sha256": "6f40f5f172199be2600f270ed43d63ce1e2166b9c9b3b53ec2a07d83f0f9b87f",
+        "retrieved_at": "2026-10-17T14:03:21.627590+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/金融/000934.csv",
+      "csv_sha256": "ad42c2b85c5e4e48edf8aef84d4fd97798e80a720be7969cce627aa37942a866",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "科技",
+      "code": "000935",
+      "name": "中证信息",
+      "secid": "1.000935",
+      "note": "信息技术指数作为科技方向代理，不代表所有科技企业",
+      "status": "downloaded",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000935%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000935.json",
+        "raw_sha256": "9b6852f2c77c9ac674962627b3b50dfa9d58ee0e3b35a60bc0eb0f6cc1b89c6c",
+        "retrieved_at": "2026-10-17T14:03:23.727734+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/科技/000935.csv",
+      "csv_sha256": "55ba68497410e030cc113088c9dbef01b15d098955a5133c4009f9e7ad6dca53",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "能源",
+      "code": "000928",
+      "name": "中证能源",
+      "secid": "1.000928",
+      "note": "能源行业指数",
+      "status": "downloaded",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000928%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000928.json",
+        "raw_sha256": "7e5e5bafe6b02575110ffd76e53a2a7bea72b338d88baae439ab31b1381fe604",
+        "retrieved_at": "2026-10-17T14:03:22.935031+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/能源/000928.csv",
+      "csv_sha256": "8eadb82d572c4cec4db11f3cc33d3546c441000c9f966771e84a12dbf56565ee",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "制造业",
+      "code": "000930",
+      "name": "800工业",
+      "secid": "1.000930",
+      "note": "中证800工业指数，作为制造业方向代理，不完全等同；不是全市场制造业指数。",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000930%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000930.json",
+        "raw_sha256": "3e301f2be16954f44333de395bcad12f2cf3fdf760dd82e5af854baa0971b1e0",
+        "retrieved_at": "2026-10-17T14:03:27.528376+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/制造业/000930.csv",
+      "csv_sha256": "64d3b9ae07c304d325c4446bdd65503fa0801e093a727bd5e38659a0e123c71c",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "市场参照",
+      "code": "000905",
+      "name": "中证500",
+      "secid": "1.000905",
+      "note": "宽基对照",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000905%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000905.json",
+        "raw_sha256": "ac042f58e889e2925ff8f8f203686017e29c848efd4e6cba297d90d284562df8",
+        "retrieved_at": "2026-10-17T14:03:29.778672+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/市场参照/000905.csv",
+      "csv_sha256": "339d3a9b2eca916003770786094b1243db99cb5f0da3bfb3226905124af5b1c9",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "市场参照",
+      "code": "000906",
+      "name": "中证800",
+      "secid": "1.000906",
+      "note": "宽基对照",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000906%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000906.json",
+        "raw_sha256": "2d70fce6306c6f9e84c19b465df023dc9660c9f10394a2b41c6a1edf749e90cd",
+        "retrieved_at": "2026-10-17T14:03:29.966201+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/市场参照/000906.csv",
+      "csv_sha256": "9e3a98bd4b6a762c82ccd431a2b8642d44a9d356c16d9a21f97b30c58dbee8f8",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "市场参照",
+      "code": "000852",
+      "name": "中证1000",
+      "secid": "1.000852",
+      "note": "宽基对照",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000852%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000852.json",
+        "raw_sha256": "59560b18078020d24cc325825938733966258d4f1d5afa1fbb47fd862e2b5db1",
+        "retrieved_at": "2026-10-17T14:03:36.065348+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/市场参照/000852.csv",
+      "csv_sha256": "0023792c6abe2326eb3d443a94c9bf66e16322b942e973f43cebf433f9ddf47e",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "市场参照",
+      "code": "000985",
+      "name": "中证全指",
+      "secid": "1.000985",
+      "note": "宽基对照",
+      "status": "downloaded",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "source": {
+        "provider": "tencent",
+        "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000985%2Cday%2C2025-01-01%2C2026-10-17%2C640%2Cqfq",
+        "raw_path": "data/sources/tencent/000985.json",
+        "raw_sha256": "57d898171f439e4399061bc5fd44f6490c2ff497cfc809ec981f1a1771cc258b",
+        "retrieved_at": "2026-10-17T14:03:38.237188+00:00",
+        "price_basis": "vendor_unadjusted_daily_index_points",
+        "precision": "source decimal string; independent verification incomplete"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/市场参照/000985.csv",
+      "csv_sha256": "ac5689fc1207b99aa7955987ebfdc7f956f21cd99704f037635dd744a5f2f90a",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 0,
+        "missing_dates": [],
+        "reference_trading_days_since_last_observation": 0,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801010",
+      "name": "申万农林牧渔",
+      "secid": null,
+      "community_name": "农林牧渔",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801010.csv",
+      "csv_sha256": "8bcc672d4cb0b46393522e805016679ea46c560eccf596ef21321c493c284cb0",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801110",
+      "name": "申万家用电器",
+      "secid": null,
+      "community_name": "家用电器",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801110.csv",
+      "csv_sha256": "43df68329d838abf256f7af261b1691929bc4c75d78ee3574a8531328ae1e086",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801120",
+      "name": "申万食品饮料",
+      "secid": null,
+      "community_name": "食品饮料",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801120.csv",
+      "csv_sha256": "105360800c1e1a97c7673df7455ead765bdc8df5a372711562a39f7fdb5e2965",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801130",
+      "name": "申万纺织服装",
+      "secid": null,
+      "community_name": "纺织服装",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801130.csv",
+      "csv_sha256": "6fdfad06443ed3cfc6d4e50ed9514e19ce603a1d6e3311ea4f8cc64a6323e0c9",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801200",
+      "name": "申万商业贸易",
+      "secid": null,
+      "community_name": "商业贸易",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801200.csv",
+      "csv_sha256": "1422193da26a4ce1a89662504a88ce8a3be813816d3b0d40f4f902a94fe469e3",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801210",
+      "name": "申万休闲服务",
+      "secid": null,
+      "community_name": "休闲服务",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801210.csv",
+      "csv_sha256": "a7e5f61056629876473c4e851d24080e2df2f8964fc4fedeee6adc92eb3e87e2",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "消费",
+      "code": "801880",
+      "name": "申万汽车",
+      "secid": null,
+      "community_name": "汽车",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/消费/801880.csv",
+      "csv_sha256": "f8f031e432d6190ef4d9a068bc28c68a88cfb76f505a53a288f90d1b1ee9d814",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "医药",
+      "code": "801150",
+      "name": "申万医药生物",
+      "secid": null,
+      "community_name": "医药生物",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/医药/801150.csv",
+      "csv_sha256": "b6a650d510aff993648fcb2fd3f260cfb12a025a34a402b66762404e6ce74c07",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "金融",
+      "code": "801780",
+      "name": "申万银行",
+      "secid": null,
+      "community_name": "银行",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/金融/801780.csv",
+      "csv_sha256": "4815479f3a37ee5c512e877aa36e81c69c70ddaa2cc750baa9a8b07b57d66ebf",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "金融",
+      "code": "801790",
+      "name": "申万非银金融",
+      "secid": null,
+      "community_name": "非银金融",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/金融/801790.csv",
+      "csv_sha256": "2045e79f765454814be373d6e471f545de3d228acf873f4ad4fba781dd28a8f8",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "科技",
+      "code": "801080",
+      "name": "申万电子",
+      "secid": null,
+      "community_name": "电子",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/科技/801080.csv",
+      "csv_sha256": "49964406c7804112643bd01505fa1734bef94f1df21e9a0cd258e9a1f33ae54b",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "科技",
+      "code": "801750",
+      "name": "申万计算机",
+      "secid": null,
+      "community_name": "计算机",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/科技/801750.csv",
+      "csv_sha256": "6a46b0809d2af6e575d8d1970e4579661b1820f6c5b52e7b0fcd0a1fa06edca0",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "科技",
+      "code": "801760",
+      "name": "申万传媒",
+      "secid": null,
+      "community_name": "传媒",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/科技/801760.csv",
+      "csv_sha256": "57d0b68003656fc03b57885e1892bf9aaec645d5002eb46e322f8798af700a65",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "科技",
+      "code": "801770",
+      "name": "申万通信",
+      "secid": null,
+      "community_name": "通信",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/科技/801770.csv",
+      "csv_sha256": "efc850029b9e9ebee968a2ce52be98239f4ee4090141b1cc26772a878e057f3a",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "能源",
+      "code": "801020",
+      "name": "申万采掘",
+      "secid": null,
+      "community_name": "采掘",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 225,
+      "start": "2021-01-04",
+      "end": "2021-12-10",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/能源/801020.csv",
+      "csv_sha256": "f40d733446c6bddf0ab306b21f5fd17a2941aed1254666cfbe8895807d744add",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 3,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22"
+        ],
+        "reference_trading_days_since_last_observation": 1172,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "制造业",
+      "code": "801140",
+      "name": "申万轻工制造",
+      "secid": null,
+      "community_name": "轻工制造",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/制造业/801140.csv",
+      "csv_sha256": "287877db489ff56da755b45314ef748aec92dbc27c09817d66ab893613d506af",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "制造业",
+      "code": "801730",
+      "name": "申万电气设备",
+      "secid": null,
+      "community_name": "电气设备",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/制造业/801730.csv",
+      "csv_sha256": "57be42ddccf823f6d2ad7c0a086bee67d6ecab1cfbfdc609c774ca9c3a80f25b",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "制造业",
+      "code": "801740",
+      "name": "申万国防军工",
+      "secid": null,
+      "community_name": "国防军工",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/制造业/801740.csv",
+      "csv_sha256": "4e477b79eafad1e80d538154b8e9fe5f0236ea59c400065367596dfc53bb287e",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "制造业",
+      "code": "801890",
+      "name": "申万机械设备",
+      "secid": null,
+      "community_name": "机械设备",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/制造业/801890.csv",
+      "csv_sha256": "927b2ab9c1d86f95f03ee88cf6d0254d2888779cb7b134c4657193e9e87dbb75",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "材料",
+      "code": "801030",
+      "name": "申万化工",
+      "secid": null,
+      "community_name": "化工",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/材料/801030.csv",
+      "csv_sha256": "1d13d494d69768c7c2bc622d27f09d9e73763ab8fc5576d2a27a7aba9944c399",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "材料",
+      "code": "801040",
+      "name": "申万钢铁",
+      "secid": null,
+      "community_name": "钢铁",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/材料/801040.csv",
+      "csv_sha256": "ca70e09134a1834d3e6174dc7ce19f55424ede99ad488bfd44dc957953a864da",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "材料",
+      "code": "801050",
+      "name": "申万有色金属",
+      "secid": null,
+      "community_name": "有色金属",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/材料/801050.csv",
+      "csv_sha256": "84ebbbf17a9589ffcf2e24a9fa518ac64d978ce67bcc08f7c48e7687a8eeef62",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "材料",
+      "code": "801710",
+      "name": "申万建筑材料",
+      "secid": null,
+      "community_name": "建筑材料",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/材料/801710.csv",
+      "csv_sha256": "f8e3dd583908a7dcdcec5760f113ac83291fd224d4e1f25120295f2717c424ff",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "地产建筑",
+      "code": "801180",
+      "name": "申万房地产",
+      "secid": null,
+      "community_name": "房地产",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/地产建筑/801180.csv",
+      "csv_sha256": "ac013246744e0b7f041594ebeaf52952e2882b4f25cfa50ac183a1ef45403ea7",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "地产建筑",
+      "code": "801720",
+      "name": "申万建筑装饰",
+      "secid": null,
+      "community_name": "建筑装饰",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/地产建筑/801720.csv",
+      "csv_sha256": "0412109e6cc26d51044b31c8d6adf557e1d76bcca604f035cabc44a62d2a9eb2",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "公用事业",
+      "code": "801160",
+      "name": "申万公用事业",
+      "secid": null,
+      "community_name": "公用事业",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/公用事业/801160.csv",
+      "csv_sha256": "6e3caa4b073ed6c13acba4673326abce26bf5b901bf3584c2f75dfecc4199854",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "交通运输",
+      "code": "801170",
+      "name": "申万交通运输",
+      "secid": null,
+      "community_name": "交通运输",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/交通运输/801170.csv",
+      "csv_sha256": "32fdbd149facc68f5752e8a97b2f0f7ebe21b16ca8c58a073a13cd49828a75f0",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    },
+    {
+      "category": "其他",
+      "code": "801230",
+      "name": "申万综合",
+      "secid": null,
+      "community_name": "综合",
+      "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+      "status": "downloaded",
+      "rows": 959,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "source": {
+        "provider": "shenwan_community",
+        "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+        "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+        "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+        "price_basis": "community_reported_price_index_points",
+        "precision": "source decimal string; NOT independently verified"
+      },
+      "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+      "csv": "data/indices/其他/801230.csv",
+      "csv_sha256": "b8008774832ce1d0899d96095b1ed0e27bf8d89dfc99f8724bc98496fe862abf",
+      "quality": {
+        "reference_calendar_end": "2026-10-16",
+        "missing_observations_within_range": 10,
+        "missing_dates": [
+          "2021-08-06",
+          "2021-10-08",
+          "2021-10-22",
+          "2022-03-03",
+          "2022-03-23",
+          "2022-03-31",
+          "2022-04-14",
+          "2022-05-05",
+          "2022-05-09",
+          "2023-09-08"
+        ],
+        "reference_trading_days_since_last_observation": 431,
+        "independently_verified": false,
+        "warnings": [
+          "Index launch/backfill dates not audited; not a point-in-time dataset.",
+          "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+          "History ends before the reference calendar; not current market data.",
+          "Community historical sample only; values and historical classification changes not independently verified."
+        ]
+      }
+    }
+  ]
+}

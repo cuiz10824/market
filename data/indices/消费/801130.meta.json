@@ -1,0 +1,47 @@
+{
+  "category": "消费",
+  "code": "801130",
+  "name": "申万纺织服装",
+  "secid": null,
+  "community_name": "纺织服装",
+  "note": "申万一级行业社区历史样本，保持原行业名；非中证指数，不与中证拼接；未独立核实数值。",
+  "status": "downloaded",
+  "rows": 959,
+  "start": "2021-01-04",
+  "end": "2024-12-31",
+  "source": {
+    "provider": "shenwan_community",
+    "url": "https://raw.githubusercontent.com/wnt0801/a-stock-industry-rotation/73b521a3250f532a66d3ce930b59be56c5e01e1b/data/raw/sw_industry_daily.csv",
+    "raw_path": "data/sources/shenwan_community/sw_industry_daily.csv",
+    "raw_sha256": "02d138b72570854cd380acde844fbc160c52f18f40a6805cfb0bdc2bae18f96d",
+    "price_basis": "community_reported_price_index_points",
+    "precision": "source decimal string; NOT independently verified"
+  },
+  "history_semantics": "May include pre-launch backfill; publication dates not yet audited",
+  "csv": "data/indices/消费/801130.csv",
+  "csv_sha256": "6fdfad06443ed3cfc6d4e50ed9514e19ce603a1d6e3311ea4f8cc64a6323e0c9",
+  "quality": {
+    "reference_calendar_end": "2026-10-16",
+    "missing_observations_within_range": 10,
+    "missing_dates": [
+      "2021-08-06",
+      "2021-10-08",
+      "2021-10-22",
+      "2022-03-03",
+      "2022-03-23",
+      "2022-03-31",
+      "2022-04-14",
+      "2022-05-05",
+      "2022-05-09",
+      "2023-09-08"
+    ],
+    "reference_trading_days_since_last_observation": 431,
+    "independently_verified": false,
+    "warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset.",
+      "Internal gaps exist; do not fill or treat adjacent rows as adjacent trading days.",
+      "History ends before the reference calendar; not current market data.",
+      "Community historical sample only; values and historical classification changes not independently verified."
+    ]
+  }
+}

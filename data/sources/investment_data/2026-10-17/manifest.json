@@ -1,0 +1,12 @@
+{
+  "release_tag": "2026-10-17",
+  "target_trade_date": "2026-10-16",
+  "future_start_date": "2026-10-19",
+  "future_end_date": "2026-12-31",
+  "dolt_commit": "1fu8qtl8vb2sk9tc7rhrtajr6b4e053p",
+  "investment_data_commit": "b8c129b4d9b838f050eac8b1135111b3b79fc894",
+  "qlib_commit": "b87a2c294d364a33fb739359886acffe8ec907d1",
+  "image_digest": "sha256:499bf932b7b967b6e5a06d120577a3fbed9d4fcf851dc0f6a1564d052e129f4e",
+  "archive_size_bytes": 568306436,
+  "archive_sha256": "sha256:648e5a705f89631b50213d618f2d6dc64b9ca9d464509911c4eafea867c99a23"
+}
