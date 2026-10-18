@@ -1,5 +1,7 @@
 # 已训练参数
 
+当前日常模型范围由 [active_indices.json](../../data/active_indices.json)控制：8指数×5期限，共40份latest模型。原14指数权重和索引保留，未选指数既不加载也不采集；本次只缩减范围，所选模型的参数与预测不变。
+
 单日回归索引：[latest_one_day.json](latest_one_day.json)。`oneday_*/`包含14份下一交易日holdout回归和14份latest回归，使用15个纯历史价格特征。独立于原56个长周期模型，无分类分支。日常程序合并加载共70个任务，旧权重及指针不覆盖。性能见 [单日报告](../../data/reports/training/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/README.md)。
 
 新增三分类索引：[latest_three_class.json](latest_three_class.json)。对应 `threeclass_*/` 目录保存 56 份 holdout 分类模型和 56 份 latest 分类模型，类别为大跌/波动/大涨（±5%）。每份模型引用原回归模型的路径及校验值，必须保留原目录。原 `latest.json`、原模型和收益预测保持原样。加载方式见 [推理说明](../../html/inference/README.md)。

@@ -9,10 +9,10 @@ function snapshot(){
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../snapshot.js'),'utf8'),context);
   return JSON.parse(JSON.stringify(context.window.MARKET_SNAPSHOT));
 }
-test('snapshot covers 14 indices and trained regression horizons only',()=>{
+test('snapshot covers 8 indices and trained regression horizons only',()=>{
   const p=M.validate(snapshot());
-  assert.equal(p.rows.length,14);
-  assert.equal(p.rows.flatMap(r=>Object.values(r.forecast)).filter(x=>x!==null).length,70);
+  assert.equal(p.rows.length,8);
+  assert.equal(p.rows.flatMap(r=>Object.values(r.forecast)).filter(x=>x!==null).length,40);
   assert.ok(p.rows.every(r=>Number.isFinite(r.forecast[1]) && r.models[1]));
 });
 test('non-finite or incomplete predictions are rejected',()=>{
@@ -24,8 +24,8 @@ test('signed percentage formatting preserves small returns',()=>{
   assert.equal(M.format(.04948),'+0.05%');assert.equal(M.format(-1.23),'-1.23%');
   assert.equal(M.format(-.0001),'0.00%');assert.equal(M.format(0),'0.00%');
 });
-test('export contains 140 actual/forecast entries including trained single-day values',()=>{
-  const csv=M.toCSV(snapshot());assert.equal(csv.split('\r\n').length,141);
+test('export contains 80 actual/forecast entries including trained single-day values',()=>{
+  const csv=M.toCSV(snapshot());assert.equal(csv.split('\r\n').length,81);
   assert.match(csv,/000300,沪深300/);assert.match(csv,/forecast,1,0,零变化基准/);
   assert.doesNotMatch(csv,/p_up|大涨|大跌/);
 });

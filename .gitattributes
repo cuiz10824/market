@@ -6,6 +6,7 @@ code/inference/*.py text eol=lf
 html/inference/*.py text eol=lf
 html/daily/*.py text eol=lf
 data/training_sources/*.py -text
+data/active_indices.json text eol=lf
 code/research/*.py text eol=lf
 code/models/** -text
 code/models/**/*.lgb.txt whitespace=-blank-at-eol

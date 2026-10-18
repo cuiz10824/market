@@ -32,7 +32,14 @@ class DailyTests(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):cls.tmp.cleanup()
 
-    def test_56_regression_outputs_exactly_match_original_saved_models(self):
+    def test_only_active_eight_indices_and_forty_models_are_loaded(self):
+        expected=['000510','000300','000928','000933','000932','000930','000934','000935']
+        self.assertEqual([r['code'] for r in self.service.payload['rows']],expected)
+        self.assertEqual(set(self.service.prices),set(expected))
+        self.assertEqual(len(self.service.models),40)
+        self.assertEqual(self.service.payload['last_refresh']['total_indices'],8)
+
+    def test_selected_regression_outputs_exactly_match_original_saved_models(self):
         service=self.service
         for item in service.items:
             prices=service.prices[item['code']]
@@ -89,7 +96,7 @@ class DailyTests(unittest.TestCase):
         # Simulate later exchange closes. Fixture prices stay inside a temporary DB.
         def fake_fetch(item,last_date):
             code=item['code']
-            if code=='399989':raise ValueError('simulated outage')
+            if code=='000932':raise ValueError('simulated outage')
             prices=base.prices[code]
             result={d:prices[d] for d in sorted(prices)[-20:]}
             result['2026-10-19']=prices[max(prices)]*1.01
@@ -99,16 +106,16 @@ class DailyTests(unittest.TestCase):
             store=Path(tmp)/'daily.sqlite3'
             service=DailyService(store=store,fetcher=fake_fetch)
             service.refresh()
-            medical=next(r for r in service.payload['rows'] if r['code']=='399989')
-            self.assertEqual(medical['as_of'],'2026-10-16')
-            self.assertTrue(medical['update_error'])
+            failed=next(r for r in service.payload['rows'] if r['code']=='000932')
+            self.assertEqual(failed['as_of'],'2026-10-16')
+            self.assertTrue(failed['update_error'])
             current=next(r for r in service.payload['rows'] if r['code']=='000300')
             self.assertEqual(current['as_of'],'2026-10-20')
             self.assertAlmostEqual(current['actual']['1'],(1.02/1.01-1)*100)
             restarted=DailyService(store=store)
             self.assertEqual(restarted.prices['000300'],service.prices['000300'])
             with sqlite3.connect(store) as db:
-                self.assertEqual(db.execute('SELECT COUNT(*) FROM prices').fetchone()[0],26)
+                self.assertEqual(db.execute('SELECT COUNT(*) FROM prices').fetchone()[0],14)
         self.assertEqual(hashlib.sha256((ROOT/'data/market.sqlite3').read_bytes()).hexdigest(),digest)
 
     def test_anchor_failure_rejects_unverified_new_dates(self):
@@ -136,12 +143,12 @@ class DailyTests(unittest.TestCase):
             path=service.root/'html/snapshot.js'
             raw=path.read_text(encoding='utf-8')
             payload=json.loads(raw.removeprefix('window.MARKET_SNAPSHOT = ').strip().removesuffix(';'))
-            self.assertEqual(len(payload['rows']),14)
+            self.assertEqual(len(payload['rows']),8)
             page=(service.root/'html/index.html').read_text(encoding='utf-8')
             self.assertNotIn('<script src=',page)
             self.assertNotIn('rel="stylesheet"',page)
             self.assertIn('<style>',page)
-            self.assertEqual(page.count('<tr><th scope="row">'),28)
+            self.assertEqual(page.count('<tr><th scope="row">'),16)
             self.assertFalse(list((service.root/'html').glob('*.tmp')))
 
     def test_http_dashboard_and_private_paths(self):
@@ -151,7 +158,7 @@ class DailyTests(unittest.TestCase):
             base=f'http://127.0.0.1:{server.server_port}'
             opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
             with opener.open(base+'/api/dashboard') as response:
-                self.assertEqual(len(json.load(response)['rows']),14)
+                self.assertEqual(len(json.load(response)['rows']),8)
             for path in ['/server.py','/daily/service.py','/../data/market.sqlite3']:
                 with self.assertRaises(urllib.error.HTTPError) as error:opener.open(base+path)
                 self.assertEqual(error.exception.code,404)

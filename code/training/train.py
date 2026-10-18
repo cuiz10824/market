@@ -20,6 +20,7 @@ from inference.predictor import Predictor
 from research.dataset import FEATURES, build_feature_rows, build_samples, load_history
 from training.engine import (choose, direction_metrics, fit, predict, return_metrics,
                              save_bundle, split_window)
+from daily.selection import scoped_protocol
 
 
 def digest(path):
@@ -165,12 +166,13 @@ def main():
     parser.add_argument('--codes', nargs='+')
     args = parser.parse_args()
     protocol_path = ROOT / 'code/training/protocol.json'
-    protocol = json.loads(protocol_path.read_text())
+    protocol = scoped_protocol(ROOT,json.loads(protocol_path.read_text(encoding='utf-8')))
     codes = args.codes or protocol['codes']
     if set(codes) - set(protocol['codes']) or len(codes) != len(set(codes)):
         parser.error('Unsupported or duplicate index codes')
-    db_hash, protocol_hash = digest(ROOT / 'data/market.sqlite3'), digest(protocol_path)
-    sources = ['code/training/train.py', 'code/training/engine.py', 'code/research/dataset.py', 'html/inference/predictor.py']
+    db_hash = digest(ROOT / 'data/market.sqlite3')
+    protocol_hash = hashlib.sha256((json.dumps(protocol,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode()).hexdigest()
+    sources = ['code/training/train.py', 'code/training/engine.py', 'code/research/dataset.py', 'html/inference/predictor.py', 'html/daily/selection.py', 'data/active_indices.json']
     source_hashes = {p: digest(ROOT / p) for p in sources}
     fingerprint = hashlib.sha256(json.dumps([source_hashes, codes], sort_keys=True).encode()).hexdigest()
     date = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).strftime('%Y%m%d')

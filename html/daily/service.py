@@ -12,6 +12,7 @@ from daily.features import one_day_features
 from daily.feeds import fetch_recent, SHANGHAI
 from daily.regression import RegressionPredictor
 from daily.page import atomic_text, build_page
+from daily.selection import load_selection
 
 ROOT=Path(__file__).resolve().parents[2]
 HORIZONS=(1,5,21,63,126)
@@ -49,7 +50,8 @@ class DailyService:
         self.fetcher=fetcher
         self.lock=threading.RLock()
         self.refreshing=False
-        self.items=[i for i in load_json(self.root/'data/registry.json') if i.get('secid')]
+        self.items=load_selection(self.root)
+        active_codes={item['code'] for item in self.items}
         pointer=load_json(self.root/'code/models/latest.json')
         index=load_json(self.root/pointer['index'])
         manifest=load_json(self.root/pointer['verification'])['all_saved_file_sha256']
@@ -62,6 +64,8 @@ class DailyService:
         self.models={}
         for models,checksums in [(index['models'],manifest),(one_day_index['models'],one_day_manifest)]:
             for entry in models:
+                if entry['code'] not in active_codes:
+                    continue
                 model=RegressionPredictor(self.root/entry['latest'],checksums[entry['latest']])
                 key=(entry['code'],entry['horizon'])
                 if model.bundle['code']!=entry['code'] or model.bundle['horizon']!=entry['horizon'] or key in self.models:
@@ -87,6 +91,10 @@ class DailyService:
                     self.prices[code][day]=close
             stored=db.execute("SELECT value FROM metadata WHERE key='last_refresh'").fetchone()
         self.last_refresh=json.loads(stored[0]) if stored else {'attempted_at':None,'errors':{},'providers':{}}
+        for key in ('errors','providers'):
+            self.last_refresh[key]={code:value for code,value in self.last_refresh.get(key,{}).items() if code in active_codes}
+        self.last_refresh['total_indices']=len(self.items)
+        self.last_refresh['successful_indices']=len(self.last_refresh['providers'])
         self.payload=self.build_payload()
 
     def build_payload(self):
@@ -109,12 +117,14 @@ class DailyService:
                 kinds[str(h)]=MODEL_NAMES[model.spec['kind']]
             error=self.last_refresh.get('errors',{}).get(code)
             rows.append({'code':code,'name':item['name'],'category':item['category'],'note':item['note'],
+                         'display_name':item['display_name'],'selection_note':item['selection_note'],
                          'as_of':last,'close':prices[last],'actual':actual,'forecast':predictions,
                          'models':kinds,'data_status':'更新失败，使用本地历史' if error else '本地数据库及已验证增量',
                          'update_error':error,'stale':(now.date()-dt.date.fromisoformat(last)).days>4,
                          'source':self.last_refresh.get('providers',{}).get(code,'本地历史数据库')})
         return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.run_id,
                 'model_runs':self.model_runs,
+                'selected_codes':[item['code'] for item in self.items],
                 'unit':'percent','horizons':list(HORIZONS),'rows':rows,'research_only':True,
                 'forecast_basis':'已收盘价格；不含分红及费用；支持下一交易日及5/21/63/126交易日',
                 'last_refresh':self.last_refresh}

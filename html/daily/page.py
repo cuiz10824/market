@@ -21,8 +21,10 @@ def table(payload,kind):
     names=['行业 / 指数','下一交易日' if kind=='forecast' else '当天','一周','一月','三月','六月']
     output=['<thead><tr>'+''.join('<th scope="col">'+n+'</th>' for n in names)+'</tr></thead><tbody>']
     for row in payload['rows']:
-        output.append('<tr><th scope="row"><span class="sector">'+html.escape(row['name'])+
-                      '</span><span class="sub">'+html.escape(row['category']+' · '+row['code'])+
+        name=row.get('display_name',row['name'])
+        subtitle=(row['category'] if name==row['name'] else row['name'])+' · '+row['code']
+        output.append('<tr><th scope="row"><span class="sector">'+html.escape(name)+
+                      '</span><span class="sub">'+html.escape(subtitle)+
                       '</span><span class="sub">'+html.escape(row['as_of'])+'</span></th>')
         for h in payload['horizons']:
             value=row[kind][str(h)]

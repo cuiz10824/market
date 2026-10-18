@@ -19,10 +19,11 @@ function render(next){
     const body=table.createTBody();
     for(const row of payload.rows){
       const tr=body.insertRow();const th=document.createElement('th');th.scope='row';
-      for(const [className,text] of [['sector',row.name],['sub',`${row.category} · ${row.code}`],['sub',`${row.as_of}${isStale(row)?' · 日期较旧':''}`]]){
+      const name=row.display_name||row.name;
+      for(const [className,text] of [['sector',name],['sub',`${name===row.name?row.category:row.name} · ${row.code}`],['sub',`${row.as_of}${isStale(row)?' · 日期较旧':''}`]]){
         const span=document.createElement('span');span.className=className;span.textContent=text;th.append(span);
       }
-      th.title=row.note;tr.append(th);
+      th.title=row.selection_note||row.note;tr.append(th);
       for(const h of M.horizons){
         const td=tr.insertCell();const value=row[kind][h];
         td.className=value===null||Math.abs(value)<.005?'neutral':value>0?'up':'down';

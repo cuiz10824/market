@@ -13,6 +13,7 @@ from research.dataset import load_history
 from research.one_day import build_one_day_samples, one_day_features
 from training.engine import return_metrics
 from training.train_one_day import read, sha
+from training.provenance import historical_source
 
 
 def verify(run_id=None):
@@ -24,7 +25,7 @@ def verify(run_id=None):
         for path,digest in verification[mapping].items():assert sha(ROOT/path)==digest,path
     assert sha(ROOT/'data/market.sqlite3')==summary['database_sha256']
     assert sha(report/'frozen_protocol.json')==summary['protocol_sha256']
-    for path,digest in summary['source_sha256'].items():assert sha(ROOT/path)==digest,path
+    for path,digest in summary['source_sha256'].items():historical_source(ROOT,path,digest)
     with (report/'test_predictions.csv').open(encoding='utf-8-sig',newline='') as f:
         records=list(csv.DictReader(f))
     count=0
@@ -52,7 +53,7 @@ def verify(run_id=None):
         assert latest.bundle['metadata']['fit_label_end']<=calendar[-1]
         count+=len(group)
     assert count==len(records)==summary['aggregate']['test_predictions']
-    print(json.dumps({'status':'passed','tasks':len(summary['tasks']),'bundles_loaded':28,
+    print(json.dumps({'status':'passed','tasks':len(summary['tasks']),'bundles_loaded':2*len(summary['tasks']),
                       'predictions_replayed':count,'original_horizons_unchanged':True,
                       'fit_called_during_verification':False},ensure_ascii=False,indent=2))
 

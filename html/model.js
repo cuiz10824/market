@@ -3,10 +3,11 @@
   'use strict';
   const horizons=[1,5,21,63,126];
   function validate(payload){
-    if(payload?.schema_version!==1 || payload.unit!=='percent' || !Array.isArray(payload.rows) || payload.rows.length!==14) throw Error('预测数据格式不完整');
+    if(payload?.schema_version!==1 || payload.unit!=='percent' || !Array.isArray(payload.rows) || payload.rows.length!==8) throw Error('预测数据格式不完整');
+    if(!Array.isArray(payload.selected_codes) || payload.selected_codes.length!==8 || new Set(payload.selected_codes).size!==8) throw Error('指数配置无效');
     const codes=new Set();
     for(const row of payload.rows){
-      if(!/^\d{6}$/.test(row.code) || codes.has(row.code) || !/^\d{4}-\d{2}-\d{2}$/.test(row.as_of)) throw Error('指数或日期无效');
+      if(!/^\d{6}$/.test(row.code) || !payload.selected_codes.includes(row.code) || codes.has(row.code) || !/^\d{4}-\d{2}-\d{2}$/.test(row.as_of)) throw Error('指数或日期无效');
       codes.add(row.code);
       for(const kind of ['actual','forecast']) for(const h of horizons){
         const value=row[kind]?.[h];

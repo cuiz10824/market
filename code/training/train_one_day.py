@@ -18,6 +18,7 @@ from research.dataset import load_history
 from research.one_day import FEATURES, build_one_day_samples, one_day_features
 from training.engine import choose, export_spec, return_metrics, split_window
 from training.one_day_models import fit, predict
+from daily.selection import scoped_protocol
 
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -29,15 +30,16 @@ def write(path,value):
 
 def run():
     protocol_path=ROOT/'code/training/one_day_protocol.json'
-    p=read(protocol_path)
+    p=scoped_protocol(ROOT,read(protocol_path))
+    protocol_sha=hashlib.sha256((json.dumps(p,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode()).hexdigest()
     sources=['code/training/train_one_day.py','code/training/one_day_models.py',
              'code/research/one_day.py','code/research/dataset.py','code/training/engine.py',
-             'html/daily/features.py','html/daily/regression.py']
+             'html/daily/features.py','html/daily/regression.py','html/daily/selection.py','data/active_indices.json']
     source_sha={name:sha(ROOT/name) for name in sources}
     db_sha=sha(ROOT/'data/market.sqlite3')
     source_id=hashlib.sha256(json.dumps(source_sha,sort_keys=True).encode()).hexdigest()
     date=dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).strftime('%Y%m%d')
-    run_id=f'oneday_{date}_{sha(protocol_path)[:8]}_{db_sha[:8]}_{source_id[:8]}'
+    run_id=f'oneday_{date}_{protocol_sha[:8]}_{db_sha[:8]}_{source_id[:8]}'
     model_root=ROOT/'code/models'/run_id
     report=ROOT/'data/reports/training'/run_id
     if model_root.exists() or report.exists():raise ValueError('Run exists; preserve existing results')
@@ -50,7 +52,7 @@ def run():
         old_report=ROOT/'data/reports/training'/pointer['run_id']
         for path in list(old_root.rglob('*'))+list(old_report.rglob('*')):
             if path.is_file():locked[str(path.relative_to(ROOT))]=sha(path)
-    provenance={'run_id':run_id,'database_sha256':db_sha,'protocol_sha256':sha(protocol_path),
+    provenance={'run_id':run_id,'database_sha256':db_sha,'protocol_sha256':protocol_sha,
                 'source_sha256':source_sha,'python':platform.python_version(),
                 'versions':{name:importlib.metadata.version(name) for name in ('numpy','scikit-learn','lightgbm')},
                 'test_status':p['test_status'],'research_only':True}
@@ -125,24 +127,24 @@ def run():
         with (report/filename).open('w',encoding='utf-8-sig',newline='') as f:
             writer=csv.DictWriter(f,fieldnames=list(data[0]));writer.writeheader();writer.writerows(data)
     lines=['# 下一交易日涨跌幅：训练与测试','',
-           f'运行 `{run_id}`。14个指数，收益目标为下一实际交易日收盘价/当日收盘价−1。数据截至2026-10-16。','',
+           f'运行 `{run_id}`。{len(tasks)}个指数，收益目标为下一实际交易日收盘价/当日收盘价−1。数据截至{max(t["inference_as_of"] for t in tasks)}。','',
            '使用每个预测时点之前全部可用的已知标签训练样本。单个输入样本为过去252个交易日的15个价格特征，含新增的1/2/3/10日收益、5日波动；并非把全部原始价格直接塞进模型。',
            '', '2018—2019、2020—2021、2022—2023三个扩展训练验证窗口选型，所有训练标签结束日期严格早于验证/测试开始。测试从2024年起，A500从2025年起。候选为零收益、历史平均、标准化岭回归和浅层LightGBM；验证MAE改善不足1%时保留简单基线。测试不选型、不调参、不逐日重训。',
            '', '该价格区间此前已被其他期限实验观察，本次是探索性历史测试，不能宣称全新的独立未来验证。Latest只按已选种类用全部已知标签重新拟合，供未来使用，不能继承holdout成绩作为独立成绩。',
-           '',f'14组等权平均MAE：{aggregate["mean_mae"]*100:.3f}个百分点，零收益基准：{aggregate["mean_zero_mae"]*100:.3f}个百分点；{aggregate["mae_better_than_zero"]}/14组优于零收益。小误差不等于具备稳定预测优势。','',
+           '',f'{len(tasks)}组等权平均MAE：{aggregate["mean_mae"]*100:.3f}个百分点，零收益基准：{aggregate["mean_zero_mae"]*100:.3f}个百分点；{aggregate["mae_better_than_zero"]}/{len(tasks)}组优于零收益。小误差不等于具备稳定预测优势。','',
            '|指数|模型|训练样本（latest）|测试样本|MAE（百分点）|零收益MAE|RMSE（百分点）|当前预测|',
            '|---|---|---:|---:|---:|---:|---:|---:|']
     for t in tasks:
         test=t['test'];selected=test['selected']
         lines.append(f'|{t["name"]}|{t["choice"]}|{t["latest_fit_samples"]}|{test["n"]}|{selected["mae"]*100:.3f}|{test["zero"]["mae"]*100:.3f}|{selected["rmse"]*100:.3f}|{t["latest_expected_return"]*100:+.4f}%|')
     lines+=['','收益为指数价格收益，不含基金分红、费用或跟踪误差。A500包含发布前回溯数据，部分行业历史较短。模型仍为研究用途。',
-            '', '`summary.json`记录逐折选择、截止日期、数据/源码指纹和完整指标；`test_predictions.csv`可逐日比较，`yearly_metrics.csv`按预测起始年份分组。原56个长周期模型、数据及旧报告的SHA256锁定并检查未变。','',
+            '', '`summary.json`记录逐折选择、截止日期、数据/源码指纹和完整指标；`test_predictions.csv`可逐日比较，`yearly_metrics.csv`按预测起始年份分组。既有长周期模型、数据及旧报告的SHA256锁定并检查未变。','',
             '复验：`.venv/bin/python code/training/verify_one_day.py --run '+run_id+'`。','']
     (report/'README.md').write_text('\n'.join(lines),encoding='utf-8')
     write(model_root/'index.json',{'run_id':run_id,'report':str((report/'summary.json').relative_to(ROOT)),
                                  'research_only':True,'models':entries})
     saved={str(path.relative_to(ROOT)):sha(path) for path in model_root.rglob('*') if path.is_file()}
-    write(report/'verification.json',{'status':'passed','bundles_loaded':28,'test_predictions_replayed':len(records),
+    write(report/'verification.json',{'status':'passed','bundles_loaded':2*len(tasks),'test_predictions_replayed':len(records),
                                       'all_saved_file_sha256':saved,'original_artifact_sha256':locked})
     write(ROOT/'code/models/latest_one_day.json',{'run_id':run_id,'research_only':True,
               'index':str((model_root/'index.json').relative_to(ROOT)),
