@@ -1,5 +1,20 @@
 # 离线训练和测试
 
+## 新增：下一交易日涨跌幅
+
+单日回归入口 [train_one_day.py](train_one_day.py)，固定协议 [one_day_protocol.json](one_day_protocol.json)。以t日收盘为预测时点，目标是下一实际交易日收盘价/当日收盘价−1，跳过休市日。训练使用各验证时点之前全部已知标签样本；单个输入样本为最近252个交易日的15个价格特征，增加1/2/3/10日收益、5日波动。不读取未来行情，不对未知标签填充。
+
+零变化、历史平均、岭回归、浅层LightGBM在2018—2023滚动验证选型，2024年起测试（A500从2025年起）。13个任务保留零变化、1个中证1000保留历史平均；平均测试MAE约1.037个百分点，与零变化基准基本相同，尚未验证预测优势。历史价格区间此前已被观察，本次属于探索性复测。
+
+[完整单日报告](../../data/reports/training/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/README.md)包含各行业、各年误差和9,166条预测。保存14份holdout、14份latest模型，指针为code/models/latest_one_day.json。原56个长周期模型及旧报告不变，网页每天加载两个模型集合。
+
+```sh
+OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 .venv/bin/python code/training/train_one_day.py
+.venv/bin/python code/training/verify_one_day.py
+```
+
+已存在相同数据、协议和源码指纹时拒绝覆盖；查看已有模型时只需运行复验。模型加载器在html/daily/regression.py，数据、标签和时间切分在code/research/one_day.py中。
+
 ## 新增：±5%三分类实验
 
 新增分类独立于原二分类实验：大跌 `<−5%`，波动 `−5%至+5%`（含边界），大涨 `>+5%`，各期限阈值相同。原数值回归直接引用原模型及校验值，既不重新训练，也不重新选择。模型入口为 `code/models/latest_three_class.json`。

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from daily.features import FEATURES
+from daily.features import FEATURES, ONE_DAY_FEATURES
 
 
 class RegressionPredictor:
@@ -15,7 +15,10 @@ class RegressionPredictor:
         if expected_sha256 and hashlib.sha256(raw).hexdigest()!=expected_sha256:
             raise ValueError('回归模型校验失败')
         self.bundle=json.loads(raw)
-        if self.bundle.get('schema_version')!=1 or self.bundle['features']!=list(FEATURES):
+        self.features=self.bundle['features']
+        supported=(self.features==list(FEATURES) or
+                   (self.features==list(ONE_DAY_FEATURES) and self.bundle.get('horizon')==1))
+        if self.bundle.get('schema_version')!=1 or not supported:
             raise ValueError('模型版本或特征定义不匹配')
         self.spec=self.bundle['return']
         self.booster=None
@@ -32,7 +35,7 @@ class RegressionPredictor:
             raise ValueError('不支持的回归模型')
 
     def predict(self, row):
-        x=np.asarray([[row[f] for f in FEATURES]],dtype=float)
+        x=np.asarray([[row[f] for f in self.features]],dtype=float)
         if not np.isfinite(x).all():
             raise ValueError('特征不完整')
         kind=self.spec['kind']

@@ -29,7 +29,7 @@ def table(payload,kind):
             color='neutral' if value is None or abs(value)<.005 else 'up' if value>0 else 'down'
             text='—' if value is None else f'{0 if abs(value)<.005 else value:+.2f}%' if value else '0.00%'
             if text=='+0.00%':text='0.00%'
-            label=('<span class="range">'+html.escape(row['models'].get(str(h),'暂无单日模型'))+'</span>') if kind=='forecast' else ''
+            label=('<span class="range">'+html.escape(row['models'].get(str(h),'模型不可用'))+'</span>') if kind=='forecast' else ''
             output.append(f'<td class="{color}">{text}{label}</td>')
         output.append('</tr>')
     return ''.join(output)+'</tbody>'

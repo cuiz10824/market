@@ -12,7 +12,6 @@
         const value=row[kind]?.[h];
         if(value!==null && !Number.isFinite(value)) throw Error('涨跌幅数据无效');
       }
-      if(row.forecast[1]!==null) throw Error('当前没有单日训练模型');
     }
     return payload;
   }

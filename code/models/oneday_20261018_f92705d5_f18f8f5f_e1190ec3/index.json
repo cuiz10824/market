@@ -1,0 +1,91 @@
+{
+  "run_id": "oneday_20261018_f92705d5_f18f8f5f_e1190ec3",
+  "report": "data/reports/training/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/summary.json",
+  "research_only": true,
+  "models": [
+    {
+      "code": "000300",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000300/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000300/1/model.json"
+    },
+    {
+      "code": "000510",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000510/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000510/1/model.json"
+    },
+    {
+      "code": "000932",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000932/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000932/1/model.json"
+    },
+    {
+      "code": "000931",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000931/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000931/1/model.json"
+    },
+    {
+      "code": "399989",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/399989/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/399989/1/model.json"
+    },
+    {
+      "code": "000933",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000933/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000933/1/model.json"
+    },
+    {
+      "code": "000934",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000934/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000934/1/model.json"
+    },
+    {
+      "code": "000935",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000935/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000935/1/model.json"
+    },
+    {
+      "code": "000928",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000928/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000928/1/model.json"
+    },
+    {
+      "code": "000930",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000930/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000930/1/model.json"
+    },
+    {
+      "code": "000905",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000905/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000905/1/model.json"
+    },
+    {
+      "code": "000906",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000906/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000906/1/model.json"
+    },
+    {
+      "code": "000852",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000852/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000852/1/model.json"
+    },
+    {
+      "code": "000985",
+      "horizon": 1,
+      "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000985/1/model.json",
+      "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000985/1/model.json"
+    }
+  ]
+}

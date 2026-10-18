@@ -8,7 +8,7 @@ import sqlite3
 import threading
 import zipfile
 
-from daily.features import features_at
+from daily.features import one_day_features
 from daily.feeds import fetch_recent, SHANGHAI
 from daily.regression import RegressionPredictor
 from daily.page import atomic_text, build_page
@@ -54,13 +54,21 @@ class DailyService:
         index=load_json(self.root/pointer['index'])
         manifest=load_json(self.root/pointer['verification'])['all_saved_file_sha256']
         self.run_id=pointer['run_id']
+        self.model_runs={'long_horizons':self.run_id}
+        one_day_pointer=load_json(self.root/'code/models/latest_one_day.json')
+        one_day_index=load_json(self.root/one_day_pointer['index'])
+        one_day_manifest=load_json(self.root/one_day_pointer['verification'])['all_saved_file_sha256']
+        self.model_runs['one_day']=one_day_pointer['run_id']
         self.models={}
-        for entry in index['models']:
-            model=RegressionPredictor(self.root/entry['latest'],manifest[entry['latest']])
-            if model.bundle['code']!=entry['code'] or model.bundle['horizon']!=entry['horizon']:
-                raise ValueError('模型索引不匹配')
-            self.models[(entry['code'],entry['horizon'])]=model
-        assert set(self.models)=={(i['code'],h) for i in self.items for h in HORIZONS if h!=1}
+        for models,checksums in [(index['models'],manifest),(one_day_index['models'],one_day_manifest)]:
+            for entry in models:
+                model=RegressionPredictor(self.root/entry['latest'],checksums[entry['latest']])
+                key=(entry['code'],entry['horizon'])
+                if model.bundle['code']!=entry['code'] or model.bundle['horizon']!=entry['horizon'] or key in self.models:
+                    raise ValueError('模型索引不匹配或重复')
+                self.models[key]=model
+        if set(self.models)!={(i['code'],h) for i in self.items for h in HORIZONS}:
+            raise ValueError('模型集合不完整')
         with zipfile.ZipFile(self.root/'data/sources/investment_data/2026-10-17/selected.zip') as z:
             self.calendar=z.read('calendars/day.txt').decode().splitlines()
         baseline=self.root/'data/market.sqlite3'
@@ -89,11 +97,11 @@ class DailyService:
             dates=[d for d in self.calendar if d<=last]
             tail=dates[-253:]
             valid=len(tail)==253 and all(d in prices for d in tail)
-            feature=features_at([prices[d] for d in tail],252) if valid else None
+            feature=one_day_features([prices[d] for d in tail],252) if valid else None
             actual={str(h):(prices[last]/prices[dates[-1-h]]-1)*100
                     if len(dates)>h and dates[-1-h] in prices else None for h in HORIZONS}
-            predictions={'1':None};kinds={}
-            for h in HORIZONS[1:]:
+            predictions={};kinds={}
+            for h in HORIZONS:
                 model=self.models[(code,h)]
                 # Never run latest refits against observations preceding their training cutoff.
                 eligible=feature is not None and last>=model.bundle['metadata']['fit_label_end']
@@ -106,8 +114,9 @@ class DailyService:
                          'update_error':error,'stale':(now.date()-dt.date.fromisoformat(last)).days>4,
                          'source':self.last_refresh.get('providers',{}).get(code,'本地历史数据库')})
         return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.run_id,
+                'model_runs':self.model_runs,
                 'unit':'percent','horizons':list(HORIZONS),'rows':rows,'research_only':True,
-                'forecast_basis':'已收盘价格；不含分红及费用；现有训练模型仅支持5/21/63/126交易日',
+                'forecast_basis':'已收盘价格；不含分红及费用；支持下一交易日及5/21/63/126交易日',
                 'last_refresh':self.last_refresh}
 
     def dashboard(self):

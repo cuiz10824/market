@@ -1,0 +1,2233 @@
+{
+  "run_id": "oneday_20261018_f92705d5_f18f8f5f_e1190ec3",
+  "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b",
+  "protocol_sha256": "f92705d5c382d25eb42ab56af3c82fbbab94a47b233b566bfea3c388ae2305aa",
+  "source_sha256": {
+    "code/training/train_one_day.py": "6e76f9537aa13829c905bbefbd36a6a9fb01e30261f9c84394427430621e5ead",
+    "code/training/one_day_models.py": "c92f1f6acf4eb397f5c426412a25c9bc4f80886259294390f22fcf39862a0708",
+    "code/research/one_day.py": "ec5d01a98f1fb04684a20ef861f16bd1e388a9a701af02ea59c8e3b1df167880",
+    "code/research/dataset.py": "7b129d9f982929dc6d7912cd8350a578784442f809c86a93c64f900bf385f5fd",
+    "code/training/engine.py": "f23be5e46bee0b6372f9a07849d55869f5bc31394b5abb5ef9e1855229dad134",
+    "html/daily/features.py": "f84b503111cde4adc1ff98e43c87a56dea28193bc7e98a5ff2bf858f4a6af1dc",
+    "html/daily/regression.py": "dff577300e03286f9d6d99df0bc28df2795a1bc21e05a54998cb66d1c83f081e"
+  },
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "lightgbm": "4.7.0"
+  },
+  "test_status": "Exploratory historical evaluation on previously observed price dates; no new independent future validation claim.",
+  "research_only": true,
+  "protocol": {
+    "schema_version": 1,
+    "seed": 20261018,
+    "status": "price_only_exploratory",
+    "codes": [
+      "000300",
+      "000510",
+      "000932",
+      "000931",
+      "399989",
+      "000933",
+      "000934",
+      "000935",
+      "000928",
+      "000930",
+      "000905",
+      "000906",
+      "000852",
+      "000985"
+    ],
+    "horizons": [
+      1
+    ],
+    "lookback": 252,
+    "development_windows": [
+      [
+        "2018-01-01",
+        "2020-01-01"
+      ],
+      [
+        "2020-01-01",
+        "2022-01-01"
+      ],
+      [
+        "2022-01-01",
+        "2024-01-01"
+      ]
+    ],
+    "holdout_start": "2024-01-01",
+    "holdout_overrides": {
+      "000510": "2025-01-01"
+    },
+    "min_train_samples": 504,
+    "min_validation_samples": 60,
+    "selection": {
+      "return": "equal-fold MAE",
+      "return_min_relative_gain": 0.01
+    },
+    "regression_candidates": [
+      "zero",
+      "mean",
+      "ridge",
+      "lightgbm"
+    ],
+    "ridge": {
+      "alpha": 100.0
+    },
+    "lightgbm": {
+      "n_estimators": 100,
+      "learning_rate": 0.03,
+      "max_depth": 3,
+      "num_leaves": 7,
+      "min_child_samples": 100,
+      "reg_lambda": 10.0,
+      "n_jobs": 2,
+      "verbosity": -1,
+      "deterministic": true,
+      "force_col_wise": true
+    },
+    "test_policy": "Final test never selects, tunes or calibrates models. Train labels must end before test starts. Validation labels must end before each validation window ends. No random split. Refit chosen kinds after evaluation for future inference.",
+    "limitations": [
+      "Index launch, methodology and point-in-time history not fully audited.",
+      "A500 development history is retrospective; final test begins in 2025 to avoid 2024 launch-year observations.",
+      "Price returns are not fund NAV or total investment returns.",
+      "Overlapping labels are not independent observations.",
+      "No trading strategy PnL or confidence/significance claim."
+    ],
+    "experiment": "next_session_return_v1",
+    "task": "return_regression_only",
+    "additional_features": [
+      "momentum_1",
+      "momentum_2",
+      "momentum_3",
+      "momentum_10",
+      "volatility_5"
+    ],
+    "label": "close(next_exchange_session)/close(as_of_session)-1",
+    "history_policy": "Expanding training history; only labels known strictly before validation/test start. Features use the latest continuous 252-session lookback. Latest refit uses all labeled history up to inference_as_of.",
+    "test_status": "Exploratory historical evaluation on previously observed price dates; no new independent future validation claim."
+  },
+  "tasks": [
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.00908620871047092,
+        "mean": 0.00910849954334962,
+        "ridge": 0.009136041207755444,
+        "lightgbm": 0.009123901578643104
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009547648019182443,
+              "rmse": 0.013039105368674133,
+              "bias": -8.96627609037211e-05,
+              "actual_mean": 8.96627609037211e-05
+            },
+            "mean": {
+              "mae": 0.009572385045359299,
+              "rmse": 0.013050833052419329,
+              "bias": 0.0005603694829547943,
+              "actual_mean": 8.96627609037211e-05
+            },
+            "ridge": {
+              "mae": 0.009624359239151984,
+              "rmse": 0.013143754526638766,
+              "bias": 0.00024046931201392277,
+              "actual_mean": 8.96627609037211e-05
+            },
+            "lightgbm": {
+              "mae": 0.009577223051590028,
+              "rmse": 0.013014127280081372,
+              "bias": 0.00020439943112356905,
+              "actual_mean": 8.96627609037211e-05
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009510529668072415,
+              "rmse": 0.013088081238490836,
+              "bias": -0.0004444327651112329,
+              "actual_mean": 0.0004444327651112329
+            },
+            "mean": {
+              "mae": 0.009484859743240143,
+              "rmse": 0.013081172069342315,
+              "bias": 0.00012927755068106739,
+              "actual_mean": 0.0004444327651112329
+            },
+            "ridge": {
+              "mae": 0.009513204069883086,
+              "rmse": 0.013145729558713869,
+              "bias": -0.0001912959371648235,
+              "actual_mean": 0.0004444327651112329
+            },
+            "lightgbm": {
+              "mae": 0.009534953013728779,
+              "rmse": 0.013125432122168846,
+              "bias": 0.00019280959800954494,
+              "actual_mean": 0.0004444327651112329
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.0082004484441579,
+              "rmse": 0.010910054723479992,
+              "bias": 0.0006856813463943452,
+              "actual_mean": -0.0006856813463943452
+            },
+            "mean": {
+              "mae": 0.008268253841449413,
+              "rmse": 0.010959612370967136,
+              "bias": 0.0012465825930603237,
+              "actual_mean": -0.0006856813463943452
+            },
+            "ridge": {
+              "mae": 0.008270560314231262,
+              "rmse": 0.010955649319031731,
+              "bias": 0.0010087145886837933,
+              "actual_mean": -0.0006856813463943452
+            },
+            "lightgbm": {
+              "mae": 0.008259528670610505,
+              "rmse": 0.010953797896916051,
+              "bias": 0.0006946163437033233,
+              "actual_mean": -0.0006856813463943452
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.007992466180026218,
+          "rmse": 0.01171711784944278,
+          "bias": -0.00037850416778574157,
+          "actual_mean": 0.00037850416778574157
+        },
+        "zero": {
+          "mae": 0.007992466180026218,
+          "rmse": 0.01171711784944278,
+          "bias": -0.00037850416778574157,
+          "actual_mean": 0.00037850416778574157
+        },
+        "historical_mean": {
+          "mae": 0.007985494740203079,
+          "rmse": 0.01171108249296343,
+          "bias": 4.321879562295344e-05,
+          "actual_mean": 0.00037850416778574157
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000300/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000300/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000510",
+      "name": "中证A500",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.009204416359918458,
+        "mean": 0.009232276766244659,
+        "ridge": 0.009258921397601615,
+        "lightgbm": 0.009248646865620018
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.0096520878029812,
+              "rmse": 0.013117571823842584,
+              "bias": -4.392978646071702e-05,
+              "actual_mean": 4.392978646071702e-05
+            },
+            "mean": {
+              "mae": 0.00969239750631365,
+              "rmse": 0.013133634780268418,
+              "bias": 0.0006508469973395103,
+              "actual_mean": 4.392978646071702e-05
+            },
+            "ridge": {
+              "mae": 0.009700324566299531,
+              "rmse": 0.013190364616782066,
+              "bias": 0.000309033389614512,
+              "actual_mean": 4.392978646071702e-05
+            },
+            "lightgbm": {
+              "mae": 0.009744046244585155,
+              "rmse": 0.013162117222076795,
+              "bias": 0.0005927747763715312,
+              "actual_mean": 4.392978646071702e-05
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009646974131054495,
+              "rmse": 0.013212638747580446,
+              "bias": -0.0006300202737522767,
+              "actual_mean": 0.0006300202737522767
+            },
+            "mean": {
+              "mae": 0.009615258941275375,
+              "rmse": 0.013197632709807327,
+              "bias": -2.4738921783276607e-05,
+              "actual_mean": 0.0006300202737522767
+            },
+            "ridge": {
+              "mae": 0.009674509210207698,
+              "rmse": 0.013274084414840556,
+              "bias": -0.00029397317023211074,
+              "actual_mean": 0.0006300202737522767
+            },
+            "lightgbm": {
+              "mae": 0.00963639893034948,
+              "rmse": 0.01327916761137433,
+              "bias": 0.0003770013762153695,
+              "actual_mean": 0.0006300202737522767
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.00831418714571968,
+              "rmse": 0.011080083938747657,
+              "bias": 0.0007088050435383322,
+              "actual_mean": -0.0007088050435383322
+            },
+            "mean": {
+              "mae": 0.008389173851144953,
+              "rmse": 0.011136018996764538,
+              "bias": 0.0013210085527173036,
+              "actual_mean": -0.0007088050435383322
+            },
+            "ridge": {
+              "mae": 0.008401930416297616,
+              "rmse": 0.011130669172903708,
+              "bias": 0.0010507066385509144,
+              "actual_mean": -0.0007088050435383322
+            },
+            "lightgbm": {
+              "mae": 0.008365495421925415,
+              "rmse": 0.011135734791806162,
+              "bias": 0.0007974105002968384,
+              "actual_mean": -0.0007088050435383322
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2025-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 430,
+        "train_n": 4605,
+        "selected": {
+          "mae": 0.008646555635265321,
+          "rmse": 0.011911895694255388,
+          "bias": -0.000359571139196494,
+          "actual_mean": 0.000359571139196494
+        },
+        "zero": {
+          "mae": 0.008646555635265321,
+          "rmse": 0.011911895694255388,
+          "bias": -0.000359571139196494,
+          "actual_mean": 0.000359571139196494
+        },
+        "historical_mean": {
+          "mae": 0.008620966398459481,
+          "rmse": 0.011906999773100084,
+          "bias": 0.00011258761001299972,
+          "actual_mean": 0.000359571139196494
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000510/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000510/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000932",
+      "name": "中证消费",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.012162296420052565,
+        "mean": 0.01218447418420688,
+        "ridge": 0.012296366874186277,
+        "lightgbm": 0.01228185943617535
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 1815,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.012820512893736112,
+              "rmse": 0.017156309400156843,
+              "bias": -0.000625071035353171,
+              "actual_mean": 0.000625071035353171
+            },
+            "mean": {
+              "mae": 0.012833598205821034,
+              "rmse": 0.017144918747903706,
+              "bias": -6.614737027457478e-07,
+              "actual_mean": 0.000625071035353171
+            },
+            "ridge": {
+              "mae": 0.013035686681911199,
+              "rmse": 0.017371539992962124,
+              "bias": -0.00021415218017124775,
+              "actual_mean": 0.000625071035353171
+            },
+            "lightgbm": {
+              "mae": 0.01309795540721543,
+              "rmse": 0.01740427156651842,
+              "bias": 0.0012324722552393135,
+              "actual_mean": 0.000625071035353171
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 2302,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.01353717918263081,
+              "rmse": 0.017838872983102175,
+              "bias": -0.0010713404784336478,
+              "actual_mean": 0.0010713404784336478
+            },
+            "mean": {
+              "mae": 0.013485509722242694,
+              "rmse": 0.017812239651548344,
+              "bias": -0.00044526679380883956,
+              "actual_mean": 0.0010713404784336478
+            },
+            "ridge": {
+              "mae": 0.013562824109773849,
+              "rmse": 0.01787369552499198,
+              "bias": -0.000778538004718618,
+              "actual_mean": 0.0010713404784336478
+            },
+            "lightgbm": {
+              "mae": 0.01350169669479731,
+              "rmse": 0.017820787555384025,
+              "bias": -0.00018841917184708322,
+              "actual_mean": 0.0010713404784336478
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 2788,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.01012919718379077,
+              "rmse": 0.013453348415523191,
+              "bias": 0.0006933809794398676,
+              "actual_mean": -0.0006933809794398676
+            },
+            "mean": {
+              "mae": 0.01023431462455691,
+              "rmse": 0.013508060232874899,
+              "bias": 0.0013985295306731531,
+              "actual_mean": -0.0006933809794398676
+            },
+            "ridge": {
+              "mae": 0.010290589830873779,
+              "rmse": 0.01353420725353977,
+              "bias": 0.0017283206105366872,
+              "actual_mean": -0.0006933809794398676
+            },
+            "lightgbm": {
+              "mae": 0.010245926206513309,
+              "rmse": 0.013515641366161754,
+              "bias": 0.0014145065149312333,
+              "actual_mean": -0.0006933809794398676
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 3272,
+        "selected": {
+          "mae": 0.008968447102193538,
+          "rmse": 0.01331625843776243,
+          "bias": 0.00038011233237409607,
+          "actual_mean": -0.00038011233237409607
+        },
+        "zero": {
+          "mae": 0.008968447102193538,
+          "rmse": 0.01331625843776243,
+          "bias": 0.00038011233237409607,
+          "actual_mean": -0.00038011233237409607
+        },
+        "historical_mean": {
+          "mae": 0.00902931049424695,
+          "rmse": 0.013339982247374066,
+          "bias": 0.0008814039733283377,
+          "actual_mean": -0.00038011233237409607
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000932/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000932/1/model.json"
+      },
+      "latest_fit_samples": 3945,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000931",
+      "name": "800可选",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.010844427415538219,
+        "mean": 0.010874477485992512,
+        "ridge": 0.010876539944290687,
+        "lightgbm": 0.01091392541840823
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010681094793828075,
+              "rmse": 0.014246713844191981,
+              "bias": 0.00018860485125089495,
+              "actual_mean": -0.00018860485125089495
+            },
+            "mean": {
+              "mae": 0.010698391144557869,
+              "rmse": 0.014280398728938406,
+              "bias": 0.0009982506143697248,
+              "actual_mean": -0.00018860485125089495
+            },
+            "ridge": {
+              "mae": 0.010703412868635517,
+              "rmse": 0.014319674872087731,
+              "bias": 0.0005715649852976028,
+              "actual_mean": -0.00018860485125089495
+            },
+            "lightgbm": {
+              "mae": 0.010806058253812473,
+              "rmse": 0.014446793366855117,
+              "bias": 0.0011316253774339296,
+              "actual_mean": -0.00018860485125089495
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.011593316868835147,
+              "rmse": 0.015591997377418882,
+              "bias": -0.0006867840645111572,
+              "actual_mean": 0.0006867840645111572
+            },
+            "mean": {
+              "mae": 0.01156954640406152,
+              "rmse": 0.015576873933952917,
+              "bias": -1.707887850431166e-05,
+              "actual_mean": 0.0006867840645111572
+            },
+            "ridge": {
+              "mae": 0.01156773264202142,
+              "rmse": 0.015606279670202436,
+              "bias": -0.0001298092373810726,
+              "actual_mean": 0.0006867840645111572
+            },
+            "lightgbm": {
+              "mae": 0.011633644865474945,
+              "rmse": 0.01571377845742888,
+              "bias": 0.000705112700919992,
+              "actual_mean": 0.0006867840645111572
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.010258870583951432,
+              "rmse": 0.013472617890330049,
+              "bias": 0.0005935695310157663,
+              "actual_mean": -0.0005935695310157663
+            },
+            "mean": {
+              "mae": 0.01035549490935815,
+              "rmse": 0.013519511422080856,
+              "bias": 0.0012720381523695624,
+              "actual_mean": -0.0005935695310157663
+            },
+            "ridge": {
+              "mae": 0.010358474322215126,
+              "rmse": 0.013564716646439674,
+              "bias": 0.0008657115237801493,
+              "actual_mean": -0.0005935695310157663
+            },
+            "lightgbm": {
+              "mae": 0.010302073135937272,
+              "rmse": 0.01347577708781759,
+              "bias": 0.001055314069612429,
+              "actual_mean": -0.0005935695310157663
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.008471034557411735,
+          "rmse": 0.012087795205024824,
+          "bias": -5.610087914092266e-05,
+          "actual_mean": 5.610087914092266e-05
+        },
+        "zero": {
+          "mae": 0.008471034557411735,
+          "rmse": 0.012087795205024824,
+          "bias": -5.610087914092266e-05,
+          "actual_mean": 5.610087914092266e-05
+        },
+        "historical_mean": {
+          "mae": 0.008490982436248047,
+          "rmse": 0.012097275877140956,
+          "bias": 0.000482118281831114,
+          "actual_mean": 5.610087914092266e-05
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000931/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000931/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "399989",
+      "name": "中证医疗",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.014433840805398546,
+        "mean": 0.014471194841841391,
+        "ridge": 0.014477574471919406,
+        "lightgbm": 0.014489122225282786
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "skipped_insufficient_history"
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 823,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.016155551515004224,
+              "rmse": 0.020555959099836794,
+              "bias": -0.0010890231591571087,
+              "actual_mean": 0.0010890231591571087
+            },
+            "mean": {
+              "mae": 0.016138572999949537,
+              "rmse": 0.020548068713179556,
+              "bias": -0.0009282482257273632,
+              "actual_mean": 0.0010890231591571087
+            },
+            "ridge": {
+              "mae": 0.016216531624499132,
+              "rmse": 0.020697989168981776,
+              "bias": -0.0012238128508808078,
+              "actual_mean": 0.0010890231591571087
+            },
+            "lightgbm": {
+              "mae": 0.016131470747156984,
+              "rmse": 0.02056034051778637,
+              "bias": -0.0018336803736580473,
+              "actual_mean": 0.0010890231591571087
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 1309,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.012712130095792869,
+              "rmse": 0.016779641041405845,
+              "bias": 0.0009491700317476962,
+              "actual_mean": -0.0009491700317476962
+            },
+            "mean": {
+              "mae": 0.012803816683733246,
+              "rmse": 0.016815834182666713,
+              "bias": 0.001454939699670983,
+              "actual_mean": -0.0009491700317476962
+            },
+            "ridge": {
+              "mae": 0.012738617319339682,
+              "rmse": 0.016774499107824182,
+              "bias": 0.0011445523170289715,
+              "actual_mean": -0.0009491700317476962
+            },
+            "lightgbm": {
+              "mae": 0.012846773703408587,
+              "rmse": 0.016876881908647504,
+              "bias": 0.0020116103256738534,
+              "actual_mean": -0.0009491700317476962
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 1793,
+        "selected": {
+          "mae": 0.01252310607880465,
+          "rmse": 0.01817848296400538,
+          "bias": 0.0001399883685361331,
+          "actual_mean": -0.0001399883685361331
+        },
+        "zero": {
+          "mae": 0.01252310607880465,
+          "rmse": 0.01817848296400538,
+          "bias": 0.0001399883685361331,
+          "actual_mean": -0.0001399883685361331
+        },
+        "historical_mean": {
+          "mae": 0.012532725528372549,
+          "rmse": 0.018179415267743554,
+          "bias": 0.00023128628960482738,
+          "actual_mean": -0.0001399883685361331
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/399989/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/399989/1/model.json"
+      },
+      "latest_fit_samples": 2466,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000933",
+      "name": "中证医药",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.012393670766019514,
+        "mean": 0.012403105708454237,
+        "ridge": 0.012437298035757318,
+        "lightgbm": 0.012402935481678265
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 1815,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.012238431949695783,
+              "rmse": 0.015742397569120093,
+              "bias": -3.881555505629311e-05,
+              "actual_mean": 3.881555505629311e-05
+            },
+            "mean": {
+              "mae": 0.0122319816086142,
+              "rmse": 0.015750525696588236,
+              "bias": 0.0005074299379838974,
+              "actual_mean": 3.881555505629311e-05
+            },
+            "ridge": {
+              "mae": 0.012242369078046203,
+              "rmse": 0.01575229840167837,
+              "bias": 0.0006972330362630496,
+              "actual_mean": 3.881555505629311e-05
+            },
+            "lightgbm": {
+              "mae": 0.012327497578577812,
+              "rmse": 0.01584811949128894,
+              "bias": 0.001153193300567871,
+              "actual_mean": 3.881555505629311e-05
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 2302,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.013835010317718149,
+              "rmse": 0.017575635181641746,
+              "bias": -0.0007302772415165642,
+              "actual_mean": 0.0007302772415165642
+            },
+            "mean": {
+              "mae": 0.01380332726161287,
+              "rmse": 0.01756284997655123,
+              "bias": -0.0002899174195514559,
+              "actual_mean": 0.0007302772415165642
+            },
+            "ridge": {
+              "mae": 0.013885849750840088,
+              "rmse": 0.017740269256848448,
+              "bias": -0.0004862201228099666,
+              "actual_mean": 0.0007302772415165642
+            },
+            "lightgbm": {
+              "mae": 0.013767680171492068,
+              "rmse": 0.017588633709738982,
+              "bias": -0.00011543685114041963,
+              "actual_mean": 0.0007302772415165642
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 2788,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.011107570030644609,
+              "rmse": 0.014789918537566303,
+              "bias": 0.0006459171457512175,
+              "actual_mean": -0.0006459171457512175
+            },
+            "mean": {
+              "mae": 0.011174008255135641,
+              "rmse": 0.01481950254909878,
+              "bias": 0.0011371782683789128,
+              "actual_mean": -0.0006459171457512175
+            },
+            "ridge": {
+              "mae": 0.01118367527838566,
+              "rmse": 0.014773178531530318,
+              "bias": 0.0011926380320817535,
+              "actual_mean": -0.0006459171457512175
+            },
+            "lightgbm": {
+              "mae": 0.01111362869496492,
+              "rmse": 0.014775454373145641,
+              "bias": 0.0009593062694212473,
+              "actual_mean": -0.0006459171457512175
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 3272,
+        "selected": {
+          "mae": 0.010645290632248913,
+          "rmse": 0.01539884600977418,
+          "bias": 0.0001360216769756654,
+          "actual_mean": -0.0001360216769756654
+        },
+        "zero": {
+          "mae": 0.010645290632248913,
+          "rmse": 0.01539884600977418,
+          "bias": 0.0001360216769756654,
+          "actual_mean": -0.0001360216769756654
+        },
+        "historical_mean": {
+          "mae": 0.010661951860326879,
+          "rmse": 0.015404891718922717,
+          "bias": 0.0004524735744800649,
+          "actual_mean": -0.0001360216769756654
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000933/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000933/1/model.json"
+      },
+      "latest_fit_samples": 3945,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000934",
+      "name": "中证金融",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.009790807548211612,
+        "mean": 0.009824441337223712,
+        "ridge": 0.009830157505422682,
+        "lightgbm": 0.009757651221755481
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 1815,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010120271406204013,
+              "rmse": 0.01409743262127773,
+              "bias": -0.00015513914355797217,
+              "actual_mean": 0.00015513914355797217
+            },
+            "mean": {
+              "mae": 0.010140824199109142,
+              "rmse": 0.014099353322926184,
+              "bias": 0.0002796886967827046,
+              "actual_mean": 0.00015513914355797217
+            },
+            "ridge": {
+              "mae": 0.010156982052388309,
+              "rmse": 0.014169853904054256,
+              "bias": 0.00021607272789783807,
+              "actual_mean": 0.00015513914355797217
+            },
+            "lightgbm": {
+              "mae": 0.010149175861754284,
+              "rmse": 0.01407746178537023,
+              "bias": -0.00034513150968300537,
+              "actual_mean": 0.00015513914355797217
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 2302,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010043768693261169,
+              "rmse": 0.014149440702952893,
+              "bias": 0.00018585830741455042,
+              "actual_mean": -0.00018585830741455042
+            },
+            "mean": {
+              "mae": 0.010091928993601318,
+              "rmse": 0.014159702209042642,
+              "bias": 0.0005701208230033637,
+              "actual_mean": -0.00018585830741455042
+            },
+            "ridge": {
+              "mae": 0.010114978126597073,
+              "rmse": 0.014244724156640808,
+              "bias": 0.00024988843154464326,
+              "actual_mean": -0.00018585830741455042
+            },
+            "lightgbm": {
+              "mae": 0.009975065213503722,
+              "rmse": 0.014168909097074503,
+              "bias": -0.0002500008179815446,
+              "actual_mean": -0.00018585830741455042
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 2788,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.009208382545169657,
+              "rmse": 0.012471396696335329,
+              "bias": 0.00045719452095223243,
+              "actual_mean": -0.00045719452095223243
+            },
+            "mean": {
+              "mae": 0.009240570818960677,
+              "rmse": 0.012485345835842628,
+              "bias": 0.0007464260936072956,
+              "actual_mean": -0.00045719452095223243
+            },
+            "ridge": {
+              "mae": 0.009218512337282667,
+              "rmse": 0.012438056756207629,
+              "bias": 0.0008403649636984484,
+              "actual_mean": -0.00045719452095223243
+            },
+            "lightgbm": {
+              "mae": 0.009148712590008438,
+              "rmse": 0.012433536172077953,
+              "bias": 0.00017501631099629423,
+              "actual_mean": -0.00045719452095223243
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 3272,
+        "selected": {
+          "mae": 0.007627448968051257,
+          "rmse": 0.011182121034791026,
+          "bias": -0.00043358782277217296,
+          "actual_mean": 0.00043358782277217296
+        },
+        "zero": {
+          "mae": 0.007627448968051257,
+          "rmse": 0.011182121034791026,
+          "bias": -0.00043358782277217296,
+          "actual_mean": 0.00043358782277217296
+        },
+        "historical_mean": {
+          "mae": 0.007629174181950981,
+          "rmse": 0.011176595794443052,
+          "bias": -0.0002538919370568499,
+          "actual_mean": 0.00043358782277217296
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000934/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000934/1/model.json"
+      },
+      "latest_fit_samples": 3945,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000935",
+      "name": "中证信息",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.013803932147069584,
+        "mean": 0.013822362424209207,
+        "ridge": 0.013933598520865925,
+        "lightgbm": 0.013923403199161502
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 1815,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.014965589705722626,
+              "rmse": 0.0199153364936993,
+              "bias": -0.000276427637894652,
+              "actual_mean": 0.000276427637894652
+            },
+            "mean": {
+              "mae": 0.015000613244395293,
+              "rmse": 0.0199160451283028,
+              "bias": 0.0003234781821309471,
+              "actual_mean": 0.000276427637894652
+            },
+            "ridge": {
+              "mae": 0.015138701269674714,
+              "rmse": 0.020046378042613215,
+              "bias": 0.0013070578709403525,
+              "actual_mean": 0.000276427637894652
+            },
+            "lightgbm": {
+              "mae": 0.015329994247231082,
+              "rmse": 0.02009526566735923,
+              "bias": 0.002283104092673185,
+              "actual_mean": 0.000276427637894652
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 2302,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.013563931103133212,
+              "rmse": 0.018267361390805033,
+              "bias": -0.0005612022249897129,
+              "actual_mean": 0.0005612022249897129
+            },
+            "mean": {
+              "mae": 0.013536865618014387,
+              "rmse": 0.01825875920590342,
+              "bias": -2.7267090454088726e-05,
+              "actual_mean": 0.0005612022249897129
+            },
+            "ridge": {
+              "mae": 0.013605817557558204,
+              "rmse": 0.01841930817742555,
+              "bias": -0.00013321237545362109,
+              "actual_mean": 0.0005612022249897129
+            },
+            "lightgbm": {
+              "mae": 0.01350883611140852,
+              "rmse": 0.01823670025701487,
+              "bias": 0.0006783664929509925,
+              "actual_mean": 0.0005612022249897129
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 2788,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.012882275632352913,
+              "rmse": 0.016667571199462553,
+              "bias": 0.0007279659669905159,
+              "actual_mean": -0.0007279659669905159
+            },
+            "mean": {
+              "mae": 0.012929608410217942,
+              "rmse": 0.016700762931707965,
+              "bias": 0.001279643411679095,
+              "actual_mean": -0.0007279659669905159
+            },
+            "ridge": {
+              "mae": 0.013056276735364861,
+              "rmse": 0.016783770767016058,
+              "bias": 0.0012473023054441958,
+              "actual_mean": -0.0007279659669905159
+            },
+            "lightgbm": {
+              "mae": 0.012931379238844907,
+              "rmse": 0.016745081899470483,
+              "bias": 0.0015099038292302731,
+              "actual_mean": -0.0007279659669905159
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 3272,
+        "selected": {
+          "mae": 0.01691447494766462,
+          "rmse": 0.02320372389466433,
+          "bias": -0.0010621871983556286,
+          "actual_mean": 0.0010621871983556286
+        },
+        "zero": {
+          "mae": 0.01691447494766462,
+          "rmse": 0.02320372389466433,
+          "bias": -0.0010621871983556286,
+          "actual_mean": 0.0010621871983556286
+        },
+        "historical_mean": {
+          "mae": 0.01691893257632001,
+          "rmse": 0.02318993050571784,
+          "bias": -0.0006987960536216232,
+          "actual_mean": 0.0010621871983556286
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000935/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000935/1/model.json"
+      },
+      "latest_fit_samples": 3945,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000928",
+      "name": "中证能源",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.011581872878753332,
+        "mean": 0.011582065378284545,
+        "ridge": 0.011661148707749381,
+        "lightgbm": 0.011592374464863303
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 1815,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009518711123137666,
+              "rmse": 0.013440158678447644,
+              "bias": 0.0003789815425883556,
+              "actual_mean": -0.0003789815425883556
+            },
+            "mean": {
+              "mae": 0.009518908610170558,
+              "rmse": 0.013439935524930254,
+              "bias": 0.0003709833177562101,
+              "actual_mean": -0.0003789815425883556
+            },
+            "ridge": {
+              "mae": 0.009627573687448945,
+              "rmse": 0.01354550568505693,
+              "bias": 0.0004898663059978625,
+              "actual_mean": -0.0003789815425883556
+            },
+            "lightgbm": {
+              "mae": 0.009633003636755679,
+              "rmse": 0.013445279270477718,
+              "bias": 7.694486747753805e-06,
+              "actual_mean": -0.0003789815425883556
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 2302,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.013085593209919767,
+              "rmse": 0.018015762919709615,
+              "bias": -0.0005109817561893976,
+              "actual_mean": 0.0005109817561893976
+            },
+            "mean": {
+              "mae": 0.013087123039869464,
+              "rmse": 0.018017956176486497,
+              "bias": -0.0005832096996471996,
+              "actual_mean": 0.0005109817561893976
+            },
+            "ridge": {
+              "mae": 0.01311977622962559,
+              "rmse": 0.01808252643335562,
+              "bias": -0.0008134492830030088,
+              "actual_mean": 0.0005109817561893976
+            },
+            "lightgbm": {
+              "mae": 0.013029631227491805,
+              "rmse": 0.017947153185090037,
+              "bias": -0.00040365075803277514,
+              "actual_mean": 0.0005109817561893976
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 2788,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.012141314303202557,
+              "rmse": 0.01657700794471476,
+              "bias": -0.0005782090060260283,
+              "actual_mean": 0.0005782090060260283
+            },
+            "mean": {
+              "mae": 0.012140164484813616,
+              "rmse": 0.016575900618987945,
+              "bias": -0.0005455406365049935,
+              "actual_mean": 0.0005782090060260283
+            },
+            "ridge": {
+              "mae": 0.012236096206173606,
+              "rmse": 0.016651583400653914,
+              "bias": -0.0007654826983569855,
+              "actual_mean": 0.0005782090060260283
+            },
+            "lightgbm": {
+              "mae": 0.012114488530342424,
+              "rmse": 0.016540147396061605,
+              "bias": -0.0003484607171432462,
+              "actual_mean": 0.0005782090060260283
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 3272,
+        "selected": {
+          "mae": 0.01049178622589401,
+          "rmse": 0.014775988715861246,
+          "bias": -0.0004752170366411052,
+          "actual_mean": 0.0004752170366411052
+        },
+        "zero": {
+          "mae": 0.01049178622589401,
+          "rmse": 0.014775988715861246,
+          "bias": -0.0004752170366411052,
+          "actual_mean": 0.0004752170366411052
+        },
+        "historical_mean": {
+          "mae": 0.010492772240155521,
+          "rmse": 0.014772702799548825,
+          "bias": -0.00035879897498841825,
+          "actual_mean": 0.0004752170366411052
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000928/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000928/1/model.json"
+      },
+      "latest_fit_samples": 3945,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000930",
+      "name": "800工业",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.010188101093872581,
+        "mean": 0.010217453202102994,
+        "ridge": 0.010249646671757214,
+        "lightgbm": 0.010254951435232446
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009422023601336493,
+              "rmse": 0.013116335512571423,
+              "bias": 0.0003548598428961943,
+              "actual_mean": -0.0003548598428961943
+            },
+            "mean": {
+              "mae": 0.009475044329177569,
+              "rmse": 0.013148406186952288,
+              "bias": 0.0009839987229886703,
+              "actual_mean": -0.0003548598428961943
+            },
+            "ridge": {
+              "mae": 0.009512690486741058,
+              "rmse": 0.013179940015935662,
+              "bias": 0.0005261798342972274,
+              "actual_mean": -0.0003548598428961943
+            },
+            "lightgbm": {
+              "mae": 0.009444968336367224,
+              "rmse": 0.01309257183876827,
+              "bias": 0.0008829746857658621,
+              "actual_mean": -0.0003548598428961943
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010824721362642096,
+              "rmse": 0.014701135237229915,
+              "bias": -0.001029329834986214,
+              "actual_mean": 0.001029329834986214
+            },
+            "mean": {
+              "mae": 0.010793957944781354,
+              "rmse": 0.014674917521572994,
+              "bias": -0.0005379097608704772,
+              "actual_mean": 0.001029329834986214
+            },
+            "ridge": {
+              "mae": 0.010875218517902031,
+              "rmse": 0.014791443320921497,
+              "bias": -0.00047281066085404086,
+              "actual_mean": 0.001029329834986214
+            },
+            "lightgbm": {
+              "mae": 0.010934416691733935,
+              "rmse": 0.014762995284627557,
+              "bias": 0.00043952652182932127,
+              "actual_mean": 0.001029329834986214
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.010317558317639157,
+              "rmse": 0.013454036065100636,
+              "bias": 0.0009375154662785959,
+              "actual_mean": -0.0009375154662785959
+            },
+            "mean": {
+              "mae": 0.010383357332350057,
+              "rmse": 0.013505065553048761,
+              "bias": 0.001501547335460062,
+              "actual_mean": -0.0009375154662785959
+            },
+            "ridge": {
+              "mae": 0.010361031010628553,
+              "rmse": 0.013531539526825946,
+              "bias": 0.0009948713303202575,
+              "actual_mean": -0.0009375154662785959
+            },
+            "lightgbm": {
+              "mae": 0.010385469277596175,
+              "rmse": 0.013478595886312847,
+              "bias": 0.001152686866192209,
+              "actual_mean": -0.0009375154662785959
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.010133308626532011,
+          "rmse": 0.014462359773631101,
+          "bias": -0.0002478357492934925,
+          "actual_mean": 0.0002478357492934925
+        },
+        "zero": {
+          "mae": 0.010133308626532011,
+          "rmse": 0.014462359773631101,
+          "bias": -0.0002478357492934925,
+          "actual_mean": 0.0002478357492934925
+        },
+        "historical_mean": {
+          "mae": 0.010153989175407786,
+          "rmse": 0.014460974580933691,
+          "bias": 0.00014614433651413076,
+          "actual_mean": 0.0002478357492934925
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000930/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000930/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.009562017852435361,
+        "mean": 0.009563005943005765,
+        "ridge": 0.009616370880037901,
+        "lightgbm": 0.009592124058903813
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010766455093712025,
+              "rmse": 0.015008297257464052,
+              "bias": 0.0002654439155868273,
+              "actual_mean": -0.0002654439155868273
+            },
+            "mean": {
+              "mae": 0.010807724061464139,
+              "rmse": 0.015048683333138413,
+              "bias": 0.0011332890032983351,
+              "actual_mean": -0.0002654439155868273
+            },
+            "ridge": {
+              "mae": 0.010846468834394307,
+              "rmse": 0.015040314564573894,
+              "bias": 0.0006356663437099814,
+              "actual_mean": -0.0002654439155868273
+            },
+            "lightgbm": {
+              "mae": 0.010803714085577969,
+              "rmse": 0.014982254618010655,
+              "bias": 0.001506665340825955,
+              "actual_mean": -0.0002654439155868273
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009707099993271807,
+              "rmse": 0.013335212790538732,
+              "bias": -0.000740906790944533,
+              "actual_mean": 0.000740906790944533
+            },
+            "mean": {
+              "mae": 0.00964168319436609,
+              "rmse": 0.013314652416573165,
+              "bias": -3.180688726639885e-05,
+              "actual_mean": 0.000740906790944533
+            },
+            "ridge": {
+              "mae": 0.009755158235883491,
+              "rmse": 0.013427329981432782,
+              "bias": -0.00031290736461127115,
+              "actual_mean": 0.000740906790944533
+            },
+            "lightgbm": {
+              "mae": 0.00971656848381303,
+              "rmse": 0.013460986532181573,
+              "bias": 0.0010094044885612205,
+              "actual_mean": 0.000740906790944533
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.008212498470322249,
+              "rmse": 0.011377075441857112,
+              "bias": 0.0005631931691386146,
+              "actual_mean": -0.0005631931691386146
+            },
+            "mean": {
+              "mae": 0.008239610573187067,
+              "rmse": 0.011435094278696142,
+              "bias": 0.0012809067486454413,
+              "actual_mean": -0.0005631931691386146
+            },
+            "ridge": {
+              "mae": 0.008247485569835905,
+              "rmse": 0.011387240242392646,
+              "bias": 0.0008192295523922173,
+              "actual_mean": -0.0005631931691386146
+            },
+            "lightgbm": {
+              "mae": 0.008256089607320436,
+              "rmse": 0.011436421033228637,
+              "bias": 0.0011228364014232704,
+              "actual_mean": -0.0005631931691386146
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.011536857124461791,
+          "rmse": 0.016356951755540486,
+          "bias": -0.0004679412977482531,
+          "actual_mean": 0.0004679412977482531
+        },
+        "zero": {
+          "mae": 0.011536857124461791,
+          "rmse": 0.016356951755540486,
+          "bias": -0.0004679412977482531,
+          "actual_mean": 0.0004679412977482531
+        },
+        "historical_mean": {
+          "mae": 0.011542536505487236,
+          "rmse": 0.016350611328596006,
+          "bias": 0.00010765288603340214,
+          "actual_mean": 0.0004679412977482531
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000905/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000905/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000906",
+      "name": "中证800",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.008922069078036115,
+        "mean": 0.00895133555592661,
+        "ridge": 0.008980749304044076,
+        "lightgbm": 0.0089922169533541
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009596914760663627,
+              "rmse": 0.01314527783354226,
+              "bias": 2.301700314149998e-06,
+              "actual_mean": -2.301700314149998e-06
+            },
+            "mean": {
+              "mae": 0.009637728400820148,
+              "rmse": 0.013163610785672759,
+              "bias": 0.0006944961436084677,
+              "actual_mean": -2.301700314149998e-06
+            },
+            "ridge": {
+              "mae": 0.009652706259655567,
+              "rmse": 0.013214742698355198,
+              "bias": 0.0003370602392152699,
+              "actual_mean": -2.301700314149998e-06
+            },
+            "lightgbm": {
+              "mae": 0.009669391653527502,
+              "rmse": 0.01315626431251853,
+              "bias": 0.0005791937344398545,
+              "actual_mean": -2.301700314149998e-06
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009193784065757153,
+              "rmse": 0.012772783759621141,
+              "bias": -0.0005091956899374865,
+              "actual_mean": 0.0005091956899374865
+            },
+            "mean": {
+              "mae": 0.009161972727272597,
+              "rmse": 0.012762929095469448,
+              "bias": 8.737491968436566e-05,
+              "actual_mean": 0.0005091956899374865
+            },
+            "ridge": {
+              "mae": 0.009228853399724407,
+              "rmse": 0.01283537729391805,
+              "bias": -0.00025551711347177535,
+              "actual_mean": 0.0005091956899374865
+            },
+            "lightgbm": {
+              "mae": 0.009252548616119924,
+              "rmse": 0.012847053266502506,
+              "bias": 0.00024294759895331186,
+              "actual_mean": 0.0005091956899374865
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.007975508407687562,
+              "rmse": 0.010708597376031782,
+              "bias": 0.0006580332840843921,
+              "actual_mean": -0.0006580332840843921
+            },
+            "mean": {
+              "mae": 0.008054305539687084,
+              "rmse": 0.010760897210692996,
+              "bias": 0.0012473406992912562,
+              "actual_mean": -0.0006580332840843921
+            },
+            "ridge": {
+              "mae": 0.008060688252752253,
+              "rmse": 0.010752785856609388,
+              "bias": 0.000964499716117349,
+              "actual_mean": -0.0006580332840843921
+            },
+            "lightgbm": {
+              "mae": 0.008054710590414873,
+              "rmse": 0.01078247784278578,
+              "bias": 0.001040894766107018,
+              "actual_mean": -0.0006580332840843921
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.008660531173782746,
+          "rmse": 0.012632840196220263,
+          "bias": -0.0003969551842625671,
+          "actual_mean": 0.0003969551842625671
+        },
+        "zero": {
+          "mae": 0.008660531173782746,
+          "rmse": 0.012632840196220263,
+          "bias": -0.0003969551842625671,
+          "actual_mean": 0.0003969551842625671
+        },
+        "historical_mean": {
+          "mae": 0.008660236221654823,
+          "rmse": 0.01262671448762002,
+          "bias": 5.3298658030013484e-05,
+          "actual_mean": 0.0003969551842625671
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000906/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000906/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    },
+    {
+      "code": "000852",
+      "name": "中证1000",
+      "horizon": 1,
+      "choice": "mean",
+      "development_mean_mae": {
+        "zero": 0.010665516921865991,
+        "mean": 0.010652647957494278,
+        "ridge": 0.010671851719192223,
+        "lightgbm": 0.010608564580747848
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.01131697782482607,
+              "rmse": 0.015773385178789675,
+              "bias": 0.0003728185309971497,
+              "actual_mean": -0.0003728185309971497
+            },
+            "mean": {
+              "mae": 0.011337764135749294,
+              "rmse": 0.01582249716743759,
+              "bias": 0.0013002808435732852,
+              "actual_mean": -0.0003728185309971497
+            },
+            "ridge": {
+              "mae": 0.011316562987477997,
+              "rmse": 0.015775038319720897,
+              "bias": 0.0006996126666343109,
+              "actual_mean": -0.0003728185309971497
+            },
+            "lightgbm": {
+              "mae": 0.011210204331788678,
+              "rmse": 0.01565564690607044,
+              "bias": 0.0017240206259492984,
+              "actual_mean": -0.0003728185309971497
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.010942485606178965,
+              "rmse": 0.014894917821877747,
+              "bias": -0.0008217422385235294,
+              "actual_mean": 0.0008217422385235294
+            },
+            "mean": {
+              "mae": 0.010896835289345198,
+              "rmse": 0.014872435842889388,
+              "bias": -7.766136068431727e-05,
+              "actual_mean": 0.0008217422385235294
+            },
+            "ridge": {
+              "mae": 0.010967202941415377,
+              "rmse": 0.014942225110066164,
+              "bias": -0.00025810106300705194,
+              "actual_mean": 0.0008217422385235294
+            },
+            "lightgbm": {
+              "mae": 0.011053992083477624,
+              "rmse": 0.015061390563988206,
+              "bias": 0.0014300602464377727,
+              "actual_mean": 0.0008217422385235294
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.009737087334592942,
+              "rmse": 0.013129256194668728,
+              "bias": 0.0005436765854159786,
+              "actual_mean": -0.0005436765854159786
+            },
+            "mean": {
+              "mae": 0.009723344447388342,
+              "rmse": 0.013182484369096095,
+              "bias": 0.0013023479357473322,
+              "actual_mean": -0.0005436765854159786
+            },
+            "ridge": {
+              "mae": 0.009731789228683294,
+              "rmse": 0.013113582153275943,
+              "bias": 0.0006844172907264783,
+              "actual_mean": -0.0005436765854159786
+            },
+            "lightgbm": {
+              "mae": 0.009561497326977244,
+              "rmse": 0.01309645251784387,
+              "bias": 0.0013400535467423013,
+              "actual_mean": -0.0005436765854159786
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.012751815347409498,
+          "rmse": 0.017953639236684693,
+          "bias": 0.0002553287169955341,
+          "actual_mean": 0.00035821437619283733
+        },
+        "zero": {
+          "mae": 0.012787982637731907,
+          "rmse": 0.017955397144775516,
+          "bias": -0.00035821437619283733,
+          "actual_mean": 0.00035821437619283733
+        },
+        "historical_mean": {
+          "mae": 0.012751815347409498,
+          "rmse": 0.017953639236684693,
+          "bias": 0.0002553287169955341,
+          "actual_mean": 0.00035821437619283733
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000852/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000852/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.000578254539581199
+    },
+    {
+      "code": "000985",
+      "name": "中证全指",
+      "horizon": 1,
+      "choice": "zero",
+      "development_mean_mae": {
+        "zero": 0.009017314223651816,
+        "mean": 0.009028200579977878,
+        "ridge": 0.00906437032057564,
+        "lightgbm": 0.009009391155252762
+      },
+      "development_folds": [
+        {
+          "start": "2018-01-01",
+          "end": "2020-01-01",
+          "status": "completed",
+          "train_n": 2906,
+          "validation_n": 486,
+          "last_train_label_end": "2017-12-29",
+          "last_validation_label_end": "2019-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009756506155932291,
+              "rmse": 0.013450939693467145,
+              "bias": 0.00010906050212728955,
+              "actual_mean": -0.00010906050212728955
+            },
+            "mean": {
+              "mae": 0.009797387713645937,
+              "rmse": 0.013476988030659082,
+              "bias": 0.0008445838823719034,
+              "actual_mean": -0.00010906050212728955
+            },
+            "ridge": {
+              "mae": 0.009813987000669112,
+              "rmse": 0.013494349556257397,
+              "bias": 0.0004509986365587187,
+              "actual_mean": -0.00010906050212728955
+            },
+            "lightgbm": {
+              "mae": 0.009704252123827188,
+              "rmse": 0.013362307167971557,
+              "bias": 0.0010018026188288033,
+              "actual_mean": -0.00010906050212728955
+            }
+          }
+        },
+        {
+          "start": "2020-01-01",
+          "end": "2022-01-01",
+          "status": "completed",
+          "train_n": 3393,
+          "validation_n": 485,
+          "last_train_label_end": "2019-12-31",
+          "last_validation_label_end": "2021-12-31",
+          "scores": {
+            "zero": {
+              "mae": 0.009230464493019482,
+              "rmse": 0.012788167469301974,
+              "bias": -0.0006324514943003158,
+              "actual_mean": 0.0006324514943003158
+            },
+            "mean": {
+              "mae": 0.009183536821852363,
+              "rmse": 0.012772526865265733,
+              "bias": -1.4498057259504256e-05,
+              "actual_mean": 0.0006324514943003158
+            },
+            "ridge": {
+              "mae": 0.009253702735467068,
+              "rmse": 0.01284677352882792,
+              "bias": -0.0003799920157312302,
+              "actual_mean": 0.0006324514943003158
+            },
+            "lightgbm": {
+              "mae": 0.00922367545934682,
+              "rmse": 0.012844105297769495,
+              "bias": 0.0005724089543400616,
+              "actual_mean": 0.0006324514943003158
+            }
+          }
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2024-01-01",
+          "status": "completed",
+          "train_n": 3879,
+          "validation_n": 483,
+          "last_train_label_end": "2021-12-31",
+          "last_validation_label_end": "2023-12-29",
+          "scores": {
+            "zero": {
+              "mae": 0.008064972022003672,
+              "rmse": 0.010944654513014176,
+              "bias": 0.0005573658953952249,
+              "actual_mean": -0.0005573658953952249
+            },
+            "mean": {
+              "mae": 0.008103677204435332,
+              "rmse": 0.01099407755409175,
+              "bias": 0.0011810739170315153,
+              "actual_mean": -0.0005573658953952249
+            },
+            "ridge": {
+              "mae": 0.008125421225590738,
+              "rmse": 0.010974065737442508,
+              "bias": 0.0008193103051605182,
+              "actual_mean": -0.0005573658953952249
+            },
+            "lightgbm": {
+              "mae": 0.008100245882584282,
+              "rmse": 0.011016071302509298,
+              "bias": 0.001033335782374051,
+              "actual_mean": -0.0005573658953952249
+            }
+          }
+        }
+      ],
+      "test": {
+        "start": "2024-01-02",
+        "end": "2026-10-15",
+        "label_end": "2026-10-16",
+        "n": 672,
+        "train_n": 4363,
+        "selected": {
+          "mae": 0.009790714152635951,
+          "rmse": 0.014027300156858004,
+          "bias": -0.00037551057215705076,
+          "actual_mean": 0.00037551057215705076
+        },
+        "zero": {
+          "mae": 0.009790714152635951,
+          "rmse": 0.014027300156858004,
+          "bias": -0.00037551057215705076,
+          "actual_mean": 0.00037551057215705076
+        },
+        "historical_mean": {
+          "mae": 0.009774191103773972,
+          "rmse": 0.014022760163176811,
+          "bias": 0.0001168806792916684,
+          "actual_mean": 0.00037551057215705076
+        }
+      },
+      "bundles": {
+        "holdout": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/holdout/000985/1/model.json",
+        "latest": "code/models/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/latest/000985/1/model.json"
+      },
+      "latest_fit_samples": 5036,
+      "latest_fit_feature_end": "2026-10-15",
+      "latest_fit_label_end": "2026-10-16",
+      "inference_as_of": "2026-10-16",
+      "latest_expected_return": 0.0
+    }
+  ],
+  "aggregate": {
+    "tasks": 14,
+    "test_predictions": 9166,
+    "mean_mae": 0.010368131196598731,
+    "mean_zero_mae": 0.010370714574478903,
+    "mae_better_than_zero": 1
+  }
+}

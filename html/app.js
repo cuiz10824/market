@@ -29,8 +29,8 @@ function render(next){
         td.textContent=value===null?'—':M.format(value);
         if(kind==='forecast'){
           const span=document.createElement('span');span.className='range';
-          span.textContent=h===1?'暂无单日模型':row.models[h];td.append(span);
-          td.title=h===1?'现有训练未包含1个交易日，暂不提供预测':`基于 ${row.as_of} 收盘；${row.models[h]}${value===0?'，不表示未来一定不涨不跌':''}`;
+          span.textContent=row.models[h]||'模型不可用';td.append(span);
+          td.title=`基于 ${row.as_of} 收盘；${h===1?'预测下一交易日收盘相对此次收盘的变化；':''}${row.models[h]}${value===0?'，不表示未来一定不涨不跌':''}`;
         }
       }
     }
@@ -42,7 +42,7 @@ function render(next){
   const errors=Object.keys(payload.last_refresh.errors||{}).length;
   const zero=payload.rows.reduce((n,row)=>n+Object.values(row.models).filter(v=>v==='零变化基准').length,0);
   const details=[offline?'当前为保存的快照。双击「启动网页.bat」可更新行情并重新预测。':'启动时和每30分钟检查已收盘行情；页面每60秒读取最新结果。',
-    `56个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
+    `${payload.rows.length*M.horizons.length}个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
     errors?`${errors}个指数联网更新失败，保留已有数据与对应日期。`:'',
     payload.rows.some(isStale)?'部分行情距今超过4天，请核验数据日期。':''].filter(Boolean);
   notice(details.join(' '),errors>0);

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task": "next_session_return",
+  "code": "000510",
+  "horizon": 1,
+  "features": [
+    "momentum_5",
+    "momentum_21",
+    "momentum_63",
+    "momentum_126",
+    "momentum_252",
+    "volatility_21",
+    "volatility_63",
+    "ma_gap_21",
+    "ma_gap_63",
+    "drawdown_252",
+    "momentum_1",
+    "momentum_2",
+    "momentum_3",
+    "momentum_10",
+    "volatility_5"
+  ],
+  "return": {
+    "kind": "zero",
+    "value": 0.0
+  },
+  "metadata": {
+    "run_id": "oneday_20261018_f92705d5_f18f8f5f_e1190ec3",
+    "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b",
+    "protocol_sha256": "f92705d5c382d25eb42ab56af3c82fbbab94a47b233b566bfea3c388ae2305aa",
+    "source_sha256": {
+      "code/training/train_one_day.py": "6e76f9537aa13829c905bbefbd36a6a9fb01e30261f9c84394427430621e5ead",
+      "code/training/one_day_models.py": "c92f1f6acf4eb397f5c426412a25c9bc4f80886259294390f22fcf39862a0708",
+      "code/research/one_day.py": "ec5d01a98f1fb04684a20ef861f16bd1e388a9a701af02ea59c8e3b1df167880",
+      "code/research/dataset.py": "7b129d9f982929dc6d7912cd8350a578784442f809c86a93c64f900bf385f5fd",
+      "code/training/engine.py": "f23be5e46bee0b6372f9a07849d55869f5bc31394b5abb5ef9e1855229dad134",
+      "html/daily/features.py": "f84b503111cde4adc1ff98e43c87a56dea28193bc7e98a5ff2bf858f4a6af1dc",
+      "html/daily/regression.py": "dff577300e03286f9d6d99df0bc28df2795a1bc21e05a54998cb66d1c83f081e"
+    },
+    "python": "3.12.14",
+    "versions": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "lightgbm": "4.7.0"
+    },
+    "test_status": "Exploratory historical evaluation on previously observed price dates; no new independent future validation claim.",
+    "research_only": true,
+    "role": "holdout",
+    "fit_samples": 4605,
+    "fit_feature_end": "2024-12-30",
+    "fit_label_end": "2024-12-31",
+    "inference_as_of": "2026-10-16",
+    "index_name": "中证A500"
+  }
+}

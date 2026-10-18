@@ -47,8 +47,21 @@ class DailyTests(unittest.TestCase):
                 expected=Predictor(reference).predict([feature])[0]['expected_price_return']
                 self.assertEqual(model.predict(feature),expected)
                 self.assertEqual(row['forecast'][str(h)],expected*100)
-            self.assertIsNone(row['forecast']['1'])
+            self.assertIsInstance(row['forecast']['1'],float)
             self.assertNotIn('p_up',row)
+
+    def test_one_day_values_match_verified_training_run(self):
+        pointer=json.loads((ROOT/'code/models/latest_one_day.json').read_text(encoding='utf-8'))
+        index=json.loads((ROOT/pointer['index']).read_text(encoding='utf-8'))
+        report=json.loads((ROOT/index['report']).read_text(encoding='utf-8'))
+        tasks={t['code']:t for t in report['tasks']}
+        from daily.features import one_day_features as runtime
+        from research.one_day import one_day_features as training
+        for row in self.service.payload['rows']:
+            self.assertEqual(row['forecast']['1'],tasks[row['code']]['latest_expected_return']*100)
+            self.assertIn('1',row['models'])
+            values=[self.service.prices[row['code']][d] for d in self.service.calendar[-253:]]
+            self.assertEqual(runtime(values,252),training(values,252))
 
     def test_feed_rejects_wrong_identity_and_partial_daily_candles(self):
         item={'code':'000300','name':'沪深300','secid':'1.000300'}
