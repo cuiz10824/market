@@ -3,4 +3,5 @@ __pycache__/
 .venv/
 .venv-daily/
 data/daily/*.sqlite3*
+.model-cache/
 .DS_Store

@@ -1,0 +1,243 @@
+{
+  "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+  "aggregate_by_horizon": [
+    {
+      "horizon": 1,
+      "legacy": {
+        "mae_pp": 1.0177472289734486,
+        "bias_pp": -0.030509613808685915,
+        "error_std_pp": 1.4488529974518485,
+        "rmse_pp": 1.4496038926272812,
+        "better_than_legacy": 0
+      },
+      "zero": {
+        "mae_pp": 1.0177472289734486,
+        "bias_pp": -0.030509613808685915,
+        "error_std_pp": 1.4488529974518485,
+        "rmse_pp": 1.4496038926272812,
+        "better_than_legacy": 0
+      },
+      "lightgbm_mae": {
+        "mae_pp": 1.0265304203773447,
+        "bias_pp": -0.055973102909905946,
+        "error_std_pp": 1.4448317374790853,
+        "rmse_pp": 1.4462921348636035,
+        "better_than_legacy": 1
+      },
+      "lightgbm_mse": {
+        "mae_pp": 1.0313555708303142,
+        "bias_pp": -0.0835668782857986,
+        "error_std_pp": 1.4500767465006765,
+        "rmse_pp": 1.4529504075956217,
+        "better_than_legacy": 0
+      },
+      "catboost_mae": {
+        "mae_pp": 1.0225371998836938,
+        "bias_pp": -0.04862303819558937,
+        "error_std_pp": 1.4419236359694412,
+        "rmse_pp": 1.4431189819690369,
+        "better_than_legacy": 1
+      },
+      "catboost_rmse": {
+        "mae_pp": 1.0250516379762336,
+        "bias_pp": -0.06309502669209605,
+        "error_std_pp": 1.4397481010143507,
+        "rmse_pp": 1.441640630732027,
+        "better_than_legacy": 1
+      }
+    },
+    {
+      "horizon": 5,
+      "legacy": {
+        "mae_pp": 2.343405073832085,
+        "bias_pp": -0.16959804839800902,
+        "error_std_pp": 3.3859109585957565,
+        "rmse_pp": 3.394773952145157,
+        "better_than_legacy": 0
+      },
+      "zero": {
+        "mae_pp": 2.3434712886496465,
+        "bias_pp": -0.1757832827582532,
+        "error_std_pp": 3.3859109585957565,
+        "rmse_pp": 3.395154275624627,
+        "better_than_legacy": 0
+      },
+      "lightgbm_mae": {
+        "mae_pp": 2.3719388815073605,
+        "bias_pp": -0.21537641429080895,
+        "error_std_pp": 3.400701453922846,
+        "rmse_pp": 3.4124005126842025,
+        "better_than_legacy": 2
+      },
+      "lightgbm_mse": {
+        "mae_pp": 2.434581837567279,
+        "bias_pp": -0.14482019349697356,
+        "error_std_pp": 3.4728283576213936,
+        "rmse_pp": 3.4810514537630413,
+        "better_than_legacy": 1
+      },
+      "catboost_mae": {
+        "mae_pp": 2.3572572035424684,
+        "bias_pp": -0.22106489121525053,
+        "error_std_pp": 3.393210697094638,
+        "rmse_pp": 3.4054751473466673,
+        "better_than_legacy": 2
+      },
+      "catboost_rmse": {
+        "mae_pp": 2.394028258670546,
+        "bias_pp": -0.1410263006524921,
+        "error_std_pp": 3.421852226120577,
+        "rmse_pp": 3.430730655774136,
+        "better_than_legacy": 1
+      }
+    },
+    {
+      "horizon": 21,
+      "legacy": {
+        "mae_pp": 4.966655938225533,
+        "bias_pp": -0.8755291127719027,
+        "error_std_pp": 6.628678698054205,
+        "rmse_pp": 6.735540442612777,
+        "better_than_legacy": 0
+      },
+      "zero": {
+        "mae_pp": 4.967183779484207,
+        "bias_pp": -0.8949613121184148,
+        "error_std_pp": 6.628678698054205,
+        "rmse_pp": 6.738025684469874,
+        "better_than_legacy": 0
+      },
+      "lightgbm_mae": {
+        "mae_pp": 5.104537253491561,
+        "bias_pp": -0.9771681349007562,
+        "error_std_pp": 6.7317935554404045,
+        "rmse_pp": 6.881350621603019,
+        "better_than_legacy": 3
+      },
+      "lightgbm_mse": {
+        "mae_pp": 5.186312432901509,
+        "bias_pp": -0.5253419758721636,
+        "error_std_pp": 6.9234788622942265,
+        "rmse_pp": 7.001351537909825,
+        "better_than_legacy": 1
+      },
+      "catboost_mae": {
+        "mae_pp": 5.003629639043806,
+        "bias_pp": -0.8805190351830359,
+        "error_std_pp": 6.665810678404378,
+        "rmse_pp": 6.7895814535276235,
+        "better_than_legacy": 3
+      },
+      "catboost_rmse": {
+        "mae_pp": 5.011677387144686,
+        "bias_pp": -0.5163043601051177,
+        "error_std_pp": 6.698351240329785,
+        "rmse_pp": 6.778628472387603,
+        "better_than_legacy": 4
+      }
+    },
+    {
+      "horizon": 63,
+      "legacy": {
+        "mae_pp": 8.667336050460861,
+        "bias_pp": -2.5952489572052317,
+        "error_std_pp": 10.529726174207529,
+        "rmse_pp": 11.261092893910853,
+        "better_than_legacy": 0
+      },
+      "zero": {
+        "mae_pp": 8.703040850019796,
+        "bias_pp": -2.771174256545119,
+        "error_std_pp": 10.68908213261263,
+        "rmse_pp": 11.348649225817365,
+        "better_than_legacy": 0
+      },
+      "lightgbm_mae": {
+        "mae_pp": 9.251795190808446,
+        "bias_pp": -2.5206610912167364,
+        "error_std_pp": 11.231689130453823,
+        "rmse_pp": 11.946254593428808,
+        "better_than_legacy": 1
+      },
+      "lightgbm_mse": {
+        "mae_pp": 9.383363437140053,
+        "bias_pp": -1.4137060852151988,
+        "error_std_pp": 11.508685224733608,
+        "rmse_pp": 11.967263457202735,
+        "better_than_legacy": 3
+      },
+      "catboost_mae": {
+        "mae_pp": 9.021898859655808,
+        "bias_pp": -2.429352149677679,
+        "error_std_pp": 10.965183321488135,
+        "rmse_pp": 11.633979259409115,
+        "better_than_legacy": 3
+      },
+      "catboost_rmse": {
+        "mae_pp": 9.276115718752212,
+        "bias_pp": -1.247328434609045,
+        "error_std_pp": 11.38421168262771,
+        "rmse_pp": 11.772690445721613,
+        "better_than_legacy": 3
+      }
+    },
+    {
+      "horizon": 126,
+      "legacy": {
+        "mae_pp": 12.306165499350993,
+        "bias_pp": -6.339250667710338,
+        "error_std_pp": 12.170098442016426,
+        "rmse_pp": 15.054442085176767,
+        "better_than_legacy": 0
+      },
+      "zero": {
+        "mae_pp": 12.306165499350993,
+        "bias_pp": -6.339250667710338,
+        "error_std_pp": 12.170098442016426,
+        "rmse_pp": 15.054442085176767,
+        "better_than_legacy": 0
+      },
+      "lightgbm_mae": {
+        "mae_pp": 14.297111799179374,
+        "bias_pp": -4.4534759561361845,
+        "error_std_pp": 15.141600026668124,
+        "rmse_pp": 17.504838154177335,
+        "better_than_legacy": 1
+      },
+      "lightgbm_mse": {
+        "mae_pp": 14.83095507137346,
+        "bias_pp": 0.3381887239532695,
+        "error_std_pp": 16.86339835780057,
+        "rmse_pp": 18.643851010354087,
+        "better_than_legacy": 2
+      },
+      "catboost_mae": {
+        "mae_pp": 14.07534371480871,
+        "bias_pp": -3.667382174812853,
+        "error_std_pp": 15.030712786635068,
+        "rmse_pp": 17.122283081146236,
+        "better_than_legacy": 1
+      },
+      "catboost_rmse": {
+        "mae_pp": 14.619599520014976,
+        "bias_pp": 1.1696975349693277,
+        "error_std_pp": 16.489843019257624,
+        "rmse_pp": 18.272074549250295,
+        "better_than_legacy": 2
+      }
+    }
+  ],
+  "approved_upgrades": 0,
+  "kronos_status": {
+    "status": "blocked",
+    "tested": false,
+    "operation": "GET official model metadata before downloading pretrained weights",
+    "reason": "Proxy CONNECT returned 403 Forbidden for https://huggingface.co/api/models/NeoQuasar/Kronos-mini and NeoQuasar/Kronos-Tokenizer-2k",
+    "checked_at": "2026-10-18T12:26:58.408415+00:00",
+    "source_commit": "67b630e67f6a18c9e9be918d9b4337c960db1e9a",
+    "runner": "code/training/benchmark_kronos.py",
+    "dependencies_installed": true,
+    "required_host": "huggingface.co",
+    "remedy": "Review and apply environment network settings; do not use a mirror to bypass the denial."
+  }
+}

@@ -1,6 +1,8 @@
 # 每日预测和网页
 
-Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库根目录的 `.venv-daily` 并安装 `requirements.txt`，随后打开 `http://127.0.0.1:8765`。保持命令窗口开启。日常推理只需要 NumPy、LightGBM 及其依赖，不安装整套研究环境。
+Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库根目录的 `.venv-daily` 并安装 `requirements.txt`，随后打开 `http://127.0.0.1:8765`。保持命令窗口开启。日常推理安装 NumPy、LightGBM、pandas、CatBoost 及其依赖，不安装 PyTorch 或整套研究环境。
+
+量价增强实验及运行方式见 [训练说明](../code/training/ENHANCED.md)。日常读取 `code/models/latest_enhanced.json`，只采用通过预设验证门槛的任务；本轮为0/40，页面明确提示继续使用旧模型。全部候选原始输出保留在报告中。将来获批的增强任务共享训练特征定义，量价数据不完整或校验失败时提示并沿用旧模型，不在日常运行中训练。
 
 `index.html` 是自包含文件，内置样式、脚本、行情与预测，即使只下载这一个文件也能显示，无需依赖旁边的CSS/JS。直接双击 `index.html` 无需 Python，可查看随仓库保存的真实数据与模型预测快照；此方式不能自行联网或执行 Python。`每日更新.bat` 用于只更新并生成快照，之后可直接打开 HTML。若希望每天定时运行，可在 Windows 任务计划程序中调用该批处理；本仓库未擅自注册系统任务。
 

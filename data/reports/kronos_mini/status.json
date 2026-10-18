@@ -1,0 +1,12 @@
+{
+  "status": "blocked",
+  "tested": false,
+  "operation": "GET official model metadata before downloading pretrained weights",
+  "reason": "Proxy CONNECT returned 403 Forbidden for https://huggingface.co/api/models/NeoQuasar/Kronos-mini and NeoQuasar/Kronos-Tokenizer-2k",
+  "checked_at": "2026-10-18T12:26:58.408415+00:00",
+  "source_commit": "67b630e67f6a18c9e9be918d9b4337c960db1e9a",
+  "runner": "code/training/benchmark_kronos.py",
+  "dependencies_installed": true,
+  "required_host": "huggingface.co",
+  "remedy": "Review and apply environment network settings; do not use a mirror to bypass the denial."
+}

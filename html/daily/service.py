@@ -73,6 +73,13 @@ class DailyService:
                 self.models[key]=model
         if set(self.models)!={(i['code'],h) for i in self.items for h in HORIZONS}:
             raise ValueError('模型集合不完整')
+        self.enhanced=None
+        if (self.root/'code/models/latest_enhanced.json').exists():
+            from daily.enhanced_runtime import EnhancedRuntime
+            self.enhanced=EnhancedRuntime(self.root,[item['code'] for item in self.items],
+                store=self.store.with_name(self.store.stem+'_ohlcv.sqlite3'))
+            self.model_runs['enhanced']=self.enhanced.run_id
+            if fetcher is fetch_recent and self.enhanced.tasks:self.fetcher=self.enhanced.fetch
         with zipfile.ZipFile(self.root/'data/sources/investment_data/2026-10-17/selected.zip') as z:
             self.calendar=z.read('calendars/day.txt').decode().splitlines()
         baseline=self.root/'data/market.sqlite3'
@@ -122,7 +129,9 @@ class DailyService:
                          'models':kinds,'data_status':'更新失败，使用本地历史' if error else '本地数据库及已验证增量',
                          'update_error':error,'stale':(now.date()-dt.date.fromisoformat(last)).days>4,
                          'source':self.last_refresh.get('providers',{}).get(code,'本地历史数据库')})
+        enhancement=self.enhanced.apply(rows,self.calendar) if self.enhanced else None
         return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.run_id,
+                'enhancement':enhancement,
                 'model_runs':self.model_runs,
                 'selected_codes':[item['code'] for item in self.items],
                 'unit':'percent','horizons':list(HORIZONS),'rows':rows,'research_only':True,
@@ -177,6 +186,7 @@ class DailyService:
                     db.execute("INSERT OR REPLACE INTO metadata VALUES('last_refresh',?)",(json.dumps(info,ensure_ascii=False),))
                 self.prices.update(accepted)
                 self.calendar=calendar
+                if self.enhanced:self.enhanced.commit(accepted)
                 self.last_refresh=info
                 self.payload=self.build_payload()
             return True

@@ -1,0 +1,21 @@
+{
+  "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+  "database_sha256": "95bacd54af3a5ab5d102ac836b67d0ea5969da79f585146f647599a58e6c4511",
+  "source_sha256": {
+    "code/training/train_enhanced.py": "a23d8b8247229f98ca35136f7066d3a84b32f4739dea2abce33ac4c2c665f323",
+    "code/training/enhanced_models.py": "c092623888b1613a6d9b79c3094837696d2e9289edc2ed421bd71e10f12b52ea",
+    "code/research/rich_dataset.py": "23de440222a031448227bfb8f500a2290fc07105399782f756ebb6f90eb32b64",
+    "html/daily/rich_features.py": "4db262e6eed495ba9dbf995ca4cd9dbd04e52ce504db01ed9d6867d86b906367",
+    "html/daily/enhanced_predictor.py": "55e199eb9f44e9fd7f9cd032170f8e956f0abc153e70d08adba1abd82191fe26",
+    "data/active_indices.json": "7af9aab01767c4754add5c699799752de0ea22c1a7bcd461e54160ae662775a1"
+  },
+  "protocol_sha256": "5ccccf4b594507017117a585327a3d9d9c59200bf5d9f1733a886c6c6edbd427",
+  "test_status": "Previously observed dates; exploratory comparison, NOT fresh untouched holdout.",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10"
+  },
+  "research_only": true
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "experiment": "ohlcv_cross_index_v1",
+  "seed": 20261018,
+  "codes": [
+    "000510",
+    "000300",
+    "000928",
+    "000933",
+    "000932",
+    "000930",
+    "000934",
+    "000935"
+  ],
+  "horizons": [
+    1,
+    5,
+    21,
+    63,
+    126
+  ],
+  "feature_version": "ohlcv_cross_index_v1",
+  "lookback": 252,
+  "feature_count": 80,
+  "development_windows": [
+    [
+      "2018-01-01",
+      "2020-01-01"
+    ],
+    [
+      "2020-01-01",
+      "2022-01-01"
+    ],
+    [
+      "2022-01-01",
+      "2024-01-01"
+    ]
+  ],
+  "holdout_starts": [
+    "2024-01-01",
+    "2025-01-01"
+  ],
+  "a500_holdout_start": "2025-01-01",
+  "min_train_rows": 1000,
+  "min_validation_rows_per_index": 60,
+  "candidates": [
+    "lightgbm_mae",
+    "lightgbm_mse",
+    "catboost_mae",
+    "catboost_rmse"
+  ],
+  "lightgbm": {
+    "n_estimators": 300,
+    "learning_rate": 0.025,
+    "num_leaves": 15,
+    "max_depth": 5,
+    "min_child_samples": 80,
+    "reg_lambda": 15.0,
+    "colsample_bytree": 0.85,
+    "n_jobs": 2,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "catboost": {
+    "iterations": 300,
+    "depth": 5,
+    "learning_rate": 0.035,
+    "l2_leaf_reg": 10.0,
+    "thread_count": 2,
+    "verbose": false,
+    "allow_writing_files": false
+  },
+  "selection": "Per index/horizon select lowest equal-fold MAE among 4 new candidates; deploy only if >=1% improvement against best of old selected validation MAE, zero, historical mean. Test never selects.",
+  "min_relative_validation_gain": 0.01,
+  "pooling": "One model per horizon/candidate shared across 8 indices; one-hot index IDs and past-only cross-index features. Purge by label_end_date across all indices.",
+  "test_status": "Previously observed dates; exploratory comparison, NOT fresh untouched holdout.",
+  "kronos": {
+    "model": "NeoQuasar/Kronos-mini",
+    "tokenizer": "NeoQuasar/Kronos-Tokenizer-2k",
+    "context": 256,
+    "samples": 4,
+    "origin_stride": 21,
+    "seed": 20261018,
+    "max_horizon": 126,
+    "selection_policy": "Diagnostic only until pretraining cutoff and weight provenance are audited; not auto-deployed."
+  }
+}

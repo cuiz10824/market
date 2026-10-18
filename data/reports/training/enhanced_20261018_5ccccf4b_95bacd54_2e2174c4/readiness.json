@@ -1,0 +1,49 @@
+{
+  "training_unittests": {
+    "passed": 30,
+    "failed": 0
+  },
+  "daily_unittests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "browser_model_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "independent_native_replay": {
+    "bundles": 60,
+    "candidate_predictions": 95928,
+    "passed": true
+  },
+  "original_database_audit": {
+    "rows": 92139,
+    "series": 42,
+    "pending": 0,
+    "passed": true
+  },
+  "browser": {
+    "live_eight_by_five": true,
+    "legacy_gate_notice": true,
+    "csv_download": true,
+    "mobile_width_390": true,
+    "isolated_single_html_with_and_without_javascript": true,
+    "page_errors": 0,
+    "file_protocol_test": "not run: managed Chromium file navigation blocked; isolated HTML tested over temporary loopback HTTP instead"
+  },
+  "kronos": {
+    "source_import_and_dependencies": "passed",
+    "weights_download": "blocked: proxy CONNECT403",
+    "inference_and_accuracy": "not run"
+  },
+  "cloud_configuration": {
+    "draft_saved": true,
+    "requires_publish": true,
+    "network_applied_by_draft_save": false,
+    "added_domains": [
+      "huggingface.co",
+      "cdn-lfs.huggingface.co",
+      "cas-bridge.xethub.hf.co"
+    ]
+  }
+}

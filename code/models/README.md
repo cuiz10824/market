@@ -1,5 +1,7 @@
 # 已训练参数
 
+量价增强指针：[latest_enhanced.json](latest_enhanced.json)。本轮保存60个原生CatBoost/LightGBM模型包及40组验证选择，0组通过替换门槛，当前网页继续使用旧模型。新候选与失败结果均保留，详情见 [增强实验](../training/ENHANCED.md)。
+
 当前日常模型范围由 [active_indices.json](../../data/active_indices.json)控制：8指数×5期限，共40份latest模型。原14指数权重和索引保留，未选指数既不加载也不采集；本次只缩减范围，所选模型的参数与预测不变。
 
 单日回归索引：[latest_one_day.json](latest_one_day.json)。`oneday_*/`包含14份下一交易日holdout回归和14份latest回归，使用15个纯历史价格特征。独立于原56个长周期模型，无分类分支。日常程序合并加载共70个任务，旧权重及指针不覆盖。性能见 [单日报告](../../data/reports/training/oneday_20261018_f92705d5_f18f8f5f_e1190ec3/README.md)。
