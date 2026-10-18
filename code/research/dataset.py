@@ -55,7 +55,34 @@ def sample_indices(calendar, prices, horizon):
     return values, indices
 
 
-def build_samples(calendar, prices, horizon, code=None):
+def features_at(values, i):
+    """Identical past-only feature definition for training and future inference."""
+    close = values[i]
+    row = {}
+    for h in (5, 21, 63, 126, 252):
+        row[f'momentum_{h}'] = close / values[i - h] - 1
+    for h in (21, 63):
+        returns = [math.log(values[j] / values[j - 1]) for j in range(i - h + 1, i + 1)]
+        row[f'volatility_{h}'] = statistics.stdev(returns) * math.sqrt(252)
+        row[f'ma_gap_{h}'] = close / statistics.mean(values[i - h + 1:i + 1]) - 1
+    row['drawdown_252'] = close / max(values[i - 251:i + 1]) - 1
+    return row
+
+
+def build_feature_rows(calendar, prices, code=None):
+    values, missing = aligned_prices(calendar, prices)
+    rows = []
+    for i in range(LOOKBACK, len(calendar)):
+        if missing[i + 1] != missing[i - LOOKBACK]:
+            continue
+        row = dict(date=calendar[i], **features_at(values, i))
+        if code is not None:
+            row['code'] = code
+        rows.append(row)
+    return rows
+
+
+def build_samples(calendar, prices, horizon, code=None, feature_cache=None):
     """Use closes known at t; target is close(t+h)/close(t)-1 on the calendar.
 
     A sample requires a continuous 252-session lookback AND complete forward
@@ -64,18 +91,12 @@ def build_samples(calendar, prices, horizon, code=None):
     values, indices = sample_indices(calendar, prices, horizon)
     rows = []
     for i in indices:
-        close = values[i]
         row = {'date': calendar[i], 'label_end_date': calendar[i + horizon], 'horizon': horizon}
         if code is not None:
             row['code'] = code
-        for h in (5, 21, 63, 126, 252):
-            row[f'momentum_{h}'] = close / values[i - h] - 1
-        for h in (21, 63):
-            returns = [math.log(values[j] / values[j - 1]) for j in range(i - h + 1, i + 1)]
-            row[f'volatility_{h}'] = statistics.stdev(returns) * math.sqrt(252)
-            row[f'ma_gap_{h}'] = close / statistics.mean(values[i - h + 1:i + 1]) - 1
-        row['drawdown_252'] = close / max(values[i - 251:i + 1]) - 1
-        row['target_return'] = values[i + horizon] / close - 1
+        feature = features_at(values, i) if feature_cache is None else feature_cache[calendar[i]]
+        row.update({f: feature[f] for f in FEATURES})
+        row['target_return'] = values[i + horizon] / values[i] - 1
         row['target_up'] = int(row['target_return'] > 0)
         rows.append(row)
     return rows

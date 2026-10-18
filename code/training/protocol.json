@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "seed": 20261018,
+  "status": "price_only_exploratory",
+  "codes": [
+    "000300",
+    "000510",
+    "000932",
+    "000931",
+    "399989",
+    "000933",
+    "000934",
+    "000935",
+    "000928",
+    "000930",
+    "000905",
+    "000906",
+    "000852",
+    "000985"
+  ],
+  "horizons": [
+    5,
+    21,
+    63,
+    126
+  ],
+  "lookback": 252,
+  "development_windows": [
+    [
+      "2018-01-01",
+      "2020-01-01"
+    ],
+    [
+      "2020-01-01",
+      "2022-01-01"
+    ],
+    [
+      "2022-01-01",
+      "2024-01-01"
+    ]
+  ],
+  "holdout_start": "2024-01-01",
+  "holdout_overrides": {
+    "000510": "2025-01-01"
+  },
+  "min_train_samples": 504,
+  "min_validation_samples": 60,
+  "selection": {
+    "direction": "equal-fold mean Brier score",
+    "return": "equal-fold mean absolute return error",
+    "direction_min_brier_gain": 0.0005,
+    "return_min_relative_gain": 0.01
+  },
+  "classification_candidates": [
+    "constant",
+    "momentum",
+    "logistic",
+    "lightgbm"
+  ],
+  "regression_candidates": [
+    "zero",
+    "mean",
+    "ridge",
+    "lightgbm"
+  ],
+  "logistic": {
+    "C": 0.1,
+    "max_iter": 2000
+  },
+  "ridge": {
+    "alpha": 100.0
+  },
+  "lightgbm": {
+    "n_estimators": 100,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "min_child_samples": 100,
+    "reg_lambda": 10.0,
+    "n_jobs": 2,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "test_policy": "Final test never selects, tunes or calibrates models. Train labels must end before test starts. Validation labels must end before each validation window ends. No random split. Refit chosen kinds after evaluation for future inference.",
+  "limitations": [
+    "Index launch, methodology and point-in-time history not fully audited.",
+    "A500 development history is retrospective; final test begins in 2025 to avoid 2024 launch-year observations.",
+    "Price returns are not fund NAV or total investment returns.",
+    "Overlapping labels are not independent observations.",
+    "No trading strategy PnL or confidence/significance claim."
+  ]
+}

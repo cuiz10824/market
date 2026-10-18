@@ -88,4 +88,10 @@ python code/tools/market_data.py fetch --provider tencent
 
 [2026-10-18数据库复查报告](data/reports/readiness_2026-10-18.md)确认14条主要指数在各自覆盖区间内无缺日，最新观测联网复核通过，但价格序列并非完整训练库；估值、宏观发布时间、基金净值和指数回溯审计仍待补齐。
 
-[code目录说明](code/README.md)包含已收集的statsmodels、LightGBM、scikit-learn参考代码及许可，以及适配本项目的交易日标签、时间切分和基础模型接口。已完成小规模功能检查，未开展正式预测效果评估，也未替换网页预测。
+[code目录说明](code/README.md)包含已收集的statsmodels、LightGBM、scikit-learn参考代码及许可，以及适配本项目的交易日标签、时间切分和模型接口。
+
+## 离线训练与日常调用
+
+[训练部分](code/training/README.md)已完成14指数×4期限的真实训练和独立历史测试，参数保存在 [code/models](code/models/README.md)。[测试报告](data/reports/training/20261018_5333c8a6_f18f8f5f_288545ff/README.md)显示目前尚未稳定优于简单基准；没有根据最终测试反复调参。
+
+[日常调用部分](code/inference/README.md)已有只加载参数、不重新训练的接口，行情调度和网页接入尚未实现。网页预测尚未替换。模型、测试报告与原始数据分别放在code/models、data/reports和data/indices。

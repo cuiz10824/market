@@ -1,0 +1,8 @@
+{
+  "run_id": "20261018_5333c8a6_f18f8f5f_288545ff",
+  "research_only": true,
+  "stable_predictive_edge_demonstrated": false,
+  "index": "code/models/20261018_5333c8a6_f18f8f5f_288545ff/index.json",
+  "report": "data/reports/training/20261018_5333c8a6_f18f8f5f_288545ff/README.md",
+  "verification": "data/reports/training/20261018_5333c8a6_f18f8f5f_288545ff/verification.json"
+}

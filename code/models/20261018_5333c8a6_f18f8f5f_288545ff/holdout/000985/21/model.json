@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "code": "000985",
+  "horizon": 21,
+  "features": [
+    "momentum_5",
+    "momentum_21",
+    "momentum_63",
+    "momentum_126",
+    "momentum_252",
+    "volatility_21",
+    "volatility_63",
+    "ma_gap_21",
+    "ma_gap_63",
+    "drawdown_252"
+  ],
+  "direction": {
+    "kind": "logistic",
+    "mean": [
+      0.002582373416678317,
+      0.01161174470033543,
+      0.03860449011632922,
+      0.08793936239975791,
+      0.20273017964546858,
+      0.23741596418565122,
+      0.24324705777594552,
+      0.00422879491750714,
+      0.013934925367878674,
+      -0.1425432933227422
+    ],
+    "scale": [
+      0.03895288757496501,
+      0.08648489562213887,
+      0.1761807860853762,
+      0.31261662375013766,
+      0.5840395497611507,
+      0.11931743787425125,
+      0.1084187065969411,
+      0.046609689662020615,
+      0.09175952949840703,
+      0.14404375645256062
+    ],
+    "coef": [
+      -0.002227894409863745,
+      -0.16200704649922248,
+      -0.32099330181853925,
+      0.5241158784626488,
+      -0.11771824681984926,
+      -0.10508554043448967,
+      0.09805646507759856,
+      0.07845583728852862,
+      0.3077402398323026,
+      -0.19303556106205888
+    ],
+    "intercept": 0.24201466638808053
+  },
+  "return": {
+    "kind": "zero",
+    "value": 0.0
+  },
+  "metadata": {
+    "protocol_sha256": "5333c8a6493a754edc45328a4abee5c420ce8e3b33040c7209c3c11cec8925e5",
+    "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b",
+    "source_sha256": {
+      "code/training/train.py": "b52925adf30cb40ccdcf7eec51c12a19728f6e3f71df1d49f7e63365a1c05584",
+      "code/training/engine.py": "f23be5e46bee0b6372f9a07849d55869f5bc31394b5abb5ef9e1855229dad134",
+      "code/research/dataset.py": "7b129d9f982929dc6d7912cd8350a578784442f809c86a93c64f900bf385f5fd",
+      "code/inference/predictor.py": "67539171f760f66faf6e6001313f27f0565ce5898a09865ae453766417d3b513"
+    },
+    "run_id": "20261018_5333c8a6_f18f8f5f_288545ff",
+    "python": "3.12.14",
+    "versions": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.8.0",
+      "lightgbm": "4.7.0"
+    },
+    "role": "frozen_final_test_model",
+    "research_only": true,
+    "fit_samples": 4343,
+    "fit_feature_end": "2023-11-30",
+    "fit_label_end": "2023-12-29",
+    "holdout_start": "2024-01-01",
+    "index_name": "中证全指",
+    "data_warnings": [
+      "Index launch/backfill dates not audited; not a point-in-time dataset."
+    ]
+  }
+}

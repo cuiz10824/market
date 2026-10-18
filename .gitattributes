@@ -1,1 +1,10 @@
 *.bat text eol=crlf
+# Preserve fingerprints and native generated model bytes across platforms.
+code/training/*.py text eol=lf
+code/training/*.json text eol=lf
+code/inference/*.py text eol=lf
+code/research/*.py text eol=lf
+code/models/** -text
+code/models/**/*.lgb.txt whitespace=-blank-at-eol
+data/reports/training/** -text
+data/reports/training/**/*.csv whitespace=cr-at-eol
