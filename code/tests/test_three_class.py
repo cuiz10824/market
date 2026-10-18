@@ -6,6 +6,9 @@ import unittest
 import numpy as np
 
 from training.three_class import labels, metrics, fit, predict, export, choose, align_probabilities
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'html'))
+
 from inference.three_class_predictor import ThreeClassPredictor
 from research.dataset import FEATURES
 

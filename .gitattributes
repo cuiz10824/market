@@ -3,6 +3,9 @@
 code/training/*.py text eol=lf
 code/training/*.json text eol=lf
 code/inference/*.py text eol=lf
+html/inference/*.py text eol=lf
+html/daily/*.py text eol=lf
+data/training_sources/*.py -text
 code/research/*.py text eol=lf
 code/models/** -text
 code/models/**/*.lgb.txt whitespace=-blank-at-eol

@@ -7,10 +7,12 @@ import numpy as np
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'code'))
+sys.path.insert(0, str(ROOT / 'html'))
 from inference.three_class_predictor import ThreeClassPredictor
 from research.dataset import load_history, build_feature_rows
 from training.train_three_class import read, sha
 from training.three_class import labels, metrics
+from training.provenance import historical_source
 
 
 def verify():
@@ -23,7 +25,7 @@ def verify():
         for path,digest in verification[mapping].items():
             assert sha(ROOT/path)==digest,path
     for path,digest in summary['source_sha256'].items():
-        assert sha(ROOT/path)==digest,path
+        historical_source(ROOT,path,digest)
     assert sha(ROOT/'code/training/three_class_protocol.json')==summary['protocol_sha256']
     with (report.parent/'test_predictions.csv').open(encoding='utf-8-sig',newline='') as f:
         records=list(csv.DictReader(f))

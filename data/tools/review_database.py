@@ -8,7 +8,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'code'))
 from research.dataset import HORIZONS, load_history, sample_indices
-from tools import market_data
+import market_data
 
 
 def review(as_of):

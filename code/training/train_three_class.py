@@ -9,6 +9,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT/'code'))
+sys.path.insert(0, str(ROOT / 'html'))
 from inference.three_class_predictor import ThreeClassPredictor
 from research.dataset import FEATURES, build_feature_rows, build_samples, load_history
 from training.engine import split_window, return_metrics
@@ -39,8 +40,8 @@ def run():
         if path.is_file():
             locked[str(path.relative_to(ROOT))] = sha(path)
     sources = ['code/training/three_class.py', 'code/training/train_three_class.py',
-               'code/inference/three_class_predictor.py', 'code/research/dataset.py',
-               'code/training/engine.py', 'code/inference/predictor.py']
+               'html/inference/three_class_predictor.py', 'code/research/dataset.py',
+               'code/training/engine.py', 'html/inference/predictor.py']
     source_hashes = {s: sha(ROOT/s) for s in sources}
     source_id = hashlib.sha256(json.dumps(source_hashes, sort_keys=True).encode()).hexdigest()
     run_id = 'threeclass_20261018_'+sha(protocol_path)[:8]+'_'+source_id[:8]

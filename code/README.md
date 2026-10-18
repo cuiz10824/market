@@ -1,17 +1,14 @@
-# 代码目录
+# 训练、测试与模型
 
-| 位置 | 用途 |
-| --- | --- |
-| `server.py` | 网页本地行情服务 |
-| `tools/market_data.py` | 数据下载、重建及完整性审计 |
-| `tools/review_database.py` | 数据覆盖与建模准备度复查 |
-| `tools/smoke_research.py` | 用真实历史检查模型接口及过滤的时间因果性 |
-| [research](research/README.md) | 项目数据准备、标签、时间切分和模型适配 |
-| [references](references/README.md) | 已下载的开源参考代码、许可及固定版本 |
-| `tests/` | 数据处理及现有网页计算测试 |
-| `requirements-research.txt` | 可选研究依赖，不影响原网页使用 |
-| [training](training/README.md) | 离线训练、滚动验证、最终测试和参数保存 |
-| [models](models/README.md) | 实际训练得到的参数及默认研究模型索引 |
-| [inference](inference/README.md) | 已训练参数加载器；日常调度和网页接入待实现 |
+此目录保留训练和测试相关代码、算法参考及已训练参数。每日服务、行情增量更新、实际运行的回归推理和H5页面均放在 [html](../html/README.md)。研究数据库管理工具放在 [data/tools](../data/tools/README.md)。
 
-数据库继续保存在 `data/`，前端继续保存在 `html/`。
+|位置|用途|
+|---|---|
+|[training](training/README.md)|训练、滚动验证、历史测试、报告和模型重放|
+|[research](research/README.md)|训练样本、交易日特征和标签、时间切分及模型适配|
+|[references](references/README.md)|已下载的参考算法、固定版本与许可|
+|[models](models/README.md)|已训练模型及索引；每日推理读取这里的原回归参数|
+|`tests/`|训练、特征、选型和模型保存/重载测试|
+|`requirements-research.txt`|训练研究依赖；日常依赖另见html/requirements.txt|
+
+`training/smoke_research.py` 检查研究模型接口及时间因果性。历史完整模型加载器移到html/inference，训练入口已更新导入路径。迁移前的训练源码原始字节保存在data/training_sources，旧报告与权重未重写，旧实验仍可按原指纹和预测记录复验。

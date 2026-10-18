@@ -10,9 +10,11 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'code'))
+sys.path.insert(0, str(ROOT / 'html'))
 from inference.predictor import Predictor
 from research.dataset import build_feature_rows, load_history
 from training.engine import direction_metrics, return_metrics
+from training.provenance import historical_source
 
 
 def verify(run_id, register=False):
@@ -29,8 +31,7 @@ def verify(run_id, register=False):
     if hashlib.sha256((ROOT/'data/market.sqlite3').read_bytes()).hexdigest() != summary['database_sha256']:
         raise ValueError('Database changed; replay requires exact training snapshot')
     for source, fingerprint in summary['source_sha256'].items():
-        if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != fingerprint:
-            raise ValueError('Source changed since training: '+source)
+        historical_source(ROOT, source, fingerprint)
     if index['run_id'] != run_id or summary['run_id'] != run_id:
         raise ValueError('Run IDs differ')
     with (output/'test_predictions.csv').open(encoding='utf-8-sig',newline='') as stream:

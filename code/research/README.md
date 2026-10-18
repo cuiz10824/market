@@ -18,7 +18,7 @@
 ```sh
 python code/research/dataset.py --code 000300 --horizon 21
 python code/research/dataset.py --code 399989 --horizon 126 --output medical_research.csv
-python code/tools/review_database.py --as-of 2026-10-18
+python data/tools/review_database.py --as-of 2026-10-18
 ```
 
 `--output`是可选的研究导出路径，避免把实验大表重复提交到Git。导出的`target_return`用小数表示收益，`0.05`是5%；`target_up=1`表示严格上涨，持平或下跌为0。`date`是特征截止的收盘日，`label_end_date`是未来第N个交易日。
@@ -38,7 +38,7 @@ Windows PowerShell，在仓库根目录：
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r code/requirements-research.txt
-.\.venv\Scripts\python.exe code/tools/smoke_research.py
+.\.venv\Scripts\python.exe code/training/smoke_research.py
 ```
 
 Linux：
@@ -46,7 +46,7 @@ Linux：
 ```sh
 python -m venv --system-site-packages .venv
 .venv/bin/python -m pip install -r code/requirements-research.txt
-.venv/bin/python code/tools/smoke_research.py
+.venv/bin/python code/training/smoke_research.py
 ```
 
 本次已在Linux云环境执行模型检查：LightGBM使用609条沪深300训练样本，验证126条后续样本能输出有效概率；状态模型使用1000条真实历史收益拟合并成功收敛，随后检查1100条过滤结果。改变末尾未来收益，没有改变此前过滤概率；更换原训练前缀会被拒绝。记录见 [运行报告](../../data/reports/code_smoke_2026-10-18.json)。Windows命令尚未在真实Windows机器执行。

@@ -16,7 +16,7 @@ OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 .venv/bin/python code/training/train_th
 
 同一源码和协议实验拒绝覆盖；已有结果只需复验或生成报告。报告位于 `data/reports/training/threeclass_*/`，包含逐任务及逐年 CSV、逐条预测、原模型不变性核对与完整混淆矩阵。后文记录原二分类实验，保留原始结果以供比较。
 
-这里负责构造样本、滚动验证选模型、独立历史测试和保存参数。日常推理只加载保存的参数，入口契约另见 [inference](../inference/README.md)，不在日常程序内重新训练。
+这里负责构造样本、滚动验证选模型、独立历史测试和保存参数。日常推理只加载保存的参数，入口契约另见 [inference](../../html/inference/README.md)，不在日常程序内重新训练。
 
 ## 已完成的训练
 

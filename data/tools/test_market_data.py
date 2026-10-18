@@ -5,7 +5,7 @@ import struct
 import unittest
 import zipfile
 
-from tools.market_data import parse_eastmoney, parse_tencent, qlib_rows, validate_rows
+from market_data import parse_eastmoney, parse_tencent, qlib_rows, validate_rows
 
 
 class DatasetTests(unittest.TestCase):

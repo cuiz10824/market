@@ -1,10 +1,12 @@
-# 每日推理部分：模型加载接口
+# 历史模型重放加载接口
+
+实际每日执行入口已接入 [每日程序](../README.md)，只调用 `daily/regression.py` 的收益分支。这里保留原完整加载器，供历史二分类/三分类训练与测试重放使用，页面不展示分类结果。
 
 三分类加载器为 `three_class_predictor.py`。沿用下方示例，把指针改为 `code/models/latest_three_class.json`，并使用 `from inference.three_class_predictor import ThreeClassPredictor` 和 `ThreeClassPredictor(root / entry["latest"])`。返回 `class_label`（大跌/波动/大涨）、`p_big_down`、`p_neutral`、`p_big_up` 和保持原模型结果的 `expected_price_return`。分类阈值为各期限累计收益的 ±5%，不是每日涨幅阈值；概率未经校准。
 
-新模型包通过路径和 SHA256 引用原回归模型，因此部署时需要同时保留原模型目录。三分类只更新离线模型及加载接口，网页尚未接入。
+新模型包通过路径和 SHA256 引用原回归模型，因此部署时需要同时保留原模型目录。网页仅接入原数值回归，三分类结果不展示。
 
-本轮先完成训练和测试。这里只提供保存参数的加载器 `predictor.py`，验证未来日常程序能调用已训练模型。行情更新、定时执行、网页预测接口尚未实现，网页继续使用原有逻辑。
+`predictor.py` 和 `three_class_predictor.py` 保持原始字节，迁移到 html 后仍可用于历史实验的模型重放。
 
 加载模型不会拟合、不读未来标签、不发网络请求。示例（仓库根目录，研究虚拟环境）：
 
@@ -14,12 +16,13 @@ import sys
 from pathlib import Path
 
 root = Path.cwd()
-sys.path.insert(0, str(root / "code"))
+sys.path.insert(0, str(root / "html"))
 from inference.predictor import Predictor
+sys.path.insert(0, str(root / "code"))
 from research.dataset import build_feature_rows, load_history
 
-pointer = json.loads((root / "code/models/latest.json").read_text())
-index = json.loads((root / pointer["index"]).read_text())
+pointer = json.loads((root / "code/models/latest.json").read_text(encoding="utf-8"))
+index = json.loads((root / pointer["index"]).read_text(encoding="utf-8"))
 entry = next(m for m in index["models"] if m["code"] == "000300" and m["horizon"] == 21)
 calendar, prices, _ = load_history("000300")
 latest_features = build_feature_rows(calendar, prices, code="000300")[-1]

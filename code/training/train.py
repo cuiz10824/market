@@ -15,6 +15,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'code'))
+sys.path.insert(0, str(ROOT / 'html'))
 from inference.predictor import Predictor
 from research.dataset import FEATURES, build_feature_rows, build_samples, load_history
 from training.engine import (choose, direction_metrics, fit, predict, return_metrics,
@@ -169,7 +170,7 @@ def main():
     if set(codes) - set(protocol['codes']) or len(codes) != len(set(codes)):
         parser.error('Unsupported or duplicate index codes')
     db_hash, protocol_hash = digest(ROOT / 'data/market.sqlite3'), digest(protocol_path)
-    sources = ['code/training/train.py', 'code/training/engine.py', 'code/research/dataset.py', 'code/inference/predictor.py']
+    sources = ['code/training/train.py', 'code/training/engine.py', 'code/research/dataset.py', 'html/inference/predictor.py']
     source_hashes = {p: digest(ROOT / p) for p in sources}
     fingerprint = hashlib.sha256(json.dumps([source_hashes, codes], sort_keys=True).encode()).hexdigest()
     date = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).strftime('%Y%m%d')

@@ -1,4 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+.venv-daily/
+data/daily/*.sqlite3*
 .DS_Store
