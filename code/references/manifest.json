@@ -1,0 +1,61 @@
+{
+  "retrieved_at": "2026-10-18T04:27:14.931695+00:00",
+  "files": [
+    {
+      "path": "statsmodels/markov_regression.py",
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/283253007bde6dd60b48420c47c64d635e96be34/examples/python/markov_regression.py",
+      "repository": "https://github.com/statsmodels/statsmodels",
+      "commit": "283253007bde6dd60b48420c47c64d635e96be34",
+      "sha256": "82b060a81080a765ca97076896959e7321d3f97247a842b0743be3bc91c862b8",
+      "bytes": 7740
+    },
+    {
+      "path": "statsmodels/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/283253007bde6dd60b48420c47c64d635e96be34/LICENSE.txt",
+      "repository": "https://github.com/statsmodels/statsmodels",
+      "commit": "283253007bde6dd60b48420c47c64d635e96be34",
+      "sha256": "1ca78e1dec9dcebc55f3b96a862317f23e76422c5fc943568d955aad1f6b5fad",
+      "bytes": 1636
+    },
+    {
+      "path": "lightgbm/simple_example.py",
+      "url": "https://raw.githubusercontent.com/lightgbm-org/LightGBM/5831ee577776949d26d21efa581ec904bda80483/examples/python-guide/simple_example.py",
+      "repository": "https://github.com/lightgbm-org/LightGBM",
+      "commit": "5831ee577776949d26d21efa581ec904bda80483",
+      "sha256": "c3709175689ca5d02623adf280473491f758c384cf48ea20a2f2a6beef4e5012",
+      "bytes": 1453
+    },
+    {
+      "path": "lightgbm/sklearn_example.py",
+      "url": "https://raw.githubusercontent.com/lightgbm-org/LightGBM/5831ee577776949d26d21efa581ec904bda80483/examples/python-guide/sklearn_example.py",
+      "repository": "https://github.com/lightgbm-org/LightGBM",
+      "commit": "5831ee577776949d26d21efa581ec904bda80483",
+      "sha256": "51ba4b525dbc03a0ae612d5bdc6f2e2d0476c9171327ad91fb5b1cc10e03ef26",
+      "bytes": 2708
+    },
+    {
+      "path": "lightgbm/LICENSE",
+      "url": "https://raw.githubusercontent.com/lightgbm-org/LightGBM/5831ee577776949d26d21efa581ec904bda80483/LICENSE",
+      "repository": "https://github.com/lightgbm-org/LightGBM",
+      "commit": "5831ee577776949d26d21efa581ec904bda80483",
+      "sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305",
+      "bytes": 1121
+    },
+    {
+      "path": "scikit-learn/plot_time_series_lagged_features.py",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/85593ca7a07a9956ac891f6bfc3fedca53b74f72/examples/applications/plot_time_series_lagged_features.py",
+      "repository": "https://github.com/scikit-learn/scikit-learn",
+      "commit": "85593ca7a07a9956ac891f6bfc3fedca53b74f72",
+      "sha256": "49191414a48b76aa1ecea246d642ceb7e7a69dcda8197795ea0397c17707d04f",
+      "bytes": 16324
+    },
+    {
+      "path": "scikit-learn/COPYING",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/85593ca7a07a9956ac891f6bfc3fedca53b74f72/COPYING",
+      "repository": "https://github.com/scikit-learn/scikit-learn",
+      "commit": "85593ca7a07a9956ac891f6bfc3fedca53b74f72",
+      "sha256": "50d6a9d340f19ab355609917993114daf5f47e3161067bcf34955bbd05cd9cb0",
+      "bytes": 1532
+    }
+  ]
+}

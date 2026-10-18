@@ -1,0 +1,29 @@
+{
+  "scope": "Functional smoke checks, NOT performance evaluation",
+  "reference_files_verified": 7,
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "statsmodels": "0.15.0",
+    "lightgbm": "4.7.0"
+  },
+  "classifier": {
+    "code": "000300",
+    "horizon": 21,
+    "train_rows": 609,
+    "test_rows": 126,
+    "last_training_label_end": "2008-08-20",
+    "first_test_date": "2008-08-21",
+    "valid_probabilities": true
+  },
+  "regimes": {
+    "train_returns": 1000,
+    "filtered_returns": 1100,
+    "converged": true,
+    "future_perturbation_preserves_prefix": true,
+    "wrong_training_prefix_rejected": true
+  },
+  "persistent_models_saved": false,
+  "accuracy_evaluated": false
+}

@@ -83,3 +83,9 @@ python code/tools/market_data.py fetch --provider tencent
 ```
 
 这些命令均无需 pip 安装。构建和审计不需要联网，获取新行情需要相应来源的网络访问权限。
+
+## 数据复查与研究代码
+
+[2026-10-18数据库复查报告](data/reports/readiness_2026-10-18.md)确认14条主要指数在各自覆盖区间内无缺日，最新观测联网复核通过，但价格序列并非完整训练库；估值、宏观发布时间、基金净值和指数回溯审计仍待补齐。
+
+[code目录说明](code/README.md)包含已收集的statsmodels、LightGBM、scikit-learn参考代码及许可，以及适配本项目的交易日标签、时间切分和基础模型接口。已完成小规模功能检查，未开展正式预测效果评估，也未替换网页预测。

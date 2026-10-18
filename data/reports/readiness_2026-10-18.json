@@ -1,0 +1,516 @@
+{
+  "as_of": "2026-10-18",
+  "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b",
+  "summary": {
+    "series": 42,
+    "rows": 92139,
+    "primary_series": 14,
+    "primary_price_coverage_passed": true,
+    "primary_latest_live_probe_passed": true,
+    "community_series_excluded_from_training": 28,
+    "complete_training_database": false,
+    "verdict": "Price history supports exploratory baselines; full training database remains incomplete."
+  },
+  "primary": [
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09341821423108776,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000510",
+      "name": "中证A500",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09398697451604865,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000932",
+      "name": "中证消费",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.08827129701155334,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 3941,
+        "21": 3925,
+        "63": 3883,
+        "126": 3820
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000931",
+      "name": "800可选",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09774716067771361,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "399989",
+      "name": "中证医疗",
+      "rows": 2719,
+      "start": "2015-08-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.1356737597457418,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 2462,
+        "21": 2446,
+        "63": 2404,
+        "126": 2341
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000933",
+      "name": "中证医药",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.10684192743863585,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 3941,
+        "21": 3925,
+        "63": 3883,
+        "126": 3820
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000934",
+      "name": "中证金融",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09363204094233579,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 3941,
+        "21": 3925,
+        "63": 3883,
+        "126": 3820
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000935",
+      "name": "中证信息",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.12331807349292001,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 3941,
+        "21": 3925,
+        "63": 3883,
+        "126": 3820
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000928",
+      "name": "中证能源",
+      "rows": 4198,
+      "start": "2009-07-03",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09417479636612502,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 3941,
+        "21": 3925,
+        "63": 3883,
+        "126": 3820
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000930",
+      "name": "800工业",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.10003346533548996,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.10411079518693045,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000906",
+      "name": "中证800",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09450198354588779,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000852",
+      "name": "中证1000",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.11394331367700217,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    },
+    {
+      "code": "000985",
+      "name": "中证全指",
+      "rows": 5289,
+      "start": "2005-01-04",
+      "end": "2026-10-16",
+      "calendar_gaps": 0,
+      "max_absolute_daily_return": 0.09635439110574873,
+      "large_moves_over_15_percent": [],
+      "eligible_samples_after_252_session_lookback": {
+        "5": 5032,
+        "21": 5016,
+        "63": 4974,
+        "126": 4911
+      },
+      "formal_backtest_ready": false,
+      "note": "Release/backfill and point-in-time history not audited; price-only exploratory use."
+    }
+  ],
+  "community": [
+    {
+      "code": "801010",
+      "name": "申万农林牧渔",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801110",
+      "name": "申万家用电器",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801120",
+      "name": "申万食品饮料",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801130",
+      "name": "申万纺织服装",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801200",
+      "name": "申万商业贸易",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801210",
+      "name": "申万休闲服务",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801880",
+      "name": "申万汽车",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801150",
+      "name": "申万医药生物",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801780",
+      "name": "申万银行",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801790",
+      "name": "申万非银金融",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801080",
+      "name": "申万电子",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801750",
+      "name": "申万计算机",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801760",
+      "name": "申万传媒",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801770",
+      "name": "申万通信",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801020",
+      "name": "申万采掘",
+      "start": "2021-01-04",
+      "end": "2021-12-10",
+      "calendar_gaps": 3,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801140",
+      "name": "申万轻工制造",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801730",
+      "name": "申万电气设备",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801740",
+      "name": "申万国防军工",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801890",
+      "name": "申万机械设备",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801030",
+      "name": "申万化工",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801040",
+      "name": "申万钢铁",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801050",
+      "name": "申万有色金属",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801710",
+      "name": "申万建筑材料",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801180",
+      "name": "申万房地产",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801720",
+      "name": "申万建筑装饰",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801160",
+      "name": "申万公用事业",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801170",
+      "name": "申万交通运输",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    },
+    {
+      "code": "801230",
+      "name": "申万综合",
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "calendar_gaps": 10,
+      "baseline_training_selection": "excluded"
+    }
+  ],
+  "hs300_vendor_consistency": {
+    "compared_closes": 5289,
+    "max_absolute_difference_points": 0.01,
+    "differences_over_half_cent": 85,
+    "independent_origin_confirmed": false
+  },
+  "latest_probe_report": "data/reports/latest_probe_2026-10-18.json",
+  "missing_or_unaudited": [
+    "Official index launch dates, pre-launch backfill and historical methodology changes",
+    "Independent full-history price verification and authoritative holiday-calendar reconciliation",
+    "Unified OHLCV/turnover features (available in raw responses, not yet standardized)",
+    "Historical PE/PB/dividend yield, macro data and their actual publication timestamps",
+    "Total-return indices and ETF/fund NAV, distributions, fees and tracking error",
+    "Recent complete Shenwan industry histories and classification-version mappings"
+  ],
+  "leakage_controls_required": [
+    "Separate 5/21/63/126 trading-session labels and per-index evaluation",
+    "Purge training labels whose end is on or after the test boundary",
+    "Fit features, scaling, regime parameters and tuning within training windows only",
+    "Use forward-filtered state probabilities; never smoothed historical probabilities",
+    "Reserve a final untouched time interval; compare to simple baseline probabilities"
+  ]
+}
