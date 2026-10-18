@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "tasks": 40,
+  "source_prediction_rows_used": 23982,
+  "yearly_groups": 115,
+  "original_mae_rmse_bias_reproduced": true,
+  "model_training_called": false,
+  "sources_unchanged": true
+}

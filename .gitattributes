@@ -12,3 +12,5 @@ code/models/** -text
 code/models/**/*.lgb.txt whitespace=-blank-at-eol
 data/reports/training/** -text
 data/reports/training/**/*.csv whitespace=cr-at-eol
+data/reports/performance/** -text
+data/reports/performance/**/*.csv whitespace=cr-at-eol
