@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "task": "three_class_return",
+  "code": "000906",
+  "horizon": 5,
+  "features": [
+    "momentum_5",
+    "momentum_21",
+    "momentum_63",
+    "momentum_126",
+    "momentum_252",
+    "volatility_21",
+    "volatility_63",
+    "ma_gap_21",
+    "ma_gap_63",
+    "drawdown_252"
+  ],
+  "labels": [
+    "大跌",
+    "波动",
+    "大涨"
+  ],
+  "threshold": 0.05,
+  "classifier": {
+    "kind": "lightgbm_balanced",
+    "classes": [
+      0,
+      1,
+      2
+    ],
+    "file": "classification.lgb.txt",
+    "sha256": "5d303b5dc74df2bf3b21b415b4004ec459c65f03bb11c0fab9588e387ad8708c"
+  },
+  "regression_reference": {
+    "bundle": "code/models/20261018_5333c8a6_f18f8f5f_288545ff/latest/000906/5/model.json",
+    "sha256": "b300e2243c94db8f04fc5f2a7ac3160aa9a6b3994ebf71d473b5c047f1fc94b4"
+  },
+  "metadata": {
+    "run_id": "threeclass_20261018_7258daaf_6a5f7840",
+    "role": "latest",
+    "fit_samples": 5032,
+    "fit_feature_end": "2026-10-09",
+    "fit_label_end": "2026-10-16",
+    "test_status": "Exploratory comparison on previously observed historical test interval, NOT a fresh independent holdout",
+    "research_only": true,
+    "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b"
+  }
+}

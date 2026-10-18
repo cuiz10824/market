@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task": "three_class_return",
+  "code": "000932",
+  "horizon": 5,
+  "features": [
+    "momentum_5",
+    "momentum_21",
+    "momentum_63",
+    "momentum_126",
+    "momentum_252",
+    "volatility_21",
+    "volatility_63",
+    "ma_gap_21",
+    "ma_gap_63",
+    "drawdown_252"
+  ],
+  "labels": [
+    "大跌",
+    "波动",
+    "大涨"
+  ],
+  "threshold": 0.05,
+  "classifier": {
+    "kind": "constant",
+    "probabilities": [
+      0.05594619382451849,
+      0.867930296545399,
+      0.07612350963008255
+    ],
+    "requested_kind": "constant"
+  },
+  "regression_reference": {
+    "bundle": "code/models/20261018_5333c8a6_f18f8f5f_288545ff/holdout/000932/5/model.json",
+    "sha256": "58f2fc84d488a7636b7812f0349f7cff4e81c8506bf123574c0ee3159d35a3ff"
+  },
+  "metadata": {
+    "run_id": "threeclass_20261018_7258daaf_6a5f7840",
+    "role": "holdout",
+    "fit_samples": 3268,
+    "fit_feature_end": "2023-12-22",
+    "fit_label_end": "2023-12-29",
+    "test_status": "Exploratory comparison on previously observed historical test interval, NOT a fresh independent holdout",
+    "research_only": true,
+    "database_sha256": "f18f8f5fd871f4ae95a1c044d5a98f21e8d290d5fb9e8dd6bcffdaf621e1c31b"
+  }
+}

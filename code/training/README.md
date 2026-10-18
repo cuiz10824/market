@@ -1,5 +1,21 @@
 # 离线训练和测试
 
+## 新增：±5%三分类实验
+
+新增分类独立于原二分类实验：大跌 `<−5%`，波动 `−5%至+5%`（含边界），大涨 `>+5%`，各期限阈值相同。原数值回归直接引用原模型及校验值，既不重新训练，也不重新选择。模型入口为 `code/models/latest_three_class.json`。
+
+固定协议见 [three_class_protocol.json](three_class_protocol.json)。比较历史类别频率、始终波动、逻辑回归、浅层 LightGBM 和类别均衡加权版本，以滚动验证的三类宏平均 F1 选型。准确率、各类召回率、混淆矩阵及基准同时报告，防止短期波动类占多数掩盖识别能力。本次沿用此前已观察的历史测试期，属于探索性复测，不能称为新的独立验证。
+
+仓库根目录运行：
+
+```sh
+OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 .venv/bin/python code/training/train_three_class.py
+.venv/bin/python code/training/verify_three_class.py
+.venv/bin/python code/training/report_three_class.py
+```
+
+同一源码和协议实验拒绝覆盖；已有结果只需复验或生成报告。报告位于 `data/reports/training/threeclass_*/`，包含逐任务及逐年 CSV、逐条预测、原模型不变性核对与完整混淆矩阵。后文记录原二分类实验，保留原始结果以供比较。
+
 这里负责构造样本、滚动验证选模型、独立历史测试和保存参数。日常推理只加载保存的参数，入口契约另见 [inference](../inference/README.md)，不在日常程序内重新训练。
 
 ## 已完成的训练

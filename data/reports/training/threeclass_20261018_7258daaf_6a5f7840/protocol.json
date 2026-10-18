@@ -1,0 +1,86 @@
+{
+  "seed": 20261018,
+  "codes": [
+    "000300",
+    "000510",
+    "000932",
+    "000931",
+    "399989",
+    "000933",
+    "000934",
+    "000935",
+    "000928",
+    "000930",
+    "000905",
+    "000906",
+    "000852",
+    "000985"
+  ],
+  "horizons": [
+    5,
+    21,
+    63,
+    126
+  ],
+  "lookback": 252,
+  "development_windows": [
+    [
+      "2018-01-01",
+      "2020-01-01"
+    ],
+    [
+      "2020-01-01",
+      "2022-01-01"
+    ],
+    [
+      "2022-01-01",
+      "2024-01-01"
+    ]
+  ],
+  "holdout_start": "2024-01-01",
+  "holdout_overrides": {
+    "000510": "2025-01-01"
+  },
+  "min_train_samples": 504,
+  "min_validation_samples": 60,
+  "logistic": {
+    "C": 0.1,
+    "max_iter": 2000
+  },
+  "lightgbm": {
+    "n_estimators": 100,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "min_child_samples": 100,
+    "reg_lambda": 10.0,
+    "n_jobs": 2,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "schema_version": 1,
+  "experiment": "three_class_5pct",
+  "threshold": 0.05,
+  "boundary_tolerance": 1e-12,
+  "labels": [
+    "大跌",
+    "波动",
+    "大涨"
+  ],
+  "label_rule": "down: r < -0.05; neutral: -0.05 <= r <= 0.05; up: r > 0.05; tolerance handles floating-point boundary noise only",
+  "classification_candidates": [
+    "constant",
+    "neutral",
+    "logistic",
+    "logistic_balanced",
+    "lightgbm",
+    "lightgbm_balanced"
+  ],
+  "selection": "maximize equal-fold macro F1; fixed three labels; tie-break by mean multiclass log-loss; keep simple baseline if gain < 0.005",
+  "min_macro_f1_gain": 0.005,
+  "base_run": "20261018_5333c8a6_f18f8f5f_288545ff",
+  "regression_policy": "Reuse original holdout/latest bundles verbatim; never fit or select a regression model",
+  "test_status": "Exploratory comparison on previously observed historical test interval, NOT a fresh independent holdout",
+  "probability_calibration": "not performed"
+}
