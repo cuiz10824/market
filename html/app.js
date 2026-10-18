@@ -44,7 +44,7 @@ function render(next){
   const zero=payload.rows.reduce((n,row)=>n+Object.values(row.models).filter(v=>v==='零变化基准').length,0);
   const details=[offline?'当前为保存的快照。双击「启动网页.bat」可更新行情并重新预测。':'启动时和每30分钟检查已收盘行情；页面每60秒读取最新结果。',
     `${payload.rows.length*M.horizons.length}个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
-    payload.enhancement?.status==='no_validation_upgrade'?'本轮量价增强模型未通过验证替换门槛，继续展示旧模型结果。':'',
+    payload.enhancement?.status==='no_validation_upgrade'?`${payload.enhancement.lookback_sessions===1260?'五年历史特征':'本轮量价增强'}模型未通过验证替换门槛，继续展示旧模型结果。`:'',
     payload.enhancement?.upgraded_tasks>0?`${payload.enhancement.upgraded_tasks}项已启用通过验证的量价增强模型。`:'',
     errors?`${errors}个指数联网更新失败，保留已有数据与对应日期。`:'',
     payload.rows.some(r=>r.enhancement_error)?'部分量价特征未就绪，对应预测沿用旧模型。':'',

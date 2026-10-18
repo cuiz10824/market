@@ -1,0 +1,39 @@
+{
+  "training_unittests": {
+    "passed": 33,
+    "failed": 0
+  },
+  "daily_unittests": {
+    "passed": 10,
+    "failed": 0,
+    "includes": "temporary forced five-year approval, native output parity and incomplete-history fallback"
+  },
+  "browser_model_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "independent_native_replay": {
+    "passed": true,
+    "bundles": 60,
+    "candidate_predictions": 95928,
+    "checks": [
+      "native output parity",
+      "actual labels",
+      "source and original artifact SHA256",
+      "feature order and 252/1260 lookbacks",
+      "training rows and date cutoffs",
+      "validation-only choice rule"
+    ]
+  },
+  "browser": {
+    "live_eight_by_five": true,
+    "five_year_gate_notice": true,
+    "csv_download": true,
+    "mobile_width_390": true,
+    "isolated_single_html_with_and_without_javascript": true,
+    "page_errors": 0,
+    "file_protocol_test": "not run: managed Chromium blocks file navigation; isolated HTML served on temporary loopback HTTP"
+  },
+  "approved_five_year_upgrades": 0,
+  "production_behavior": "retain validation-selected legacy outputs; do not deploy candidates based on test performance"
+}

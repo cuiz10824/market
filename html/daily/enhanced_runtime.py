@@ -17,9 +17,15 @@ def read(path):return json.loads(path.read_text(encoding='utf-8'))
 
 
 class EnhancedRuntime:
-    def __init__(self,root,codes,store=None):
+    def __init__(self,root,codes,store=None,pointer_name='latest_enhanced.json'):
         self.root=root;self.codes=codes;self.lock=threading.RLock()
-        pointer=read(root/'code/models/latest_enhanced.json');index=read(root/pointer['index'])
+        self.lookback=252
+        self.build_frames=build_frames;self.feature_names=feature_names
+        if pointer_name=='latest_five_year.json':
+            from daily.cycle_features import build_frames as cycle_frames,feature_names as cycle_names
+            self.lookback=1260;self.build_frames=cycle_frames;self.feature_names=cycle_names
+        elif pointer_name!='latest_enhanced.json':raise ValueError('Unknown feature profile')
+        pointer=read(root/'code/models'/pointer_name);index=read(root/pointer['index'])
         checksums=read(root/pointer['verification'])['all_saved_file_sha256']
         self.run_id=pointer['run_id'];self.models={};self.pending={};self.errors={}
         for task in index['tasks']:
@@ -32,7 +38,7 @@ class EnhancedRuntime:
         self.tasks={(t['code'],t['horizon']):t for t in index['tasks'] if t['code'] in codes and t['choice']!='legacy'}
         if not self.tasks:
             self.bars={};return
-        expected=feature_names(codes)
+        expected=self.feature_names(codes)
         for model in self.models.values():
             if tuple(model.bundle['features'])!=expected:raise ValueError('Enhanced feature/order mismatch')
         database=root/'data/enhanced/market_ohlcv.sqlite3'
@@ -74,8 +80,8 @@ class EnhancedRuntime:
                 if new:self.bars[code]=pd.concat([self.bars[code],pd.DataFrame(new)],ignore_index=True)
 
     def apply(self,rows,calendar):
-        if not self.tasks:return {'run_id':self.run_id,'upgraded_tasks':0,'status':'no_validation_upgrade'}
-        frames=build_frames(self.bars,self.codes,calendar)
+        if not self.tasks:return {'run_id':self.run_id,'lookback_sessions':self.lookback,'upgraded_tasks':0,'status':'no_validation_upgrade'}
+        frames=self.build_frames(self.bars,self.codes,calendar)
         failed=[];used=0
         for row in rows:
             code=row['code'];date=row['as_of']
@@ -91,7 +97,7 @@ class EnhancedRuntime:
                 value=float(model.predict([feature.to_dict()])[0])*100
                 row['forecast'][str(h)]=value
                 family='CatBoost' if task['choice'].startswith('catboost') else 'LightGBM'
-                row['models'][str(h)]=family+'量价回归';used+=1
+                row['models'][str(h)]=family+('五年量价回归' if self.lookback==1260 else '量价回归');used+=1
             if code in self.errors:row['enhancement_error']=self.errors[code]
-        return {'run_id':self.run_id,'upgraded_tasks':used,'eligible_upgrades':len(self.tasks),
+        return {'run_id':self.run_id,'lookback_sessions':self.lookback,'upgraded_tasks':used,'eligible_upgrades':len(self.tasks),
                 'status':'applied' if not failed else 'partial_legacy_fallback','failed_codes':sorted(set(failed))}

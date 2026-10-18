@@ -1,0 +1,262 @@
+{
+  "run_id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959",
+  "approved_upgrades": 0,
+  "aggregate_by_horizon": [
+    {
+      "horizon": 1,
+      "legacy": {
+        "mae_pp": 1.0177472289734486,
+        "bias_pp": -0.030509613808685915,
+        "error_std_pp": 1.4488529974518485,
+        "rmse_pp": 1.4496038926272812
+      },
+      "lightgbm_mae_1y": {
+        "mae_pp": 1.0267059028511256,
+        "bias_pp": -0.05021727287741508,
+        "error_std_pp": 1.448729581659232,
+        "rmse_pp": 1.449993643101289
+      },
+      "catboost_mae_1y": {
+        "mae_pp": 1.0207883520435808,
+        "bias_pp": -0.041942034421383244,
+        "error_std_pp": 1.4418190703207547,
+        "rmse_pp": 1.4426963450054289
+      },
+      "lightgbm_mae_5y": {
+        "mae_pp": 1.0283007366837797,
+        "bias_pp": 0.014389097865752438,
+        "error_std_pp": 1.4483173921434838,
+        "rmse_pp": 1.4487304310033258
+      },
+      "catboost_mae_5y": {
+        "mae_pp": 1.0191469593633857,
+        "bias_pp": 0.01310493883541086,
+        "error_std_pp": 1.4436004432705083,
+        "rmse_pp": 1.4437985515881957
+      }
+    },
+    {
+      "horizon": 5,
+      "legacy": {
+        "mae_pp": 2.343405073832085,
+        "bias_pp": -0.16959804839800902,
+        "error_std_pp": 3.3859109585957565,
+        "rmse_pp": 3.394773952145157
+      },
+      "lightgbm_mae_1y": {
+        "mae_pp": 2.4080471898719917,
+        "bias_pp": -0.19375661467771796,
+        "error_std_pp": 3.4353550341056227,
+        "rmse_pp": 3.445490306900682
+      },
+      "catboost_mae_1y": {
+        "mae_pp": 2.3883777546032565,
+        "bias_pp": -0.2623871470334978,
+        "error_std_pp": 3.4329778895014895,
+        "rmse_pp": 3.4469321060426292
+      },
+      "lightgbm_mae_5y": {
+        "mae_pp": 2.4656718530165485,
+        "bias_pp": 0.5307889417975367,
+        "error_std_pp": 3.4287646625873087,
+        "rmse_pp": 3.4782974514046616
+      },
+      "catboost_mae_5y": {
+        "mae_pp": 2.42959895898976,
+        "bias_pp": 0.4627283628165137,
+        "error_std_pp": 3.412140344333939,
+        "rmse_pp": 3.4493542181990837
+      }
+    },
+    {
+      "horizon": 21,
+      "legacy": {
+        "mae_pp": 4.966655938225533,
+        "bias_pp": -0.8755291127719027,
+        "error_std_pp": 6.628678698054205,
+        "rmse_pp": 6.735540442612777
+      },
+      "lightgbm_mae_1y": {
+        "mae_pp": 5.1192858736610685,
+        "bias_pp": -0.9503405898750767,
+        "error_std_pp": 6.740033870799316,
+        "rmse_pp": 6.884727304879254
+      },
+      "catboost_mae_1y": {
+        "mae_pp": 5.0131928606719445,
+        "bias_pp": -0.9073936868658937,
+        "error_std_pp": 6.7287211321560605,
+        "rmse_pp": 6.846624753390666
+      },
+      "lightgbm_mae_5y": {
+        "mae_pp": 5.695632720677464,
+        "bias_pp": 1.3307039066352946,
+        "error_std_pp": 7.042060200413891,
+        "rmse_pp": 7.236071956878361
+      },
+      "catboost_mae_5y": {
+        "mae_pp": 5.485176979508147,
+        "bias_pp": 1.0152739149863914,
+        "error_std_pp": 6.930122287004302,
+        "rmse_pp": 7.078376033510271
+      }
+    },
+    {
+      "horizon": 63,
+      "legacy": {
+        "mae_pp": 8.667336050460861,
+        "bias_pp": -2.5952489572052317,
+        "error_std_pp": 10.529726174207529,
+        "rmse_pp": 11.261092893910853
+      },
+      "lightgbm_mae_1y": {
+        "mae_pp": 9.425718983991562,
+        "bias_pp": -2.3973068762821277,
+        "error_std_pp": 11.535109158732125,
+        "rmse_pp": 12.164037628861351
+      },
+      "catboost_mae_1y": {
+        "mae_pp": 9.106979265052722,
+        "bias_pp": -2.4176977067205283,
+        "error_std_pp": 11.23706638023689,
+        "rmse_pp": 11.855861433276175
+      },
+      "lightgbm_mae_5y": {
+        "mae_pp": 10.2958068502048,
+        "bias_pp": 3.7338167912487634,
+        "error_std_pp": 11.354856662303572,
+        "rmse_pp": 12.536677354248289
+      },
+      "catboost_mae_5y": {
+        "mae_pp": 11.102136340519165,
+        "bias_pp": 4.624141248984149,
+        "error_std_pp": 11.95254856317557,
+        "rmse_pp": 13.392584330237709
+      }
+    },
+    {
+      "horizon": 126,
+      "legacy": {
+        "mae_pp": 12.306165499350993,
+        "bias_pp": -6.339250667710338,
+        "error_std_pp": 12.170098442016426,
+        "rmse_pp": 15.054442085176767
+      },
+      "lightgbm_mae_1y": {
+        "mae_pp": 14.612781738786811,
+        "bias_pp": -3.5450482001560655,
+        "error_std_pp": 15.495065613160016,
+        "rmse_pp": 17.83891996397068
+      },
+      "catboost_mae_1y": {
+        "mae_pp": 14.21187286345634,
+        "bias_pp": -3.3775819216536194,
+        "error_std_pp": 15.083465675933013,
+        "rmse_pp": 17.273784598089186
+      },
+      "lightgbm_mae_5y": {
+        "mae_pp": 16.917374144854463,
+        "bias_pp": 9.448137735713498,
+        "error_std_pp": 15.9853936420882,
+        "rmse_pp": 20.491563987519548
+      },
+      "catboost_mae_5y": {
+        "mae_pp": 17.744040888836572,
+        "bias_pp": 10.365800943081613,
+        "error_std_pp": 17.325289242033648,
+        "rmse_pp": 22.010845396354213
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "code": "000510",
+      "name": "中证A500",
+      "raw_start": "2005-01-04",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2010-07-15",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "raw_start": "2005-01-04",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2010-07-15",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000928",
+      "name": "能源",
+      "raw_start": "2009-07-03",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2014-09-10",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000933",
+      "name": "医药",
+      "raw_start": "2009-07-03",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2014-09-10",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000932",
+      "name": "消费",
+      "raw_start": "2009-07-03",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2014-09-10",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000930",
+      "name": "制造",
+      "raw_start": "2005-01-04",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2010-07-15",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000934",
+      "name": "金融",
+      "raw_start": "2009-07-03",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2014-09-10",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    },
+    {
+      "code": "000935",
+      "name": "科技",
+      "raw_start": "2009-07-03",
+      "raw_end": "2026-10-16",
+      "eligible_training_origin_start": "2014-09-10",
+      "latest_input_start": "2021-07-30",
+      "latest_input_end": "2026-10-16",
+      "past_sessions": 1260,
+      "observed_closes": 1261
+    }
+  ],
+  "interpretation": "Exploratory previously observed test dates; five-year cycle hypothesis not established."
+}

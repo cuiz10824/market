@@ -1,5 +1,7 @@
 # 离线训练和测试
 
+新增 [五年历史输入实验](FIVE_YEAR.md)：单次输入从252扩展到1260个交易日，142特征，训练LightGBM/CatBoost并设置相同训练日期的一年对照。使用独立协议、模型与报告，不覆盖旧结果；日常仅采用验证通过的五年候选。
+
 最新 [量价增强实验](ENHANCED.md) 已实际完成CatBoost与改进LightGBM的4种候选训练、测试和原生模型重载。结果、均值/标准差、逐日预测及未通过替换门槛的失败结果均保留。Kronos-mini官方源码与依赖已准备，但权重域名403阻塞，尚无Kronos推理成绩。
 
 当前8指数×5期限的 [误差均值与标准差报告](../../data/reports/performance/eight_indices_2026-10-18/README.md) 已从23,982条保存的历史测试预测重算。包含MAE、平均偏差、带符号误差标准差、绝对误差标准差、RMSE、零预测基准和115组分年统计。标准差采用ddof=0，单位为百分点；这不是重新训练或新模型的成绩。复现：`python code/training/report_return_errors.py`。

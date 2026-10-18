@@ -8,6 +8,8 @@ Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库�
 
 ## 目录与流程
 
+五年实验入口见 [FIVE_YEAR.md](../code/training/FIVE_YEAR.md)。有 `latest_five_year.json` 时优先读取五年实验选择，获批任务使用1260交易日的142特征，未获批时保留旧模型并提示；不得把“研究候选使用五年输入”误解为所有线上预测都已替换为五年模型。
+
 - `daily/feeds.py`：腾讯日线，失败尝试东方财富；代码、名称、日期和开高低收校验，15:10前剔除当日日线。
 - `daily/service.py`：原数据库 + `data/daily/market.sqlite3` 增量；以沪深300新日线扩展观测交易日历，校验其他指数连续性。启动时只加载40份回归参数（8份单日及32份长周期），并仅为8个指数采集新行情；范围由data/active_indices.json统一配置。
 - `daily/features.py`：过去252个交易日的特征，与训练时逐值核对一致。

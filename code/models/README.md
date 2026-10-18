@@ -1,5 +1,7 @@
 # 已训练参数
 
+五年历史输入索引：[latest_five_year.json](latest_five_year.json)。独立保存60个原生模型包（LightGBM/CatBoost×一年对照/五年版×5期限×两个测试切分及latest），输入分别为80/142特征；5年需要1261个连续观测。仅五年版有替换资格，本轮0/40通过，日常仍用旧模型。见 [五年实验](../training/FIVE_YEAR.md)。
+
 量价增强指针：[latest_enhanced.json](latest_enhanced.json)。本轮保存60个原生CatBoost/LightGBM模型包及40组验证选择，0组通过替换门槛，当前网页继续使用旧模型。新候选与失败结果均保留，详情见 [增强实验](../training/ENHANCED.md)。
 
 当前日常模型范围由 [active_indices.json](../../data/active_indices.json)控制：8指数×5期限，共40份latest模型。原14指数权重和索引保留，未选指数既不加载也不采集；本次只缩减范围，所选模型的参数与预测不变。

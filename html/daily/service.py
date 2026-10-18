@@ -74,10 +74,11 @@ class DailyService:
         if set(self.models)!={(i['code'],h) for i in self.items for h in HORIZONS}:
             raise ValueError('模型集合不完整')
         self.enhanced=None
-        if (self.root/'code/models/latest_enhanced.json').exists():
+        enhanced_pointer='latest_five_year.json' if (self.root/'code/models/latest_five_year.json').exists() else 'latest_enhanced.json'
+        if (self.root/'code/models'/enhanced_pointer).exists():
             from daily.enhanced_runtime import EnhancedRuntime
             self.enhanced=EnhancedRuntime(self.root,[item['code'] for item in self.items],
-                store=self.store.with_name(self.store.stem+'_ohlcv.sqlite3'))
+                store=self.store.with_name(self.store.stem+'_ohlcv.sqlite3'),pointer_name=enhanced_pointer)
             self.model_runs['enhanced']=self.enhanced.run_id
             if fetcher is fetch_recent and self.enhanced.tasks:self.fetcher=self.enhanced.fetch
         with zipfile.ZipFile(self.root/'data/sources/investment_data/2026-10-17/selected.zip') as z:
