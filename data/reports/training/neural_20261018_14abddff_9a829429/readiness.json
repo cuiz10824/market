@@ -1,0 +1,35 @@
+{
+  "training_unittests": {
+    "passed": 37,
+    "failed": 0
+  },
+  "daily_unittests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "frontend_model_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "independent_replay": {
+    "passed": true,
+    "native_bundles": 72,
+    "ensemble_test_records": 95928,
+    "checks": [
+      "weights and saved outputs",
+      "source/archive SHA256",
+      "original model/database preservation",
+      "per-head label cutoff and known masks",
+      "screened lookbacks and frozen refit epochs",
+      "ensemble values and validation-only choices",
+      "daily outputs remain unchanged"
+    ]
+  },
+  "failed_attempts": {
+    "count": 1,
+    "stage": "date metadata before first checkpoint export",
+    "performance_result": false
+  },
+  "research_only": true,
+  "auto_deploy": false
+}

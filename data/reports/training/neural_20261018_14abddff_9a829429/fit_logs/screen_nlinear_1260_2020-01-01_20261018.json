@@ -1,0 +1,32 @@
+{
+  "selected_epoch": 2,
+  "epochs_executed": 5,
+  "history": [
+    {
+      "epoch": 1,
+      "training_scaled_mae": 1.2442004897377708,
+      "validation_scaled_mae": 1.2124377308974474
+    },
+    {
+      "epoch": 2,
+      "training_scaled_mae": 1.1984686038710854,
+      "validation_scaled_mae": 1.2107845617984796
+    },
+    {
+      "epoch": 3,
+      "training_scaled_mae": 1.1747975674542515,
+      "validation_scaled_mae": 1.2251889863617955
+    },
+    {
+      "epoch": 4,
+      "training_scaled_mae": 1.1377742019566623,
+      "validation_scaled_mae": 1.2201956458189354
+    },
+    {
+      "epoch": 5,
+      "training_scaled_mae": 1.1153968084942212,
+      "validation_scaled_mae": 1.2191355484185038
+    }
+  ],
+  "parameter_count": 1311
+}

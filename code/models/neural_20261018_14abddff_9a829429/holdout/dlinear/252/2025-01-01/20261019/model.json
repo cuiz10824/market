@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task": "shared_direct_neural_return",
+  "architecture": "dlinear",
+  "lookback": 252,
+  "sequence_length": 51,
+  "channels": [
+    "log_close_vs_origin_close",
+    "opening_gap",
+    "high_low_range",
+    "intrabar_return",
+    "relative_daily_volume",
+    "block_return"
+  ],
+  "codes": [
+    "000510",
+    "000300",
+    "000928",
+    "000933",
+    "000932",
+    "000930",
+    "000934",
+    "000935"
+  ],
+  "horizons": [
+    1,
+    5,
+    21,
+    63,
+    126
+  ],
+  "target_scales": [
+    0.009999999776482582,
+    0.022360678762197495,
+    0.04582575708627701,
+    0.07937254011631012,
+    0.1122497171163559
+  ],
+  "metadata": {
+    "run_id": "neural_20261018_14abddff_9a829429",
+    "protocol_sha256": "14abddffcb5b959bf5b93d05c8d37c805f0adc20acc3dd426bc3920fa5f69d7e",
+    "source_sha256": {
+      "code/training/train_neural.py": "2162431f4b23faac51447f5d41521a192c780f0327b088d9cc16421f0d40ca23",
+      "code/training/neural_engine.py": "4c892911c0ce523ed5f24257368a020aa3f2083b6b6d05366ea0b9a5e3f739a8",
+      "code/research/sequence_data.py": "a1afa07e5f58f187a89313ae46c6c6e3d60a248cd31a71caeb738ac128ab6c7d",
+      "code/research/neural_models.py": "66cd1b388df95616c3eaa2b59bf306232167c6d2f964f55a53d650d1c0f19a3e",
+      "code/training/train_enhanced.py": "a23d8b8247229f98ca35136f7066d3a84b32f4739dea2abce33ac4c2c665f323",
+      "data/active_indices.json": "7af9aab01767c4754add5c699799752de0ea22c1a7bcd461e54160ae662775a1"
+    },
+    "database_sha256": "95bacd54af3a5ab5d102ac836b67d0ea5969da79f585146f647599a58e6c4511",
+    "research_only": true,
+    "versions": {
+      "torch": "2.14.1+cpu",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "safetensors": "0.8.0"
+    },
+    "role": "holdout",
+    "seed": 20261019,
+    "cutoff": "2025-01-01",
+    "fit_origin_start": "2010-03-15",
+    "fit_origin_end": "2024-12-27",
+    "training_rows": 4665,
+    "label_counts": {
+      "1": 4665,
+      "5": 4657,
+      "21": 4633,
+      "63": 4561,
+      "126": 4465
+    },
+    "fit_label_ends": {
+      "1": "2024-12-30",
+      "5": "2024-12-27",
+      "21": "2024-12-30",
+      "63": "2024-12-25",
+      "126": "2024-12-30"
+    },
+    "selected_epoch": 2,
+    "epochs_executed": 2,
+    "parameter_count": 566
+  },
+  "weights": {
+    "file": "weights.safetensors",
+    "sha256": "c68cba4638a59852f97fc6b99ea80380a4d5a3bee9d531949828bec32028fba1"
+  }
+}

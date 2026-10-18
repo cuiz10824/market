@@ -1,0 +1,6 @@
+{
+  "status": "failed_before_first_checkpoint_export",
+  "reason": "NumPy2 does not implement min/max reduction on Unicode date arrays",
+  "saved_models": 0,
+  "counted_as_accuracy_result": false
+}

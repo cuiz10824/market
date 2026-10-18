@@ -1,0 +1,19 @@
+{
+  "selected_epoch": 3,
+  "epochs_executed": 3,
+  "history": [
+    {
+      "epoch": 1,
+      "training_scaled_mae": 1.1740261004084633
+    },
+    {
+      "epoch": 2,
+      "training_scaled_mae": 1.169508383387611
+    },
+    {
+      "epoch": 3,
+      "training_scaled_mae": 1.1646594632239569
+    }
+  ],
+  "parameter_count": 306
+}

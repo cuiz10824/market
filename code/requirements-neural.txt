@@ -1,0 +1,4 @@
+-r requirements-enhanced.txt
+# Install the official CPU torch wheel first; see training/NEURAL.md.
+torch==2.14.1
+safetensors==0.8.0

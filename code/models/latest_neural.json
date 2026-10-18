@@ -1,0 +1,8 @@
+{
+  "run_id": "neural_20261018_14abddff_9a829429",
+  "research_only": true,
+  "auto_deploy": false,
+  "index": "code/models/neural_20261018_14abddff_9a829429/index.json",
+  "report": "data/reports/training/neural_20261018_14abddff_9a829429/summary.json",
+  "verification": "data/reports/training/neural_20261018_14abddff_9a829429/verification.json"
+}

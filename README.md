@@ -2,6 +2,8 @@
 
 本地H5网页：上栏显示实际涨跌，下栏显示已训练回归模型的未来累计涨跌幅。白底黑字，上涨红色、下跌绿色。当前仅8个方向：中证A500、沪深300、能源、医药、消费、制造、金融、科技，各一个代表指数。
 
+最新 [共享神经网络实验](data/reports/training/neural_20261018_14abddff_9a829429/README.md) 已训练DLinear/NLinear、小TCN、小PatchTST，验证比较一年/三年/五年输入，保存72个安全权重包。测试前选出的研究组合半年MAE由12.306降至11.613个百分点，一月/三月未改善；仅作研究，网页仍采用已有模型。入口及复现见 [NEURAL.md](code/training/NEURAL.md)。
+
 已完成 [五年历史输入与一年公平对照](data/reports/training/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/README.md)：单次输入由252扩展到1260个交易日，使用142个特征；训练仍采用全部合格历史样本。LightGBM/CatBoost一年与五年四候选均实际训练测试，0/40任务通过验证替换门槛，网页保留旧模型并提示。运行方式见 [五年训练说明](code/training/FIVE_YEAR.md)。
 
 ## Windows 使用
