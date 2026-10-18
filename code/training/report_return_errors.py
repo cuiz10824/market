@@ -35,6 +35,7 @@ def error_statistics(predicted,actual):
             'actual_mean_pp':statistics.mean(actual)*100,'mae_pp':statistics.mean(absolute),
             'bias_pp':bias,'error_variance_pp2':variance,'error_std_pp':math.sqrt(variance),
             'absolute_error_variance_pp2':statistics.pvariance(absolute),
+            'absolute_error_std_pp':statistics.pstdev(absolute),
             'mse_pp2':mse,'rmse_pp':math.sqrt(mse)}
 
 
@@ -51,8 +52,14 @@ def task_statistics(rows):
             'mae_improvement_vs_zero_pp':zero['mae_pp']-selected['mae_pp'],
             'mae_improvement_vs_zero_fraction':(zero['mae_pp']-selected['mae_pp'])/zero['mae_pp'] if zero['mae_pp'] else None,
             'variance_reduction_vs_zero_pp2':zero['error_variance_pp2']-selected['error_variance_pp2'],
+            'std_reduction_vs_zero_pp':zero['error_std_pp']-selected['error_std_pp'],
             'zero_predictions':sum(v==0 for v in predicted),'nonoverlapping_intervals':nonoverlap}
     return result
+
+
+def display_statistics(metrics):
+    # Squared-unit moments stay in JSON for audit; tables/CSV use percentage points.
+    return {k:v for k,v in metrics.items() if k not in ('error_variance_pp2','absolute_error_variance_pp2','mse_pp2')}
 
 
 def csvwrite(path,rows):
@@ -103,25 +110,25 @@ def run():
             tasks.append(task)
             flat.append({'code':item['code'],'name':item['name'],'display_name':item['display_name'],
                          'horizon':h,'model':model,'test_start':task['test_start'],'test_origin_end':task['test_origin_end'],
-                         'last_label_end':task['last_label_end'],**stats['selected'],
+                         'last_label_end':task['last_label_end'],**display_statistics(stats['selected']),
                          'zero_mae_pp':stats['zero']['mae_pp'],'zero_bias_pp':stats['zero']['bias_pp'],
-                         'zero_error_variance_pp2':stats['zero']['error_variance_pp2'],
+                         'zero_error_std_pp':stats['zero']['error_std_pp'],
                          'mae_improvement_vs_zero_pp':stats['mae_improvement_vs_zero_pp'],
-                         'variance_reduction_vs_zero_pp2':stats['variance_reduction_vs_zero_pp2'],
+                         'std_reduction_vs_zero_pp':stats['std_reduction_vs_zero_pp'],
                          'zero_predictions':stats['zero_predictions'],'nonoverlapping_intervals':stats['nonoverlapping_intervals']})
             for year in sorted({r['date'][:4] for r in rows}):
                 subset=[r for r in rows if r['date'].startswith(year)]
                 metrics=task_statistics(subset)
                 yearly.append({'code':item['code'],'display_name':item['display_name'],'horizon':h,
-                               'origin_year':year,'model':model,**metrics['selected'],
+                               'origin_year':year,'model':model,**display_statistics(metrics['selected']),
                                'zero_mae_pp':metrics['zero']['mae_pp'],
-                               'zero_error_variance_pp2':metrics['zero']['error_variance_pp2'],
+                               'zero_error_std_pp':metrics['zero']['error_std_pp'],
                                'mae_improvement_vs_zero_pp':metrics['mae_improvement_vs_zero_pp']})
     aggregate=[]
     for h in HORIZONS:
         selected=[t for t in tasks if t['horizon']==h]
         pooled=[r for code in codes for r in groups[(code,h)]]
-        fields=('mae_pp','bias_pp','error_variance_pp2','error_std_pp','absolute_error_variance_pp2','rmse_pp')
+        fields=('mae_pp','bias_pp','error_variance_pp2','error_std_pp','absolute_error_variance_pp2','absolute_error_std_pp','rmse_pp')
         pooled_stats=task_statistics(sorted(pooled,key=lambda r:r['date']))
         pooled_stats.pop('nonoverlapping_intervals')  # Intervals are defined per index, not across indices.
         aggregate.append({'horizon':h,'tasks':len(selected),'test_rows':len(pooled),
@@ -135,53 +142,54 @@ def run():
     summary={'as_of':date,'source_runs':source_runs,'source_sha256':source_sha,
              'method':{'error':'100*(predicted_decimal_return-actual_decimal_return)',
                        'mean':'signed error mean (bias); separately report MAE',
-                       'variance':'population variance of signed errors, ddof=0, unit percentage-point squared',
-                       'absolute_error_variance':'population variance of absolute errors, ddof=0',
+                       'standard_deviation':'population standard deviation of signed errors, ddof=0, unit percentage points',
+                       'internal_variance_fields':'retained in JSON for audit; not shown in tables or CSV',
+                       'absolute_error_standard_deviation':'population standard deviation of absolute errors, ddof=0, unit percentage points',
                        'aggregate':'equal-index means; pooled moments separately labeled',
                        'model_role':'saved holdout predictions; not latest-refit independent evaluation'},
              'tasks':tasks,'aggregate_by_horizon':aggregate}
     write(folder/'summary.json',summary)
     csvwrite(folder/'by_index_horizon.csv',flat)
     csvwrite(folder/'by_year_index_horizon.csv',yearly)
-    lines=['# 预测涨跌幅与真实涨跌幅的差距：均值与方差','',
+    lines=['# 预测涨跌幅与真实涨跌幅的差距：均值与标准差','',
            '范围为当前8个指数×下一交易日、一周、一月、三月、六月，共40组。使用已经保存的历史测试预测重新统计，未重新训练、未更换模型。CatBoost、Kronos等候选尚未在本项目训练，本表不包含其成绩。','',
            '## 统计口径','',
            '- 误差 e = 预测涨跌幅 − 真实涨跌幅，先换算为百分点。正误差表示预测偏高，负误差表示预测偏低。',
            '- 平均偏差 = mean(e)；平均绝对误差 MAE = mean(|e|)。正负误差会抵消，平均偏差接近0不能单独说明准确。',
-           '- 误差方差 = mean((e − mean(e))²)，采用总体方差ddof=0，单位为百分点²。另保存绝对误差方差、标准差、RMSE。',
-           '- MSE = 误差方差 + 平均偏差²；MSE = 绝对误差方差 + MAE²。小方差也可能伴随很大的系统偏差。',
-           '- 以下汇总对8个指数等权平均；“平均方差”是各指数方差的均值，不是把全部指数混在一起计算的方差。混合样本指标单列在JSON的pooled中。',
+           '- 误差标准差 = sqrt(mean((e − mean(e))²))，采用总体标准差ddof=0，单位为百分点。另列绝对误差标准差和RMSE。',
+           '- 标准差描述误差围绕平均偏差的分散程度，不是误差上限或置信区间；小标准差也可能伴随很大的系统偏差。',
+           '- 以下汇总先对每个指数计算标准差，再取8个指数的算术平均；不是对上次汇总方差直接开根号。混合样本指标单列在JSON的pooled中。',
            '- 一般测试从2024-01-02起，中证A500从2025-01-02起。标签截至2026-10-16，各期限可用预测起点不同。测试对应holdout固定参数，不能当作网页latest重训参数的新独立测试成绩。','',
            '## 按期限汇总','',
-           '|期限|平均绝对误差MAE|平均偏差|平均误差方差|平均标准差|零预测MAE|MAE优于零预测|',
-           '|---|---:|---:|---:|---:|---:|---:|']
+           '|期限|平均绝对误差MAE|平均偏差|平均误差标准差|零预测MAE|MAE优于零预测|',
+           '|---|---:|---:|---:|---:|---:|']
     for row in aggregate:
         m=row['index_equal_weight'];z=row['zero_index_equal_weight']
-        lines.append(f'|{NAMES[row["horizon"]]}|{m["mae_pp"]:.3f}|{m["bias_pp"]:+.3f}|{m["error_variance_pp2"]:.3f}|{m["error_std_pp"]:.3f}|{z["mae_pp"]:.3f}|{row["mae_better_than_zero"]}/8|')
-    lines+=['','MAE、平均偏差、标准差为百分点；方差为百分点²。不同量纲的数字不能直接比较。','',
-            '## 各指数：平均绝对误差 / 误差方差','',
-            '每格前者为MAE（百分点），后者为带符号误差的总体方差（百分点²）。','',
+        lines.append(f'|{NAMES[row["horizon"]]}|{m["mae_pp"]:.3f}|{m["bias_pp"]:+.3f}|{m["error_std_pp"]:.3f}|{z["mae_pp"]:.3f}|{row["mae_better_than_zero"]}/8|')
+    lines+=['','MAE、平均偏差、标准差、RMSE均使用百分点。','',
+            '## 各指数：平均绝对误差 / 误差标准差','',
+            '每格前者为MAE（百分点），后者为带符号误差的总体标准差（百分点）。','',
             '|方向 / 指数|下一交易日|一周|一月|三月|六月|','|---|---:|---:|---:|---:|---:|']
     lookup={(t['code'],t['horizon']):t for t in tasks}
     for item in items:
         cells=[]
         for h in HORIZONS:
-            m=lookup[(item['code'],h)]['selected'];cells.append(f'{m["mae_pp"]:.3f} / {m["error_variance_pp2"]:.3f}')
+            m=lookup[(item['code'],h)]['selected'];cells.append(f'{m["mae_pp"]:.3f} / {m["error_std_pp"]:.3f}')
         lines.append('|'+item['display_name']+' · '+item['name']+'|'+'|'.join(cells)+'|')
-    lines+=['','## 各任务的均值、方差与基准','',
-            '|方向|期限|模型|样本数|平均预测|平均真实|平均偏差|MAE|误差方差|绝对误差方差|零预测MAE|',
-            '|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+    lines+=['','## 各任务的均值、标准差与基准','',
+            '|方向|期限|模型|样本数|平均预测|平均真实|平均偏差|MAE|误差标准差|绝对误差标准差|零预测MAE|',
+            '|---|---|---|---:|---:|---:|---:|---:|---:|---:|']
     for t in tasks:
         m=t['selected']
-        lines.append(f'|{t["display_name"]}|{NAMES[t["horizon"]]}|{t["model"]}|{m["n"]}|{m["prediction_mean_pp"]:+.3f}|{m["actual_mean_pp"]:+.3f}|{m["bias_pp"]:+.3f}|{m["mae_pp"]:.3f}|{m["error_variance_pp2"]:.3f}|{m["absolute_error_variance_pp2"]:.3f}|{t["zero"]["mae_pp"]:.3f}|')
+        lines.append(f'|{t["display_name"]}|{NAMES[t["horizon"]]}|{t["model"]}|{m["n"]}|{m["prediction_mean_pp"]:+.3f}|{m["actual_mean_pp"]:+.3f}|{m["bias_pp"]:+.3f}|{m["mae_pp"]:.3f}|{m["error_std_pp"]:.3f}|{m["absolute_error_std_pp"]:.3f}|{t["zero"]["mae_pp"]:.3f}|')
     lines+=['','## 如何判断效果','',
-            f'- 当前40组中，{sum(t["model"]=="zero" for t in tasks)}组选择固定零收益；其MAE和误差方差与零预测基准完全相同。',
-            '- 历史平均收益是常数，相比零预测只平移误差，误差方差理论上相同，MAE和偏差可能改变。因此仅看方差会漏掉系统性偏差。',
+            f'- 当前40组中，{sum(t["model"]=="zero" for t in tasks)}组选择固定零收益；其MAE和误差标准差与零预测基准完全相同。',
+            '- 历史平均收益是常数，相比零预测只平移误差，误差标准差理论上相同，MAE和偏差可能改变。因此仅看标准差会漏掉系统性偏差。',
             '- 小误差不证明模型有信息优势；需要同时比较零预测、分年稳定性和偏差。平均值也不是每次误差的上限。',
             '- 多日收益窗口重叠，指数之间也相关；本表是已观察测试样本的描述统计，不提供独立样本显著性结论。半年非重叠区间很少，数量在CSV中单列。',
             '- 预测的是指数价格收益，不含基金分红、费用和跟踪误差。','',
             '## 文件与复现','',
-            '- [40组完整明细](by_index_horizon.csv)：含误差均值、MAE、两种方差、标准差、RMSE与零预测对照，UTF-8 BOM可用Excel打开。',
+            '- [40组完整明细](by_index_horizon.csv)：含误差均值、MAE、误差标准差、绝对误差标准差、RMSE与零预测对照，UTF-8 BOM可用Excel打开。',
             '- [逐年逐指数逐期限明细](by_year_index_horizon.csv)：按预测起始年份统计。',
             '- [完整JSON及来源指纹](summary.json)：包含逐任务、等权汇总及混合样本统计。',
             '- 仓库根目录运行 `python code/training/report_return_errors.py`，只读取既有预测，不训练模型。','']
