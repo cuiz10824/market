@@ -1,0 +1,491 @@
+{
+  "checked_at": "2026-10-18T13:48:02.991620+00:00",
+  "research_scope": "Public GitHub metadata and official documentation only; no mirrored model content fetched.",
+  "mirror": {
+    "repository": "Alexptully/kronos-weights",
+    "url": "https://github.com/Alexptully/kronos-weights",
+    "observed_commit": "e743182a4a8961e814c63ca84ec73af39b3573e5",
+    "listed_files": [
+      {
+        "name": "config.json",
+        "path": "Kronos-mini/config.json",
+        "contentType": "file"
+      },
+      {
+        "name": "model.safetensors",
+        "path": "Kronos-mini/model.safetensors",
+        "contentType": "file"
+      },
+      {
+        "name": "config.json",
+        "path": "Kronos-Tokenizer-2k/config.json",
+        "contentType": "file"
+      },
+      {
+        "name": "model.safetensors",
+        "path": "Kronos-Tokenizer-2k/model.safetensors",
+        "contentType": "file"
+      }
+    ],
+    "mirror_claimed_weight_sha256": {
+      "Kronos-Tokenizer-2k/model.safetensors": "b97ec46b3b72160509e289183eaf7bdf5f0dac5bb9b49522f6d46638a99a8717",
+      "Kronos-Tokenizer-base/model.safetensors": "59d85f6af76a2c3b8240ea06cb21db4213b4eeca053f246b23e29cf832fc6bee",
+      "Kronos-mini/model.safetensors": "a7d5f37e2e9fbd9891f7d7d4f72574512dd1f704fee14223e0a8cd0fbf54197c",
+      "Kronos-small/model.safetensors": "b082dfcbd8e8c142a725c8bbb99781802f38fec81210e13479effb32b3c3e020"
+    },
+    "claimed_unmodified_upstream": true,
+    "claimed_license": "MIT per mirror README; upstream weight license not independently audited",
+    "weight_bytes_downloaded": false,
+    "upstream_digest_independently_verified": false,
+    "model_loaded": false,
+    "accuracy_tested": false,
+    "remaining_provenance": [
+      "Official Hugging Face pinned revision for each model",
+      "Independent official weight digest match",
+      "Upstream weight license",
+      "Pretraining temporal cutoff"
+    ]
+  },
+  "sources": [
+    {
+      "name": "kronos_readme",
+      "url": "https://raw.githubusercontent.com/shiyu-coder/Kronos/master/README.md",
+      "http_status": 200,
+      "bytes": 16657,
+      "sha256": "b815b608192afa4b805a11bcbb66268f3e3db55736218964944318da7865357e"
+    },
+    {
+      "name": "mirror_pinned_readme",
+      "url": "https://raw.githubusercontent.com/Alexptully/kronos-weights/e743182a4a8961e814c63ca84ec73af39b3573e5/README.md",
+      "http_status": 200,
+      "bytes": 959,
+      "sha256": "1afe7036169936037917dae6c3a11745089a7721c692a6ab0cfc9cf016fb97b8"
+    },
+    {
+      "name": "mirror_sha256",
+      "url": "https://raw.githubusercontent.com/Alexptully/kronos-weights/e743182a4a8961e814c63ca84ec73af39b3573e5/SHA256SUMS",
+      "http_status": 200,
+      "bytes": 403,
+      "sha256": "4bf8593181ec96e93df4aeff1739708f1d6b71e6aa2f219a1d7b0de111652f98"
+    },
+    {
+      "name": "patchtst_readme",
+      "url": "https://raw.githubusercontent.com/yuqinie98/PatchTST/main/README.md",
+      "http_status": 200,
+      "bytes": 5389,
+      "sha256": "7b45e8c686111038986b3b6e35b7e29338dad16eb1a9586a321be8a19d16ea7e"
+    },
+    {
+      "name": "nhits_readme",
+      "url": "https://raw.githubusercontent.com/Nixtla/neuralforecast/main/README.md",
+      "http_status": 200,
+      "bytes": 14539,
+      "sha256": "0360a4f3d8ebb24c880e8675a8a57cc325af32210d729b6f492608b102fdfe37"
+    },
+    {
+      "name": "nhits_model",
+      "url": "https://raw.githubusercontent.com/Nixtla/neuralforecast/main/neuralforecast/models/nhits.py",
+      "http_status": 200,
+      "bytes": 19067,
+      "sha256": "0cfcc06f688ae872cdb5ef98a87d05812ddbfe2e31c3cee9cdb70f60201d1662"
+    },
+    {
+      "name": "dlinear_readme",
+      "url": "https://raw.githubusercontent.com/cure-lab/LTSF-Linear/main/README.md",
+      "http_status": 200,
+      "bytes": 8698,
+      "sha256": "c5fb6414ea674df1a42339e562651706a1da5052e55d9d698bf66e33e0eaf5e6"
+    },
+    {
+      "name": "chronos_readme",
+      "url": "https://raw.githubusercontent.com/amazon-science/chronos-forecasting/main/README.md",
+      "http_status": 200,
+      "bytes": 11168,
+      "sha256": "7f9e55723daadb20f79f3d76d23370888301d917f075e9eafa3e780c78f9ff35"
+    },
+    {
+      "name": "qlib_tcn",
+      "url": "https://raw.githubusercontent.com/microsoft/qlib/main/qlib/contrib/model/pytorch_tcn.py",
+      "http_status": 200,
+      "bytes": 9582,
+      "sha256": "0ebf9d5d9d9deac237b4d0f06a214f71286cac285551ddba2414e51fa84b22e7"
+    },
+    {
+      "name": "qlib_gru",
+      "url": "https://raw.githubusercontent.com/microsoft/qlib/main/qlib/contrib/model/pytorch_gru.py",
+      "http_status": 200,
+      "bytes": 10553,
+      "sha256": "75cc1c38dcbc4dfda90105d203f60399aec60c154360eac8eddb38f605efda7e"
+    },
+    {
+      "name": "qlib_benchmarks",
+      "url": "https://raw.githubusercontent.com/microsoft/qlib/main/examples/benchmarks/README.md",
+      "http_status": 200,
+      "bytes": 16561,
+      "sha256": "bfc70f5d3193412ce18b6eee494fbe34be9110ac93bfb164c1fb22dcb05cb529"
+    }
+  ],
+  "query_records": [
+    {
+      "url": "https://github.com/search?q=%22Kronos-mini%22&type=repositories",
+      "result_count": 8,
+      "results": [
+        {
+          "id": "1270326437",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "L-MORIA/kronos-signal",
+          "hl_trunc_description": "MOEX forecast with <em>Kronos</em>-<em>mini</em> AI",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1270326437,
+              "name": "kronos-signal",
+              "owner_id": 219552115,
+              "owner_login": "L-MORIA",
+              "updated_at": "2026-10-15T06:59:48.294Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1237710179",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "Fabbro276/kronos-predictor-service",
+          "hl_trunc_description": "FastAPI microservice wrapping <em>Kronos</em>-<em>mini</em> for short-horizon forex OHLCV forecasting",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1237710179,
+              "name": "kronos-predictor-service",
+              "owner_id": 208136260,
+              "owner_login": "Fabbro276",
+              "updated_at": "2026-05-13T12:40:54.140Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1354437392",
+          "archived": false,
+          "color": null,
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "vaibhav06062005-ctrl/ai-model-neoquasar-<em>kronos</em>-<em>mini</em>",
+          "hl_trunc_description": "AI model catalog entry for NeoQuasar/<em>Kronos</em>-<em>mini</em> on Hugging Face",
+          "language": null,
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1354437392,
+              "name": "ai-model-neoquasar-kronos-mini",
+              "owner_id": 315676240,
+              "owner_login": "vaibhav06062005-ctrl",
+              "updated_at": "2026-09-02T07:00:37.727Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1282420210",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "charlesaurav13/kronos-sol-trader",
+          "hl_trunc_description": "Async SOL/USDT paper trading bot using <em>Kronos</em>-<em>mini</em> ML model — 10x leverage, 3% SL / 6% TP",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1282420210,
+              "name": "kronos-sol-trader",
+              "owner_id": 81438796,
+              "owner_login": "charlesaurav13",
+              "updated_at": "2026-06-27T18:42:04.676Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1289577260",
+          "archived": false,
+          "color": "#e34c26",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "BrightEmberServices/kronos-tracking-data",
+          "hl_trunc_description": "Daily SGX tracking dashboard (<em>Kronos</em>, <em>mini</em> tier, CQR-calibrated bands) — live at <a href=\"https://apps.brightember.co/kronos-tracking-data/\" rel=\"nofollow\">https://apps.brightember.co/kronos-tracking-data/</a>",
+          "language": "HTML",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1289577260,
+              "name": "kronos-tracking-data",
+              "owner_id": 292686890,
+              "owner_login": "BrightEmberServices",
+              "updated_at": "2026-10-18T11:15:12.544Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1248793404",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "nadana1985/KRONOS_HYBRID-V5",
+          "hl_trunc_description": "KRONOS V5 Hybrid Sovereign ETH Reversal Signature Mining Engine — High-Performance Walk-Forward Quantitative System with <em>Kronos</em>-<em>mini</em> Neur…",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1248793404,
+              "name": "KRONOS_HYBRID-V5",
+              "owner_id": 8697170,
+              "owner_login": "nadana1985",
+              "updated_at": "2026-05-27T17:18:42.518Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1388823120",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "L-MORIA/timesfm3-experiment",
+          "hl_trunc_description": "Сравнение сигналов TimesFM 2.5 и <em>Kronos</em> <em>Mini</em> на часовых свечах MOEX ISS: горизонты 30/60/90 ч, сигналы ПОКУПКА/ПРОДАЖА/ДЕРЖАТЬ, гибридный…",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1388823120,
+              "name": "timesfm3-experiment",
+              "owner_id": 219552115,
+              "owner_login": "L-MORIA",
+              "updated_at": "2026-09-26T08:21:54.924Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [
+            "python",
+            "moex",
+            "kronos",
+            "time-series-forecasting",
+            "timesfm"
+          ],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1413383188",
+          "archived": false,
+          "color": "#e34c26",
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "Kozphy/quanteval-cloud-public",
+          "hl_trunc_description": "Reproducible evaluation reports for financial forecasting models (<em>Kronos</em>-<em>mini</em> vs naive/drift/ARIMA): walk-forward, leakage controls, DM t…",
+          "language": "HTML",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1413383188,
+              "name": "quanteval-cloud-public",
+              "owner_id": 50504962,
+              "owner_login": "Kozphy",
+              "updated_at": "2026-10-10T15:58:44.194Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        }
+      ],
+      "errors": [],
+      "page_count": 1,
+      "warn_limited_results": false
+    },
+    {
+      "url": "https://github.com/search?q=Kronos+weights&type=repositories",
+      "result_count": 3,
+      "results": [
+        {
+          "id": "325505395",
+          "archived": false,
+          "color": "#3572A5",
+          "followers": 3,
+          "has_funding_file": false,
+          "hl_name": "SuperDelphi/<em>Kronos</em>",
+          "hl_trunc_description": "A light-<em>weight</em> and easy-to-use Python module to calculate the process duration of your code, with a complete set of result data on the pr…",
+          "language": "Python",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 325505395,
+              "name": "Kronos",
+              "owner_id": 44942598,
+              "owner_login": "SuperDelphi",
+              "updated_at": "2023-08-08T08:18:32.282Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1393723746",
+          "archived": false,
+          "color": null,
+          "followers": 0,
+          "has_funding_file": false,
+          "hl_name": "Alexptully/<em>kronos</em>-<em>weights</em>",
+          "hl_trunc_description": "Mirror of NeoQuasar <em>Kronos</em> model + tokenizer <em>weights</em> (from Hugging Face) for cloud signal tasks",
+          "language": null,
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1393723746,
+              "name": "kronos-weights",
+              "owner_id": 87553029,
+              "owner_login": "Alexptully",
+              "updated_at": "2026-09-28T19:54:29.093Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        },
+        {
+          "id": "1279588128",
+          "archived": false,
+          "color": "#3178c6",
+          "followers": 1,
+          "has_funding_file": false,
+          "hl_name": "Paraspandey-debugs/<em>Kronos</em>",
+          "hl_trunc_description": "<em>Kronos</em> : Light <em>weight</em> task orchestrator",
+          "language": "TypeScript",
+          "mirror": false,
+          "owned_by_organization": false,
+          "public": true,
+          "repo": {
+            "repository": {
+              "id": 1279588128,
+              "name": "Kronos",
+              "owner_id": 178307992,
+              "owner_login": "Paraspandey-debugs",
+              "updated_at": "2026-07-01T20:42:00.773Z",
+              "has_issues": true
+            }
+          },
+          "sponsorable": false,
+          "topics": [],
+          "type": "Public",
+          "help_wanted_issues_count": 0,
+          "good_first_issue_issues_count": 0,
+          "starred_by_current_user": false
+        }
+      ],
+      "errors": [],
+      "page_count": 1,
+      "warn_limited_results": false
+    },
+    {
+      "url": "https://github.com/search?q=Kronos+safetensors&type=repositories",
+      "result_count": 0,
+      "results": [],
+      "errors": [],
+      "page_count": 0,
+      "warn_limited_results": false
+    }
+  ],
+  "network_limitation": "Existing explicit destination denial cannot be bypassed by downloading the same weights through a mirror; use supported environment configuration workflow.",
+  "recommended_order": [
+    "Small DLinear/NLinear sanity baseline",
+    "Small shared TCN",
+    "Small PatchTST using historical patches",
+    "N-HiTS multi-scale comparison",
+    "Kronos-mini/Chronos pretrained diagnostics after network access and provenance checks"
+  ],
+  "trained_new_models": false,
+  "production_models_changed": false
+}
