@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import sqlite3
+import shutil
 import sys
 import tempfile
 import threading
@@ -115,13 +116,20 @@ class DailyTests(unittest.TestCase):
             # Export into a temporary website, retaining real model results.
             service.root=Path(tmp)
             (service.root/'html').mkdir()
+            for name in ('index.template.html','style.css','model.js','app.js'):
+                shutil.copyfile(ROOT/'html'/name,service.root/'html'/name)
             service.export_snapshot()
             service.export_snapshot()
             path=service.root/'html/snapshot.js'
             raw=path.read_text(encoding='utf-8')
             payload=json.loads(raw.removeprefix('window.MARKET_SNAPSHOT = ').strip().removesuffix(';'))
             self.assertEqual(len(payload['rows']),14)
-            self.assertEqual(list((service.root/'html').iterdir()),[path])
+            page=(service.root/'html/index.html').read_text(encoding='utf-8')
+            self.assertNotIn('<script src=',page)
+            self.assertNotIn('rel="stylesheet"',page)
+            self.assertIn('<style>',page)
+            self.assertEqual(page.count('<tr><th scope="row">'),28)
+            self.assertFalse(list((service.root/'html').glob('*.tmp')))
 
     def test_http_dashboard_and_private_paths(self):
         server=ThreadingHTTPServer(('127.0.0.1',0),handler_for(self.service))

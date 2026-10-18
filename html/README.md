@@ -2,7 +2,7 @@
 
 Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库根目录的 `.venv-daily` 并安装 `requirements.txt`，随后打开 `http://127.0.0.1:8765`。保持命令窗口开启。日常推理只需要 NumPy、LightGBM 及其依赖，不安装整套研究环境。
 
-直接双击 `index.html` 无需 Python，可查看随仓库保存的真实数据与模型预测快照；此方式不能自行联网或执行 Python。`每日更新.bat` 用于只更新并生成快照，之后可直接打开 HTML。若希望每天定时运行，可在 Windows 任务计划程序中调用该批处理；本仓库未擅自注册系统任务。
+`index.html` 是自包含文件，内置样式、脚本、行情与预测，即使只下载这一个文件也能显示，无需依赖旁边的CSS/JS。直接双击 `index.html` 无需 Python，可查看随仓库保存的真实数据与模型预测快照；此方式不能自行联网或执行 Python。`每日更新.bat` 用于只更新并生成快照，之后可直接打开 HTML。若希望每天定时运行，可在 Windows 任务计划程序中调用该批处理；本仓库未擅自注册系统任务。
 
 ## 目录与流程
 
@@ -12,6 +12,7 @@ Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库�
 - `daily/regression.py`：只计算保存模型的收益回归分支；不加载分类权重，不训练、不调整参数。验证模型和原生权重SHA256。
 - `server.py`：只绑定本机地址，启动时及每30分钟检查行情；`GET /api/dashboard` 读取结果，`POST /api/refresh` 请求更新。
 - `predict.py`：执行一次，可加 `--refresh` 更新日线，生成 `snapshot.js`。
+- `index.template.html` 是页面模板，`daily/page.py` 在每次预测导出时生成自包含的 `index.html`，同时预先渲染表格，脚本不可用时仍显示数据。修改排版时编辑模板，避免生成时覆盖。
 - `index.html / app.js / style.css / model.js`：上栏实际涨跌，下栏模型预测；每60秒读取服务结果，可手动刷新、导出CSV。白底黑字，上涨红、下跌绿。
 - `inference/`：原完整模型加载器，为历史实验重放而迁移，日常服务不调用分类。
 

@@ -6,12 +6,12 @@ import json
 from pathlib import Path
 import sqlite3
 import threading
-import tempfile
 import zipfile
 
 from daily.features import features_at
 from daily.feeds import fetch_recent, SHANGHAI
 from daily.regression import RegressionPredictor
+from daily.page import atomic_text, build_page
 
 ROOT=Path(__file__).resolve().parents[2]
 HORIZONS=(1,5,21,63,126)
@@ -166,16 +166,10 @@ class DailyService:
                 self.refreshing=False
 
     def export_snapshot(self):
-        payload=json.dumps(self.dashboard(),ensure_ascii=False,allow_nan=False)
-        path=self.root/'html/snapshot.js'
-        with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=path.parent,
-                                         prefix='snapshot-',suffix='.tmp',delete=False) as stream:
-            temp=Path(stream.name)
-            stream.write('window.MARKET_SNAPSHOT = '+payload+';\n')
-        try:
-            temp.replace(path)
-        finally:
-            temp.unlink(missing_ok=True)
+        snapshot=self.dashboard()
+        payload=json.dumps(snapshot,ensure_ascii=False,allow_nan=False)
+        atomic_text(self.root/'html/snapshot.js','window.MARKET_SNAPSHOT = '+payload+';\n')
+        build_page(self.root,snapshot)
 
 
 if __name__=='__main__':

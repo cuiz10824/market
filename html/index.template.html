@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A股行业观察</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"></head>
+<body>
+<main>
+  <header><div><p class="eyebrow">A-SHARE MARKET OBSERVATORY</p><h1>A股行业观察<span>行情与趋势</span></h1><p class="intro">用一张表，看清行业在不同时间尺度上的变化。</p></div><div class="market-tag"><i></i> 中国 A 股 · 收盘数据</div></header>
+  <div class="toolbar"><div class="actions"><button id="refresh" class="primary">更新行情与预测 <span>↻</span></button><button id="export" disabled>导出结果</button></div><span id="status" role="status" aria-live="polite">正在载入本地预测…</span></div>
+  <aside id="notice">正在载入历史收盘数据与已训练的回归模型结果。联网更新请使用「启动网页.bat」。</aside>
+  <section aria-labelledby="actual-title"><div class="section-head"><div><span class="number">01</span><h2 id="actual-title">实际涨跌</h2><span class="badge" id="source-badge">等待数据</span></div><p id="asof">数据截至 —</p></div><div class="table-wrap"><table id="actual"><caption class="sr-only">各行业实际涨跌幅</caption></table></div><div class="section-foot"><span>相对前 1 / 5 / 21 / 63 / 126 个交易日收盘价</span><span><i class="dot up-bg"></i>上涨 <i class="dot down-bg"></i>下跌 <i class="dot neutral-bg"></i>持平</span></div></section>
+  <section aria-labelledby="forecast-title"><div class="section-head"><div><span class="number">02</span><h2 id="forecast-title">涨跌幅预测</h2><span class="badge">已训练回归模型</span></div><p id="prediction-time">未来各周期 · 累计涨跌幅</p></div><div class="table-wrap"><table id="forecast"><caption class="sr-only">各行业已训练模型的未来累计涨跌幅预测</caption></table></div><div class="section-foot"><span>小字为实际调用的模型。零变化基准表示暂无有效幅度信号；暂无单日训练模型。单位：%。</span></div></section>
+  <details><summary>数据口径与预测方法</summary><div class="method"><p>覆盖沪深300、中证A500、消费、医疗、医药、金融、科技、能源、工业及市场参照，共14个指数。工业和信息技术作为制造业、科技的近似，不能代表所有相关公司。</p><p>“当天”是最新已收盘交易日相对前一交易日的实际涨跌，不是盘中行情。周、月、三月、六月近似为5、21、63、126个交易日。预测是未来整个期限的累计价格收益，不含分红、基金跟踪误差及费用。</p><p>每日程序加载已训练并保存的回归模型，使用最新收盘价和过去252个交易日构造与训练时一致的特征，不进行分类，也不在每日执行时重新训练。53个任务采用零变化基准、2个采用历史平均、1个采用LightGBM回归。0%不表示未来必定不涨不跌。</p><p>训练数据库保持原样，新行情增量另存在data/daily。腾讯公开日线为主、东方财富为备选。只接纳已收盘、身份核对通过且与历史重叠一致的日线；未验证的日期或历史缺口不补造。来源不可用时保留原数据并显示日期及更新失败提示。休市时没有新数据也不会改变模型预测。</p><p>仅输出涨跌幅，不展示分类或未经验证的概率区间。模型尚未证明稳定预测优势，预测仅作研究参考。</p></div></details>
+  <footer><span>A股行业观察</span><span>历史表现不预示未来收益。预测仅作统计研究参考。</span></footer>
+</main><script src="model.js"></script><script src="snapshot.js"></script><script src="app.js"></script>
+</body></html>
