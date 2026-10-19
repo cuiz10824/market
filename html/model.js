@@ -16,11 +16,15 @@
     }
     return payload;
   }
-  function format(value){return `${value>0&&Math.abs(value)>=.005?'+':''}${(Math.abs(value)<.005?0:value).toFixed(2)}%`;}
+  function format(value){
+    const magnitude=Math.abs(value);
+    const text=magnitude>0&&magnitude<.0001?value.toExponential(2):value.toFixed(magnitude>0&&magnitude<.01?4:2);
+    return `${value>0?'+':''}${text}%`;
+  }
   function toCSV(payload){
-    const lines=['code,name,as_of,kind,horizon_trading_days,return_percent,model'];
+    const lines=['code,name,as_of,kind,horizon_trading_days,return_percent,model,forecast_as_of'];
     for(const row of validate(payload).rows) for(const kind of ['actual','forecast']) for(const h of horizons){
-      lines.push([row.code,row.name,row.as_of,kind,h,row[kind][h]??'',kind==='forecast'?(row.models[h]??'未训练'):'历史收盘'].join(','));
+      lines.push([row.code,row.name,row.as_of,kind,h,row[kind][h]??'',kind==='forecast'?(row.models[h]??'未训练'):'历史收盘',kind==='forecast'?(row.forecast_as_of?(row.forecast_as_of[h]??''):row.as_of):''].join(','));
     }
     return '\ufeff'+lines.join('\r\n');
   }

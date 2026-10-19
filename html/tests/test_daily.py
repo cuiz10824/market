@@ -27,7 +27,7 @@ class DailyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.tmp=tempfile.TemporaryDirectory()
-        cls.service=DailyService(store=Path(cls.tmp.name)/'base.sqlite3')
+        cls.service=DailyService(store=Path(cls.tmp.name)/'base.sqlite3',learned_models=False)
 
     @classmethod
     def tearDownClass(cls):cls.tmp.cleanup()

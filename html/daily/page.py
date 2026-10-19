@@ -28,10 +28,14 @@ def table(payload,kind):
                       '</span><span class="sub">'+html.escape(row['as_of'])+'</span></th>')
         for h in payload['horizons']:
             value=row[kind][str(h)]
-            color='neutral' if value is None or abs(value)<.005 else 'up' if value>0 else 'down'
-            text='—' if value is None else f'{0 if abs(value)<.005 else value:+.2f}%' if value else '0.00%'
+            color='neutral' if value is None or value==0 else 'up' if value>0 else 'down'
+            if value is None:text='—'
+            elif 0<abs(value)<.0001:text=f'{value:+.2e}%'.replace('e-0','e-').replace('e+0','e+')
+            else:text=f'{value:+.4f}%' if 0<abs(value)<.01 else f'{value:+.2f}%'
             if text=='+0.00%':text='0.00%'
             label=('<span class="range">'+html.escape(row['models'].get(str(h),'模型不可用'))+'</span>') if kind=='forecast' else ''
+            basis=row.get('forecast_as_of',{}).get(str(h))
+            if kind=='forecast' and basis and basis!=row['as_of']:label+='<span class="range">基于 '+html.escape(basis)+'</span>'
             output.append(f'<td class="{color}">{text}{label}</td>')
         output.append('</tr>')
     return ''.join(output)+'</tbody>'

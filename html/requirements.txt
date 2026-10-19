@@ -2,3 +2,5 @@ numpy==2.3.5
 lightgbm==4.7.0
 pandas==2.2.3
 catboost==1.2.10
+torch==2.14.1
+safetensors==0.8.0

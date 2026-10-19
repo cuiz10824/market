@@ -26,12 +26,14 @@ function render(next){
       th.title=row.selection_note||row.note;tr.append(th);
       for(const h of M.horizons){
         const td=tr.insertCell();const value=row[kind][h];
-        td.className=value===null||Math.abs(value)<.005?'neutral':value>0?'up':'down';
+        td.className=value===null||value===0?'neutral':value>0?'up':'down';
         td.textContent=value===null?'—':M.format(value);
         if(kind==='forecast'){
           const span=document.createElement('span');span.className='range';
           span.textContent=row.models[h]||'模型不可用';td.append(span);
-          td.title=`基于 ${row.as_of} 收盘；${h===1?'预测下一交易日收盘相对此次收盘的变化；':''}${row.models[h]}${value===0?'，不表示未来一定不涨不跌':''}`;
+          const basis=row.forecast_as_of?.[h]||row.as_of;
+          if(basis!==row.as_of){const date=document.createElement('span');date.className='range';date.textContent=`基于 ${basis}`;td.append(date);}
+          td.title=value===null?(row.forecast_errors?.[h]||'模型输入尚未就绪'):`基于 ${basis} 收盘；${h===1?'预测下一交易日收盘相对此次收盘的变化；':''}${row.models[h]}${value===0?'，不表示未来一定不涨不跌':''}`;
         }
       }
     }
@@ -39,18 +41,22 @@ function render(next){
   const dates=[...new Set(payload.rows.map(r=>r.as_of))].sort();
   $('asof').textContent=`数据截至 ${dates[0]}${dates.length>1?' ～ '+dates.at(-1):''}`;
   $('source-badge').textContent=offline?'已保存的本地快照':'本地历史 + 行情增量';
-  $('prediction-time').textContent=`预测生成于 ${new Date(payload.generated_at).toLocaleString('zh-CN')}`;
+  $('prediction-time').textContent=`预测生成于 ${new Date(payload.generated_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}`;
   const errors=Object.keys(payload.last_refresh.errors||{}).length;
+  const modelErrors=Object.keys(payload.model_selection?.errors||{}).length;
   const zero=payload.rows.reduce((n,row)=>n+Object.values(row.models).filter(v=>v==='零变化基准').length,0);
   const details=[offline?'当前为保存的快照。双击「启动网页.bat」可更新行情并重新预测。':'启动时和每30分钟检查已收盘行情；页面每60秒读取最新结果。',
-    `${payload.rows.length*M.horizons.length}个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
+    payload.model_selection?`已按历史验证误差选用${payload.model_selection.available_tasks}个回归预测，未使用固定零变化基准。`:`${payload.rows.length*M.horizons.length}个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
+    payload.model_selection?.stale_tasks?`${payload.model_selection.stale_tasks}个预测使用最后可用日期，日期逐格标注。`:'',
+    payload.model_selection?.missing_tasks?`${payload.model_selection.missing_tasks}个预测输入未就绪，暂显示“—”。`:'',
+    modelErrors?'部分量价更新或模型输入未就绪，请查看预测基准日期。':'',
     payload.enhancement?.status==='no_validation_upgrade'?`${payload.enhancement.lookback_sessions===1260?'五年历史特征':'本轮量价增强'}模型未通过验证替换门槛，继续展示旧模型结果。`:'',
     payload.enhancement?.upgraded_tasks>0?`${payload.enhancement.upgraded_tasks}项已启用通过验证的量价增强模型。`:'',
     errors?`${errors}个指数联网更新失败，保留已有数据与对应日期。`:'',
     payload.rows.some(r=>r.enhancement_error)?'部分量价特征未就绪，对应预测沿用旧模型。':'',
     payload.rows.some(isStale)?'部分行情距今超过4天，请核验数据日期。':''].filter(Boolean);
-  notice(details.join(' '),errors>0);
-  $('status').textContent=payload.refreshing?'正在检查新行情…':errors?'更新未全部成功 · 本地结果可用':'预测结果已载入';
+  notice(details.join(' '),errors>0||modelErrors>0);
+  $('status').textContent=payload.refreshing?'正在检查新行情…':errors||modelErrors?'更新未全部成功 · 本地结果可用':'预测结果已载入';
   $('export').disabled=false;
 }
 async function load(){

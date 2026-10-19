@@ -1,0 +1,43 @@
+{
+  "selection_id": "45a9b5e25e482575",
+  "training_tests": {
+    "passed": 37,
+    "failed": 0
+  },
+  "daily_tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "frontend_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "browser": {
+    "live_8_by_5": true,
+    "nonzero_model_outputs": 40,
+    "csv_with_prediction_basis": true,
+    "shanghai_time": true,
+    "mobile_width_390": true,
+    "isolated_single_html_with_and_without_javascript": true,
+    "page_errors": 0,
+    "file_protocol": "Managed Chromium blocks file navigation; isolated HTML was served over temporary loopback HTTP."
+  },
+  "model_output_parity": "40 selected outputs checked against frozen latest candidate records; sequence inputs match training pack exactly",
+  "data_refresh": {
+    "attempted_at": "2026-10-19T11:54:52.254942+08:00",
+    "successful_indices": 8,
+    "total_indices": 8,
+    "as_of": [
+      "2026-10-16"
+    ]
+  },
+  "fault_checks": [
+    "new OHLCV changes forecasts without training",
+    "restart reproduces forecasts",
+    "close-only update retains explicit old forecast basis",
+    "missing history does not fill zero",
+    "volume-unit mismatch rejected",
+    "weight checksum mismatch rejected"
+  ],
+  "windows": "CPU dependency bootstrap and CRLF inspected; not executed on a Windows host"
+}

@@ -1,0 +1,3510 @@
+{
+  "schema_version": 1,
+  "policy": "lowest_rolling_validation_mae_among_fitted_regressors",
+  "exclude_constant_baselines": true,
+  "require_improvement_over_zero": false,
+  "generated_at": "2026-10-19T11:48:25.142489+08:00",
+  "codes": [
+    "000510",
+    "000300",
+    "000928",
+    "000933",
+    "000932",
+    "000930",
+    "000934",
+    "000935"
+  ],
+  "horizons": [
+    1,
+    5,
+    21,
+    63,
+    126
+  ],
+  "database_sha256": "95bacd54af3a5ab5d102ac836b67d0ea5969da79f585146f647599a58e6c4511",
+  "sources": {
+    "rich": {
+      "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+      "report": "data/reports/training/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/summary.json",
+      "report_sha256": "e795080b9d9c840a4c01664afb93eae5fc315c41f78d68fa0fce4414fef902d6",
+      "index": "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/index.json",
+      "index_sha256": "84bda3c6fceb9a31619f0a178cbbaf16fa5192591874d4c4f838f833dbbcc3e4"
+    },
+    "cycle": {
+      "run_id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959",
+      "report": "data/reports/training/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/summary.json",
+      "report_sha256": "9dfc6ea13a34b71dacc638b30c2b947c59cef803e64e6deeb0241773d8047704",
+      "index": "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/index.json",
+      "index_sha256": "f9cd42a319d6a48cb014498b8e39c1af4ab00c9918739b37e0abc830d31c9854"
+    },
+    "neural": {
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "report": "data/reports/training/neural_20261018_14abddff_9a829429/summary.json",
+      "report_sha256": "9eccb957a9e04982ecddf54ed9c8c490f2c7c3aa97b5fb6a18615d02c8e1f38c",
+      "index": "code/models/neural_20261018_14abddff_9a829429/index.json",
+      "index_sha256": "b50903a94664492d98bd11e0f29c789c083292a4d707f9baf6dae5cd60309523"
+    }
+  },
+  "tasks": [
+    {
+      "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+      "source": "cycle",
+      "profile": "rich",
+      "candidate": "lightgbm_mae_1y",
+      "run_id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959",
+      "code": "000510",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/latest/1/lightgbm_mae_1y/model.json"
+      ],
+      "label": "LightGBM · 1年",
+      "validation_mae_pp": 0.9201294318266617,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 0.920441635991846,
+      "test_metrics": {
+        "n": 430,
+        "mae_pp": 0.8662593329669647,
+        "bias_pp": -0.08568220426864426,
+        "error_std_pp": 1.185944784697036,
+        "rmse_pp": 1.1890359424670192
+      },
+      "previous_test_metrics": {
+        "n": 430,
+        "mae_pp": 0.8646555635265322,
+        "bias_pp": -0.035957113919649404,
+        "error_std_pp": 1.1906467470525295,
+        "rmse_pp": 1.1911895694255388
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 0.9271236365643278
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 0.9322779366974966
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 0.9209364217976251
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 0.9225913741310832
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 0.9201294318266617
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 0.9217684554909199
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 0.9268135818282053
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 0.9209111569653391
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 0.9252560951147942
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 0.9247707073473324
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 0.9226673955767951
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 0.9296969878819551
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000510",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 2.151387099957858,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.1463312531093726,
+      "test_metrics": {
+        "n": 426,
+        "mae_pp": 1.8655759139354535,
+        "bias_pp": 0.19818899465945947,
+        "error_std_pp": 2.380755514032156,
+        "rmse_pp": 2.38899051802192
+      },
+      "previous_test_metrics": {
+        "n": 426,
+        "mae_pp": 1.877359018270218,
+        "bias_pp": -0.20339949951737138,
+        "error_std_pp": 2.372370624957957,
+        "rmse_pp": 2.3810740724654753
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.2256720315519143
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.2173172375159917
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.2017372085366005
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.19295838771395
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.2093229176738647
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.199273822083256
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.252168993853917
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.2304243205711454
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.1684285224243505
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.1647689682496547
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.151387099957858
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.200053265456939
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000510",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 4.037760863763832,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 4.143609281718555,
+      "test_metrics": {
+        "n": 410,
+        "mae_pp": 3.8901640562260993,
+        "bias_pp": 0.12249066690912871,
+        "error_std_pp": 4.807143610947995,
+        "rmse_pp": 4.808703948025702
+      },
+      "previous_test_metrics": {
+        "n": 410,
+        "mae_pp": 3.972143052142354,
+        "bias_pp": -1.0979577371037055,
+        "error_std_pp": 4.766653198541773,
+        "rmse_pp": 4.89147154828017
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 4.841733368776804
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 4.967753875452772
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 4.788547069911783
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 4.783523094613919
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 4.815170299517561
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 4.6828474645914975
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 5.303618456634827
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 5.148954549005125
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 4.217849929963253
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 4.194674275525936
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 4.037760863763832
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 4.393138949883952
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000510",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 6.798207462251831,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 7.652386022190773,
+      "test_metrics": {
+        "n": 368,
+        "mae_pp": 6.645469727060919,
+        "bias_pp": -0.4386596195782268,
+        "error_std_pp": 8.634698842528021,
+        "rmse_pp": 8.645834046695741
+      },
+      "previous_test_metrics": {
+        "n": 368,
+        "mae_pp": 7.041501415370824,
+        "bias_pp": -3.883355095180606,
+        "error_std_pp": 8.102087101437565,
+        "rmse_pp": 8.984668173869649
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 9.143199748717258
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 9.328579916898946
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 8.870627867669272
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 9.091276252688715
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 9.028987625368545
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 8.882288115801579
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 11.12225745907464
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 10.90353124836169
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 7.876502263566002
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 7.799933585549162
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 6.798207462251831
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 7.430615472867232
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000510",
+      "horizon": 126,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 9.77905086991066,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 11.00950881405259,
+      "test_metrics": {
+        "n": 305,
+        "mae_pp": 10.924694667495526,
+        "bias_pp": -7.037228184088751,
+        "error_std_pp": 11.366091349442264,
+        "rmse_pp": 13.368268888633239
+      },
+      "previous_test_metrics": {
+        "n": 305,
+        "mae_pp": 12.710160760334869,
+        "bias_pp": -11.249806010987474,
+        "error_std_pp": 9.94858611415192,
+        "rmse_pp": 15.0177395421397
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 14.697337044039473
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 17.520980639915873
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 14.411920078837708
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 17.2323663460996
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 15.302139227376463
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 14.317983964224512
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 16.210063020390347
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 15.830119477775659
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 11.307493354402817
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 11.18528503601545
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 9.77905086991066
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 10.13293574038739
+        }
+      ]
+    },
+    {
+      "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+      "source": "cycle",
+      "profile": "rich",
+      "candidate": "lightgbm_mae_1y",
+      "run_id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959",
+      "code": "000300",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/latest/1/lightgbm_mae_1y/model.json"
+      ],
+      "label": "LightGBM · 1年",
+      "validation_mae_pp": 0.9081582383414758,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 0.9086213179238705,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 0.8077663896977666,
+        "bias_pp": -0.05629159235835891,
+        "error_std_pp": 1.1702026862209878,
+        "rmse_pp": 1.1715558331590754
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 0.7992466180026219,
+        "bias_pp": -0.037850416778574154,
+        "error_std_pp": 1.1711002744970194,
+        "rmse_pp": 1.171711784944278
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 0.9141378289300709
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 0.9220769231748105
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 0.9083798005375149
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 0.9144000686501244
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 0.9081582383414758
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 0.9128600498910974
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 0.916209638440359
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 0.9096419342824741
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 0.9144236060841716
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 0.9136509047428519
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 0.9130408572334527
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 0.9186139932003766
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000300",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 2.151998080868157,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.140568796074103,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 1.822600850396292,
+        "bias_pp": 0.11674372656816454,
+        "error_std_pp": 2.8069356876902427,
+        "rmse_pp": 2.8093623925229223
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 1.8084649605898315,
+        "bias_pp": -0.21122577440872925,
+        "error_std_pp": 2.775311295811033,
+        "rmse_pp": 2.783337765423177
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.235087967146748
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.2083455845393543
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.198851932386837
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.1976382882349785
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.2048409035044254
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.196928313552658
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.262306588282572
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.233229441735938
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.163255103859496
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.1600006845939244
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.151998080868157
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.1994192438879656
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000300",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 4.048400708757893,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 4.1225045219014875,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 3.897443617821904,
+        "bias_pp": -0.30669674174637285,
+        "error_std_pp": 5.480500004200653,
+        "rmse_pp": 5.489074893590103
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 3.824821673459749,
+        "bias_pp": -1.0646350241652427,
+        "error_std_pp": 5.345517712044371,
+        "rmse_pp": 5.450505237540773
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 4.737972324858358
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 4.89306762246994
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 4.685646578434439
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 4.745885532464882
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 4.703026290685305
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 4.605840739764502
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 5.304492127731094
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 5.155071587041182
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 4.1988102467721555
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 4.165144454085731
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 4.048400708757893
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 4.389301799322688
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000300",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 6.761233790384277,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 7.472600231852833,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 7.1672516482581505,
+        "bias_pp": -0.8612391801041622,
+        "error_std_pp": 8.888937785740469,
+        "rmse_pp": 8.930562573775022
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 6.689144366142854,
+        "bias_pp": -3.3210203779661054,
+        "error_std_pp": 8.33998026180606,
+        "rmse_pp": 8.976884042816907
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 8.81347276694258
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 9.015732588031044
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 8.579181679525696
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 8.841774191867453
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 8.614123450766877
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 8.576615375204575
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 10.809052397891861
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 10.755280255524069
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 7.669295287196444
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 7.623406338506321
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 6.761233790384277
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 7.276592745425236
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000300",
+      "horizon": 126,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 9.937937983442332,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 11.0798661755327,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 8.564064684585265,
+        "bias_pp": -4.264985683196277,
+        "error_std_pp": 9.535077767867595,
+        "rmse_pp": 10.445468439335409
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 9.241638816119004,
+        "bias_pp": -7.437812888266401,
+        "error_std_pp": 8.715935240664201,
+        "rmse_pp": 11.458123218062978
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 14.321308318833227
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 17.38456537843264
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 14.446997590560139
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 17.21207153072063
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 15.175087605144713
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 14.226118310119311
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 16.20521363730261
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 15.970674330334548
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 11.316745981117487
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 11.25247169272096
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 9.937937983442332
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 10.35912494705162
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000928",
+      "horizon": 1,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 1.1621675872685533,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 1.158187287875333,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 1.053581212582658,
+        "bias_pp": -0.040829821015963774,
+        "error_std_pp": 1.4823537457931022,
+        "rmse_pp": 1.4829159456796723
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 1.0491786225894006,
+        "bias_pp": -0.047521703664110515,
+        "error_std_pp": 1.4768344907244852,
+        "rmse_pp": 1.4775988715861246
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 1.1751980723091118
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.1698417553768832
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 1.1631299082617736
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 1.1667870659417499
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 1.171591079521083
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 1.1685206533756232
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.1770923308842258
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 1.1666449239461507
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 1.168067217998897
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 1.1636290592584408
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 1.1621675872685533
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 1.1683860726437025
+        }
+      ]
+    },
+    {
+      "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+      "source": "rich",
+      "profile": "rich",
+      "candidate": "lightgbm_mae",
+      "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+      "code": "000928",
+      "horizon": 5,
+      "lookback": 252,
+      "bundles": [
+        "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/5/lightgbm_mae/model.json"
+      ],
+      "label": "LightGBM · 1年",
+      "validation_mae_pp": 2.6684387669687997,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.6662006133700906,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 2.4991261448707642,
+        "bias_pp": -0.2583045750121835,
+        "error_std_pp": 3.3394916391179508,
+        "rmse_pp": 3.3494664741135898
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 2.402783769688263,
+        "bias_pp": -0.17416027648521423,
+        "error_std_pp": 3.2285326804547774,
+        "rmse_pp": 3.2332267273839483
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.6684387669687997
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.691608310793866
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.691659381398992
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.6803833533433816
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.7146706425249465
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.7088148182622827
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.77114135184423
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.750978124825545
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.682033575839098
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.682353126919167
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.672018730422769
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.7282611678749453
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/nlinear",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "nlinear",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000928",
+      "horizon": 21,
+      "lookback": 252,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261019/model.json"
+      ],
+      "label": "NLinear · 1年",
+      "validation_mae_pp": 5.463847073486412,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 5.404421517643098,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 4.759299860938967,
+        "bias_pp": -0.6559655649925408,
+        "error_std_pp": 6.173051020218171,
+        "rmse_pp": 6.207805547910839
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 4.721079074908112,
+        "bias_pp": -0.7116489346191281,
+        "error_std_pp": 6.121002622121259,
+        "rmse_pp": 6.162233142794896
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 5.710582075128642
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 5.712701939994605
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 5.5380954058373435
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 5.532269465349555
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 5.716096153026226
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 5.6688781766684215
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 5.8800670084445175
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 5.942733076896381
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 5.464200771675373
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 5.463847073486412
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 5.473751105978649
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 5.649500920113902
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000928",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 7.466709787985772,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 7.870732037980342,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 8.066250701640563,
+        "bias_pp": -3.1889590502398506,
+        "error_std_pp": 9.061545256574338,
+        "rmse_pp": 9.606303256771124
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 7.9387594651156235,
+        "bias_pp": -1.8384218540971284,
+        "error_std_pp": 9.638589171444865,
+        "rmse_pp": 9.812349164675915
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 8.793918678096153
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 8.326725141417265
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 8.470529079835496
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 8.328263861514444
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 8.738709141620049
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 8.97827856602512
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 9.734621665594245
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 9.11027065947973
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 7.9006473114440405
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 7.955978835585946
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 7.466709787985772
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 8.340107193798824
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000928",
+      "horizon": 126,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 9.12718464665861,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 10.016283510307668,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 9.001555412823286,
+        "bias_pp": -5.7468052798308005,
+        "error_std_pp": 10.681274030011755,
+        "rmse_pp": 12.129113150947793
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 10.5655964980304,
+        "bias_pp": -2.8783644577643264,
+        "error_std_pp": 12.673120921757631,
+        "rmse_pp": 12.995883034607994
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 13.168284691421912
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 13.022248363592217
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 12.53957861432883
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 12.138561160668358
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 12.612484285059018
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 12.093779740424077
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 12.326144135283974
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 13.304805934575299
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 10.225701354482169
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 10.284301976067068
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 9.12718464665861
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 10.24287915343203
+        }
+      ]
+    },
+    {
+      "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+      "source": "rich",
+      "profile": "rich",
+      "candidate": "catboost_rmse",
+      "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+      "code": "000933",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/1/catboost_rmse/model.json"
+      ],
+      "label": "CatBoost · 1年",
+      "validation_mae_pp": 1.231110113865006,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 1.2393670766019513,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 1.0713349215090533,
+        "bias_pp": -0.012970560426085657,
+        "error_std_pp": 1.5247359459487475,
+        "rmse_pp": 1.5247911136631105
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 1.0645290632248914,
+        "bias_pp": 0.013602167697566534,
+        "error_std_pp": 1.5398245242108952,
+        "rmse_pp": 1.539884600977418
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 1.2330039853093144
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.2341816454778312
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 1.235394067647156
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 1.231110113865006
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 1.233799405034734
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 1.2366623150769271
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.2366054479582411
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 1.238096931722469
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 1.2411835131786413
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 1.240267556994928
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 1.2384563545598224
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 1.2412656394029187
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000933",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 2.8273543660265097,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.825651674881449,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 2.5204339873955646,
+        "bias_pp": 0.39400754229250307,
+        "error_std_pp": 3.700560906226901,
+        "rmse_pp": 3.721477255617484
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 2.4408703226366937,
+        "bias_pp": 0.03877242752019299,
+        "error_std_pp": 3.687500281002058,
+        "rmse_pp": 3.687704112795123
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.8580114192021786
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.852247734161099
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.845046768920696
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.833307373922402
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.8404643736287913
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.8511799057710676
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.849627717223782
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.83418937750743
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.8674759750296652
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.848944269303722
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.8273543660265097
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.859339313966118
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000933",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 5.891718724717546,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 5.9992987119485415,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 5.241243183957373,
+        "bias_pp": 0.8479738583860013,
+        "error_std_pp": 6.698600448515103,
+        "rmse_pp": 6.752059510501429
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 5.095445574080607,
+        "bias_pp": 0.03984086811258841,
+        "error_std_pp": 6.615441105495631,
+        "rmse_pp": 6.615561073337107
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 6.413903514050202
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 6.507727031596102
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 6.35969360823217
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 6.311307015711226
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 6.364454929635271
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 6.293970677529104
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 6.446954686220468
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 6.492470746534797
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 6.051772667920211
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 6.004741206786822
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 5.891718724717546
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 6.005273329179516
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000933",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 9.375670677672588,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 10.01420511340605,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 9.296772477140609,
+        "bias_pp": 1.8317206265675205,
+        "error_std_pp": 10.367860335673951,
+        "rmse_pp": 10.528424782171077
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 8.150365733123115,
+        "bias_pp": -0.09019062837044883,
+        "error_std_pp": 9.690169022410755,
+        "rmse_pp": 9.690588735073574
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 10.748801734473219
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 11.359622431523212
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 10.77354046947129
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 11.063644537667555
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 10.577777000402206
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 10.554840441197543
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 11.801027509189979
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 11.182906412469677
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 10.112943613093849
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 10.112367544765664
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 9.375670677672588
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 9.649152004938689
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000933",
+      "horizon": 126,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 12.034504060577312,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 12.840683279526177,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 10.704714917005168,
+        "bias_pp": 3.345034232966672,
+        "error_std_pp": 12.699616539036949,
+        "rmse_pp": 13.132764912930549
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 8.99806668873323,
+        "bias_pp": 0.09582694815727816,
+        "error_std_pp": 10.821373565380282,
+        "rmse_pp": 10.821797847192688
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 14.287768524820747
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 13.94761878567433
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 14.524217713145008
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 13.877928210849126
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 13.66060373266304
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 14.738365943147627
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 16.291798477825935
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 17.220609864605724
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 13.007441283059654
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 12.92312065904715
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 12.034504060577312
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 13.04301489882443
+        }
+      ]
+    },
+    {
+      "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+      "source": "cycle",
+      "profile": "rich",
+      "candidate": "catboost_mae_1y",
+      "run_id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959",
+      "code": "000932",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/latest/1/catboost_mae_1y/model.json"
+      ],
+      "label": "CatBoost · 1年",
+      "validation_mae_pp": 1.2181462705195625,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 1.2162296420052565,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 0.9057258287846712,
+        "bias_pp": 0.0038438324207896194,
+        "error_std_pp": 1.3246304622189577,
+        "rmse_pp": 1.3246360392523258
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 0.8968447102193539,
+        "bias_pp": 0.03801123323740962,
+        "error_std_pp": 1.3310832182702035,
+        "rmse_pp": 1.3316258437762432
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 1.2259622850506375
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.2304978570666565
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 1.2194772185467022
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 1.2228809890575658
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 1.218484378836588
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 1.2181462705195625
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.2202478842477567
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 1.2215848749417983
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 1.2241832635846088
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 1.219923668786632
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 1.2208925636092085
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 1.2182378629275334
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000932",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 2.8262314758361895,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.8368466166276556,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 2.2578150143259754,
+        "bias_pp": 0.5168746912749791,
+        "error_std_pp": 3.4306843228172204,
+        "rmse_pp": 3.4694025954484515
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 2.18053747288596,
+        "bias_pp": 0.17131053966618395,
+        "error_std_pp": 3.39998774328704,
+        "rmse_pp": 3.4043008027350954
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.926226838034122
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.9132255057654937
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.8940267457082496
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.8835983347833394
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.9102431996705582
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.9009351437492796
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.9667105757810117
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.915837609328042
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.8788372634039074
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.856946153444113
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.8262314758361895
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.8473414274073616
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000932",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 5.62161274622273,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 5.7980785424864445,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 5.068131827552575,
+        "bias_pp": 1.7541750757606125,
+        "error_std_pp": 6.399856881814859,
+        "rmse_pp": 6.63590975708175
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 4.595911818821148,
+        "bias_pp": 0.7206410603800657,
+        "error_std_pp": 6.2716003653655426,
+        "rmse_pp": 6.312867389765043
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 6.247351823900548
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 6.478198924018659
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 6.3162193883943845
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 6.396517194965267
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 6.291803893181137
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 6.31842378886454
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 6.72536045967313
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 6.407560703162889
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 5.848979755772693
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 5.794001247776515
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 5.62161274622273
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 5.650283540455479
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/patchtst",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "patchtst",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000932",
+      "horizon": 63,
+      "lookback": 1260,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261019/model.json"
+      ],
+      "label": "PatchTST · 5年",
+      "validation_mae_pp": 10.65844948800934,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 11.680592324397082,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 10.79989852661089,
+        "bias_pp": 7.546670946240406,
+        "error_std_pp": 10.483453228054938,
+        "rmse_pp": 12.917237860922302
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 7.87968892395373,
+        "bias_pp": 4.023244516288659,
+        "error_std_pp": 8.275394066644148,
+        "rmse_pp": 9.20155657462888
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 12.163843374184829
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 12.31172040880731
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 12.10329227046765
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 12.369536461087153
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 12.697827948137196
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 12.761430731047222
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 12.581404898553222
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 12.762061053884636
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 11.846101516290098
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 11.666027389587798
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 10.854594199369046
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 10.65844948800934
+        },
+        {
+          "id": "20261018_5333c8a6_f18f8f5f_288545ff/lightgbm",
+          "validation_mae_pp": 11.38728625726003
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000932",
+      "horizon": 126,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 17.23833733923324,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 18.217870708920486,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 12.013972112856564,
+        "bias_pp": 9.878267631329475,
+        "error_std_pp": 11.159344187737085,
+        "rmse_pp": 14.903393375220057
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 8.670799145603912,
+        "bias_pp": 5.96401051254884,
+        "error_std_pp": 9.490566396964475,
+        "rmse_pp": 11.208937145375753
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 19.13687735619194
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 19.77296601613399
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 19.44779595311411
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 19.30110292772002
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 21.09117121943392
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 21.857126170405337
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 20.782260460937657
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 20.380095680896186
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 18.465523636140656
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 18.376990021588124
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 17.23833733923324
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 17.438582705401046
+        }
+      ]
+    },
+    {
+      "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+      "source": "rich",
+      "profile": "rich",
+      "candidate": "catboost_mae",
+      "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+      "code": "000930",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/1/catboost_mae/model.json"
+      ],
+      "label": "CatBoost · 1年",
+      "validation_mae_pp": 1.0173662741092113,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 1.0188101093872584,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 1.0155141731600903,
+        "bias_pp": -0.040242897782735175,
+        "error_std_pp": 1.431617421824277,
+        "rmse_pp": 1.4321829259185928
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 1.0133308626532012,
+        "bias_pp": -0.02478357492934925,
+        "error_std_pp": 1.4460236086015859,
+        "rmse_pp": 1.4462359773631102
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 1.026164784505949
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.0269876726958922
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 1.0173662741092113
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 1.0197522469969948
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 1.0228847839235196
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 1.0174935118720485
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.027628198118301
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 1.017477740149451
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 1.0270397586830289
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 1.0255471514674663
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 1.0234479346316492
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 1.0217410101941156
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000930",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 2.3644506217791177,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.37109947978928,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 2.2266918397546966,
+        "bias_pp": 0.23023899800109332,
+        "error_std_pp": 3.316072522814744,
+        "rmse_pp": 3.324055801692789
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 2.225428177139581,
+        "bias_pp": -0.14920369686679275,
+        "error_std_pp": 3.2880816777628388,
+        "rmse_pp": 3.2914651544256706
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.450180354979762
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.440563858825547
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.4456770505544227
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.435463772555426
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.4423861535578926
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.4379296407690223
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.5274629909652058
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.490224144569622
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.3834464566630547
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.388433815373936
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.3644506217791177
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.4035804906144995
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000930",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 4.754417714971841,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 4.846942324206321,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 5.022400653390256,
+        "bias_pp": 0.09652299016079444,
+        "error_std_pp": 6.736950874304425,
+        "rmse_pp": 6.737642300569297
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 5.091742855075305,
+        "bias_pp": -0.8103434081293482,
+        "error_std_pp": 6.675568161321053,
+        "rmse_pp": 6.724571861133021
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 5.248486375075406
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 5.308316501380151
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 5.145858557510849
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 5.307786990508407
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 5.219887250371024
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 5.2033756350786335
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 6.121073947498064
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 5.8914749491295195
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 4.930435324322061
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 4.899382035827302
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 4.754417714971841
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 4.975961990803484
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000930",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 8.426032111198117,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 9.343012155034241,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 9.816548113470025,
+        "bias_pp": -0.8899450512050627,
+        "error_std_pp": 12.107121658453615,
+        "rmse_pp": 12.139785708436579
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 9.78006057747261,
+        "bias_pp": -2.885113229074859,
+        "error_std_pp": 11.6017563331248,
+        "rmse_pp": 11.95510888105099
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 10.729386123855432
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 10.59289700498416
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 10.453962490555032
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 10.416971633455214
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 10.687882185373923
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 10.609336892126922
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 12.084935845546992
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 12.147845402700172
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 9.520742840086319
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 9.449150628377133
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 8.426032111198117
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 8.878871351921639
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/patchtst",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "patchtst",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000930",
+      "horizon": 126,
+      "lookback": 1260,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261019/model.json"
+      ],
+      "label": "PatchTST · 5年",
+      "validation_mae_pp": 12.150935913825263,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 13.46328469725538,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 12.21583837529281,
+        "bias_pp": -3.4594673000220966,
+        "error_std_pp": 14.376300755039598,
+        "rmse_pp": 14.786681081272913
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 13.442170473471837,
+        "bias_pp": -7.4448062566440205,
+        "error_std_pp": 14.07100076691119,
+        "rmse_pp": 15.919114384329966
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 16.104111469173393
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 17.91478097271015
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 15.964854706140038
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 17.24257230144205
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 16.18840676954297
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 15.9782904264278
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 18.23672881232446
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 18.715793343743556
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 14.079212437609781
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 13.773042951774364
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 12.286201530581629
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 12.150935913825263
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/nlinear",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "nlinear",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000934",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261019/model.json"
+      ],
+      "label": "NLinear · 1年",
+      "validation_mae_pp": 0.9831271057300963,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 0.9790807548211612,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 0.7666417623845644,
+        "bias_pp": -0.0694665389735429,
+        "error_std_pp": 1.125168704931912,
+        "rmse_pp": 1.1273110549422989
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 0.7627448968051257,
+        "bias_pp": -0.04335878227721729,
+        "error_std_pp": 1.1173711667868453,
+        "rmse_pp": 1.1182121034791026
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 0.993647793562864
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.0022167624387996
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 0.9869083924238374
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 0.9961692676499109
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 0.9949943274399758
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 0.9956743567484013
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.0038767956355923
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 0.992576463224656
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 0.9865527892874805
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 0.9831271057300963
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 0.986517816888802
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 0.9917982772429622
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/nlinear",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "nlinear",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000934",
+      "horizon": 5,
+      "lookback": 252,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261019/model.json"
+      ],
+      "label": "NLinear · 1年",
+      "validation_mae_pp": 2.3283842243363018,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 2.3048373994933136,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 1.7368885327123376,
+        "bias_pp": -0.18523697526175345,
+        "error_std_pp": 2.698566538184736,
+        "rmse_pp": 2.7049166526927353
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 1.7238923227084109,
+        "bias_pp": -0.22565867218171537,
+        "error_std_pp": 2.688044845223197,
+        "rmse_pp": 2.6975001253497313
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 2.4099313792844455
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 2.401100042979954
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 2.3771474252411706
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 2.388904105950403
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 2.4042573838959473
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 2.3890802779384868
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 2.5125451896949493
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 2.441712031509546
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 2.337450242235995
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 2.3283842243363018
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 2.33056118201206
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 2.3819288713797353
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/nlinear",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "nlinear",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000934",
+      "horizon": 21,
+      "lookback": 252,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261019/model.json"
+      ],
+      "label": "NLinear · 1年",
+      "validation_mae_pp": 4.479186383421666,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 4.412206335239465,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 3.6464142155463883,
+        "bias_pp": -0.8639666286815845,
+        "error_std_pp": 5.66749472629201,
+        "rmse_pp": 5.732969109285622
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 3.556326557518406,
+        "bias_pp": -0.9511910494136119,
+        "error_std_pp": 5.59163365336877,
+        "rmse_pp": 5.671960095590477
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 4.929057696228908
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 5.143479459688513
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 4.796007138119276
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 5.004689353299921
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 4.92499566546661
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 4.8873583937756555
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 5.346574268103932
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 5.322069363021648
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 4.5259511384167
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 4.479186383421666
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 4.562545943144624
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 4.777425526082184
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/dlinear",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "dlinear",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000934",
+      "horizon": 63,
+      "lookback": 252,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/dlinear/252/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/dlinear/252/all/20261019/model.json"
+      ],
+      "label": "DLinear · 1年",
+      "validation_mae_pp": 6.558610755692038,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 6.566750627794145,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 6.539527794508941,
+        "bias_pp": -2.6723931114575845,
+        "error_std_pp": 9.407537836282762,
+        "rmse_pp": 9.779747086875902
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 6.434778616063179,
+        "bias_pp": -2.5875282752693067,
+        "error_std_pp": 9.341335125379596,
+        "rmse_pp": 9.69308230130998
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 7.305154156290572
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 7.840682178893822
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 7.263571643071646
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 7.742510588319051
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 7.195809336368801
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 7.288787472907124
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 11.090257934318288
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 10.351660321091378
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 6.558610755692038
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 6.627720870058312
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 6.831133588899664
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 6.659441163576365
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/patchtst",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "patchtst",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000934",
+      "horizon": 126,
+      "lookback": 1260,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261019/model.json"
+      ],
+      "label": "PatchTST · 5年",
+      "validation_mae_pp": 8.914090281607207,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 9.405459698078026,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 9.51989595571529,
+        "bias_pp": 2.1555410405583237,
+        "error_std_pp": 10.704830444952547,
+        "rmse_pp": 10.91969560165091
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 10.236968813713942,
+        "bias_pp": -5.067172084892867,
+        "error_std_pp": 11.901835039034166,
+        "rmse_pp": 12.935606295581934
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 12.168805475800644
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 14.921089614092915
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 11.910653464971233
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 14.876452361580268
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 12.799200373618012
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 12.14821570697157
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 15.224920996578868
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 15.647532449110892
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 9.237699298585193
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 9.265114553278535
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 9.180417407917252
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 8.914090281607207
+        }
+      ]
+    },
+    {
+      "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+      "source": "rich",
+      "profile": "rich",
+      "candidate": "catboost_rmse",
+      "run_id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4",
+      "code": "000935",
+      "horizon": 1,
+      "lookback": 252,
+      "bundles": [
+        "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/1/catboost_rmse/model.json"
+      ],
+      "label": "CatBoost · 1年",
+      "validation_mae_pp": 1.3774856918410017,
+      "validation_counts": [
+        486,
+        485,
+        483
+      ],
+      "zero_validation_mae_pp": 1.3803932147069584,
+      "test_metrics": {
+        "n": 672,
+        "mae_pp": 1.6954944978316817,
+        "bias_pp": -0.13737346959235552,
+        "error_std_pp": 2.3089756416044427,
+        "rmse_pp": 2.3130585776565384
+      },
+      "previous_test_metrics": {
+        "n": 672,
+        "mae_pp": 1.6914474947664624,
+        "bias_pp": -0.10621871983556286,
+        "error_std_pp": 2.3179399494712234,
+        "rmse_pp": 2.320372389466433
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 1.3848018516186986
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 1.39022666463943
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 1.3810060280368612
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 1.3774856918410017
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 1.3846021497942755
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 1.3849304455299956
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 1.382742879804263
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 1.3800275270045315
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 1.3854692192729405
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 1.3835958456266193
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 1.383552152338085
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 1.3842515307971361
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000935",
+      "horizon": 5,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 3.2220341032589936,
+      "validation_counts": [
+        482,
+        481,
+        479
+      ],
+      "zero_validation_mae_pp": 3.217495589321594,
+      "test_metrics": {
+        "n": 668,
+        "mae_pp": 4.115524255227194,
+        "bias_pp": 0.16943091185263384,
+        "error_std_pp": 5.7137667132299885,
+        "rmse_pp": 5.716278237376679
+      },
+      "previous_test_metrics": {
+        "n": 668,
+        "mae_pp": 4.087904546737725,
+        "bias_pp": -0.6032194349106262,
+        "error_std_pp": 5.647458520267149,
+        "rmse_pp": 5.679582856583035
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 3.246471432020108
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 3.225265703720307
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 3.254575809089776
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 3.2350069696820056
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 3.2486690395019546
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 3.2581670052740788
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 3.250766654028155
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 3.262028847840386
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 3.264367952503573
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 3.246685775761956
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 3.2220341032589936
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 3.252089991442329
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000935",
+      "horizon": 21,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 6.415136896088941,
+      "validation_counts": [
+        466,
+        465,
+        463
+      ],
+      "zero_validation_mae_pp": 6.589063872410354,
+      "test_metrics": {
+        "n": 652,
+        "mae_pp": 8.897637004591457,
+        "bias_pp": -1.826218132714891,
+        "error_std_pp": 11.8242981232924,
+        "rmse_pp": 11.964493251983255
+      },
+      "previous_test_metrics": {
+        "n": 652,
+        "mae_pp": 8.875776899798586,
+        "bias_pp": -3.1289386772368397,
+        "error_std_pp": 11.642012766175242,
+        "rmse_pp": 12.055153192460722
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 7.007250835325597
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 7.143427253232105
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 7.015091728628552
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 7.065133274314089
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 7.0499677097432185
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 6.98281910313007
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 7.110730233977797
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 7.048005823526587
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 6.660550808463827
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 6.6073957192144235
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 6.415136896088941
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 6.698423320753871
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/tcn",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "tcn",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000935",
+      "horizon": 63,
+      "lookback": 756,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json"
+      ],
+      "label": "TCN · 3年",
+      "validation_mae_pp": 10.0129282155362,
+      "validation_counts": [
+        424,
+        423,
+        421
+      ],
+      "zero_validation_mae_pp": 11.108174211367947,
+      "test_metrics": {
+        "n": 610,
+        "mae_pp": 15.482090756494543,
+        "bias_pp": -8.558586441727872,
+        "error_std_pp": 19.78064034834733,
+        "rmse_pp": 21.552798761905485
+      },
+      "previous_test_metrics": {
+        "n": 610,
+        "mae_pp": 15.424389306444954,
+        "bias_pp": -10.179606713972056,
+        "error_std_pp": 19.248498311412447,
+        "rmse_pp": 21.774505277860914
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 12.119382511182977
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 13.01334729046055
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 12.05610153300668
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 12.71614666127873
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 12.09906515649927
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 12.15257605375629
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 12.607154804402896
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 12.48346140067647
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 11.210359603015597
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 11.208696629170683
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 10.0129282155362
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 10.62661161308326
+        }
+      ]
+    },
+    {
+      "id": "neural_20261018_14abddff_9a829429/patchtst",
+      "source": "neural",
+      "profile": "neural",
+      "candidate": "patchtst",
+      "run_id": "neural_20261018_14abddff_9a829429",
+      "code": "000935",
+      "horizon": 126,
+      "lookback": 1260,
+      "bundles": [
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261018/model.json",
+        "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261019/model.json"
+      ],
+      "label": "PatchTST · 5年",
+      "validation_mae_pp": 12.549343725486999,
+      "validation_counts": [
+        361,
+        360,
+        358
+      ],
+      "zero_validation_mae_pp": 13.657631802802795,
+      "test_metrics": {
+        "n": 547,
+        "mae_pp": 19.962120109202814,
+        "bias_pp": -14.698461387382267,
+        "error_std_pp": 19.062359441839945,
+        "rmse_pp": 24.07110954331503
+      },
+      "previous_test_metrics": {
+        "n": 547,
+        "mae_pp": 24.583922798800742,
+        "bias_pp": -22.695881103833734,
+        "error_std_pp": 19.73836949126754,
+        "rmse_pp": 30.07833521412311
+      },
+      "candidate_scores": [
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mae",
+          "validation_mae_pp": 16.293292776062945
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/lightgbm_mse",
+          "validation_mae_pp": 17.272922718540553
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_mae",
+          "validation_mae_pp": 15.905545388186555
+        },
+        {
+          "id": "enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/catboost_rmse",
+          "validation_mae_pp": 17.157578751117516
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_1y",
+          "validation_mae_pp": 17.0095216898211
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_1y",
+          "validation_mae_pp": 16.40410206060972
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/lightgbm_mae_5y",
+          "validation_mae_pp": 13.931675753398963
+        },
+        {
+          "id": "fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/catboost_mae_5y",
+          "validation_mae_pp": 14.348201590525283
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/dlinear",
+          "validation_mae_pp": 13.492587263699894
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/nlinear",
+          "validation_mae_pp": 13.485313958524058
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/tcn",
+          "validation_mae_pp": 12.728110422328605
+        },
+        {
+          "id": "neural_20261018_14abddff_9a829429/patchtst",
+          "validation_mae_pp": 12.549343725486999
+        }
+      ]
+    }
+  ],
+  "bundle_sha256": {
+    "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/1/catboost_mae/model.json": "1c69d3891d525cfa817894baa4b0c121062642da59ccc1646e5a2079c24165cf",
+    "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/1/catboost_rmse/model.json": "90328b3d0381e463501e9afc523cf201706ff44d77aebf891b8f5cfc5a2616d9",
+    "code/models/enhanced_20261018_5ccccf4b_95bacd54_2e2174c4/latest/5/lightgbm_mae/model.json": "64279c8128f33e7ecc9b38eb136fe25289642fcdfebcaf9ceaed4c1d7381b9f3",
+    "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/latest/1/catboost_mae_1y/model.json": "a653d699ad0521fd250eae420a37e9f9ec8df88d0270a7a0e389f05d4f989010",
+    "code/models/fiveyear_20261018_5d3c71d4_95bacd54_7dbc2959/latest/1/lightgbm_mae_1y/model.json": "4592fc41d16d9e5fe8ba687587445d51a3bbf4c3b205037ad7cf13229b1b47ac",
+    "code/models/neural_20261018_14abddff_9a829429/latest/dlinear/252/all/20261018/model.json": "7581149a24c30764379e3d3c6284c606fb60004216d3ce4a3a135800894b2739",
+    "code/models/neural_20261018_14abddff_9a829429/latest/dlinear/252/all/20261019/model.json": "76c2e10e649d5aac8bd429ff895b5a7418ff2f85681a14826c954fbfb93ce779",
+    "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261018/model.json": "92b042ecca622686dea573a9482ebfb8ea9cc5c0f8715a47deafeb8f614e8eaf",
+    "code/models/neural_20261018_14abddff_9a829429/latest/nlinear/252/all/20261019/model.json": "3fe4777399196dc87293406edf3e5e93b319ed727dfb004e059dbaf660b1049a",
+    "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261018/model.json": "97cc0c1b076107ce828d6e15b41ff44f25cdb5a357655bdb7fc0e38eacd1df16",
+    "code/models/neural_20261018_14abddff_9a829429/latest/patchtst/1260/all/20261019/model.json": "b886e798c605a4cfebef29c0acf68fa162689605435b9c463255d814011ed2c2",
+    "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261018/model.json": "26d385d178fa1e2bce57643a06c508b09fbf0d3c29037daaeec53fd2c12f3345",
+    "code/models/neural_20261018_14abddff_9a829429/latest/tcn/756/all/20261019/model.json": "c396a63bfbdf3f516284cb88805732deb5f58a6e9a295f88167b3923e1b59a99"
+  },
+  "runtime_sha256": {
+    "html/daily/neural_architecture.py": "66cd1b388df95616c3eaa2b59bf306232167c6d2f964f55a53d650d1c0f19a3e",
+    "html/daily/neural_features.py": "54aaa160f2adf9721d292a8197ec31544af00e888bd630a90f94117c0f0e0914",
+    "html/daily/neural_predictor.py": "56c48f3242aca4bdec5f20e0c08b441ef1681ac7a9700032551be7b218535af8",
+    "html/daily/rich_features.py": "4db262e6eed495ba9dbf995ca4cd9dbd04e52ce504db01ed9d6867d86b906367",
+    "html/daily/cycle_features.py": "8f556877dd0eefa58026bed3110700057c1c99faee0b6a525ab053f550745a94"
+  },
+  "selection_id": "45a9b5e25e482575"
+}

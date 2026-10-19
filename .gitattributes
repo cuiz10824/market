@@ -14,6 +14,8 @@ data/reports/training/** -text
 data/reports/training/**/*.csv whitespace=cr-at-eol
 data/reports/performance/** -text
 data/reports/performance/**/*.csv whitespace=cr-at-eol
+data/reports/deployment/** -text
+data/reports/deployment/**/*.csv whitespace=cr-at-eol
 data/enhanced/** -text
 data/enhanced/**/*.csv whitespace=cr-at-eol
 code/references/kronos/** -text

@@ -44,7 +44,7 @@ def merge_checked(old,new,calendar):
 
 
 class DailyService:
-    def __init__(self,root=ROOT,store=None,fetcher=fetch_recent):
+    def __init__(self,root=ROOT,store=None,fetcher=fetch_recent,learned_models=True):
         self.root=Path(root)
         self.store=Path(store) if store else self.root/'data/daily/market.sqlite3'
         self.fetcher=fetcher
@@ -73,9 +73,15 @@ class DailyService:
                 self.models[key]=model
         if set(self.models)!={(i['code'],h) for i in self.items for h in HORIZONS}:
             raise ValueError('模型集合不完整')
+        self.learned=None
+        if learned_models and (self.root/'html/daily/model_selection.json').exists():
+            from daily.best_runtime import BestRuntime
+            self.learned=BestRuntime(self.root,[item['code'] for item in self.items],self.store.with_name(self.store.stem+'_selected_ohlcv.sqlite3'))
+            self.model_runs['selected']=self.learned.run_id
+            if fetcher is fetch_recent:self.fetcher=self.learned.fetch
         self.enhanced=None
         enhanced_pointer='latest_five_year.json' if (self.root/'code/models/latest_five_year.json').exists() else 'latest_enhanced.json'
-        if (self.root/'code/models'/enhanced_pointer).exists():
+        if self.learned is None and (self.root/'code/models'/enhanced_pointer).exists():
             from daily.enhanced_runtime import EnhancedRuntime
             self.enhanced=EnhancedRuntime(self.root,[item['code'] for item in self.items],
                 store=self.store.with_name(self.store.stem+'_ohlcv.sqlite3'),pointer_name=enhanced_pointer)
@@ -131,7 +137,9 @@ class DailyService:
                          'update_error':error,'stale':(now.date()-dt.date.fromisoformat(last)).days>4,
                          'source':self.last_refresh.get('providers',{}).get(code,'本地历史数据库')})
         enhancement=self.enhanced.apply(rows,self.calendar) if self.enhanced else None
-        return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.run_id,
+        selection=self.learned.apply(rows,self.calendar,self.prices) if self.learned else None
+        return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.learned.run_id if self.learned else self.run_id,
+                'model_selection':selection,
                 'enhancement':enhancement,
                 'model_runs':self.model_runs,
                 'selected_codes':[item['code'] for item in self.items],
@@ -188,6 +196,7 @@ class DailyService:
                 self.prices.update(accepted)
                 self.calendar=calendar
                 if self.enhanced:self.enhanced.commit(accepted)
+                if self.learned:self.learned.commit(accepted)
                 self.last_refresh=info
                 self.payload=self.build_payload()
             return True
