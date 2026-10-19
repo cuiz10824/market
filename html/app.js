@@ -15,6 +15,7 @@ function render(next){
     ['行业 / 指数',...labels].forEach((name,i)=>{
       const th=document.createElement('th');th.scope='col';
       th.textContent=kind==='forecast'&&i===1?'下一交易日':name;head.append(th);
+      if(i>0)appendDates(th,payload.date_headers?.[kind]?.[M.horizons[i-1]]||[]);
     });
     const body=table.createTBody();
     for(const row of payload.rows){
@@ -35,6 +36,10 @@ function render(next){
           if(basis!==row.as_of){const date=document.createElement('span');date.className='range';date.textContent=`基于 ${basis}`;td.append(date);}
           td.title=value===null?(row.forecast_errors?.[h]||'模型输入尚未就绪'):`基于 ${basis} 收盘；${h===1?'预测下一交易日收盘相对此次收盘的变化；':''}${row.models[h]}${value===0?'，不表示未来一定不涨不跌':''}`;
         }
+        const dates=row.date_labels?.[kind]?.[h]||[];
+        if(JSON.stringify(dates)!==JSON.stringify(payload.date_headers?.[kind]?.[h]||[]))appendDates(td,dates);
+        const range=row.date_ranges?.[kind]?.[h];
+        if(range?.start&&range?.end)td.title=(td.title?td.title+'；':'')+`${range.start} → ${range.end}${range.estimated?'（目标日期暂估，待交易所公布休市日历）':''}`;
       }
     }
   }
@@ -58,6 +63,9 @@ function render(next){
   notice(details.join(' '),errors>0||modelErrors>0);
   $('status').textContent=payload.refreshing?'正在检查新行情…':errors||modelErrors?'更新未全部成功 · 本地结果可用':'预测结果已载入';
   $('export').disabled=false;
+}
+function appendDates(element,lines){
+  for(const text of lines){const span=document.createElement('span');span.className='column-date';span.textContent=text;element.append(span);}
 }
 async function load(){
   const response=await fetch('/api/dashboard',{cache:'no-store',signal:AbortSignal.timeout(15000)});

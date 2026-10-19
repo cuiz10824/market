@@ -30,4 +30,8 @@ test('export contains 80 actual/forecast entries including trained single-day va
   assert.match(csv,/000300,沪深300/);assert.match(csv,/forecast,1,-?[0-9.]+,LightGBM · 1年,2026-/);
   assert.doesNotMatch(csv,/零变化基准|历史平均收益/);
   assert.doesNotMatch(csv,/p_up|大涨|大跌/);
+  assert.match(csv,/comparison_start,comparison_end,target_date_estimated/);
+  const row=snapshot().rows[0];
+  const range=row.date_ranges.actual['5'];
+  assert.ok(csv.includes(`,${range.start},${range.end},false`));
 });

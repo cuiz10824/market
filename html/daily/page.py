@@ -19,7 +19,12 @@ def atomic_text(path, text):
 
 def table(payload,kind):
     names=['行业 / 指数','下一交易日' if kind=='forecast' else '当天','一周','一月','三月','六月']
-    output=['<thead><tr>'+''.join('<th scope="col">'+n+'</th>' for n in names)+'</tr></thead><tbody>']
+    headers=payload.get('date_headers',{}).get(kind,{})
+    def date_spans(lines):
+        return ''.join('<span class="column-date">'+html.escape(line)+'</span>' for line in lines)
+    output=['<thead><tr><th scope="col">'+names[0]+'</th>'+''.join(
+        '<th scope="col">'+n+date_spans(headers.get(str(h),[]))+'</th>'
+        for n,h in zip(names[1:],payload['horizons']))+'</tr></thead><tbody>']
     for row in payload['rows']:
         name=row.get('display_name',row['name'])
         subtitle=(row['category'] if name==row['name'] else row['name'])+' · '+row['code']
@@ -36,6 +41,8 @@ def table(payload,kind):
             label=('<span class="range">'+html.escape(row['models'].get(str(h),'模型不可用'))+'</span>') if kind=='forecast' else ''
             basis=row.get('forecast_as_of',{}).get(str(h))
             if kind=='forecast' and basis and basis!=row['as_of']:label+='<span class="range">基于 '+html.escape(basis)+'</span>'
+            dates=row.get('date_labels',{}).get(kind,{}).get(str(h),[])
+            if dates!=headers.get(str(h),[]):label+=date_spans(dates)
             output.append(f'<td class="{color}">{text}{label}</td>')
         output.append('</tr>')
     return ''.join(output)+'</tbody>'

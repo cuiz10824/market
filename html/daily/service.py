@@ -13,6 +13,7 @@ from daily.feeds import fetch_recent, SHANGHAI
 from daily.regression import RegressionPredictor
 from daily.page import atomic_text, build_page
 from daily.selection import load_selection
+from daily.dates import annotate_dates
 
 ROOT=Path(__file__).resolve().parents[2]
 HORIZONS=(1,5,21,63,126)
@@ -138,7 +139,9 @@ class DailyService:
                          'source':self.last_refresh.get('providers',{}).get(code,'本地历史数据库')})
         enhancement=self.enhanced.apply(rows,self.calendar) if self.enhanced else None
         selection=self.learned.apply(rows,self.calendar,self.prices) if self.learned else None
+        date_headers=annotate_dates(rows,HORIZONS,self.calendar)
         return {'schema_version':1,'generated_at':now.isoformat(),'model_run':self.learned.run_id if self.learned else self.run_id,
+                'date_headers':date_headers,
                 'model_selection':selection,
                 'enhancement':enhancement,
                 'model_runs':self.model_runs,

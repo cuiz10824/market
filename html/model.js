@@ -22,9 +22,10 @@
     return `${value>0?'+':''}${text}%`;
   }
   function toCSV(payload){
-    const lines=['code,name,as_of,kind,horizon_trading_days,return_percent,model,forecast_as_of'];
+    const lines=['code,name,as_of,kind,horizon_trading_days,return_percent,model,forecast_as_of,comparison_start,comparison_end,target_date_estimated'];
     for(const row of validate(payload).rows) for(const kind of ['actual','forecast']) for(const h of horizons){
-      lines.push([row.code,row.name,row.as_of,kind,h,row[kind][h]??'',kind==='forecast'?(row.models[h]??'未训练'):'历史收盘',kind==='forecast'?(row.forecast_as_of?(row.forecast_as_of[h]??''):row.as_of):''].join(','));
+      const dates=row.date_ranges?.[kind]?.[h];
+      lines.push([row.code,row.name,row.as_of,kind,h,row[kind][h]??'',kind==='forecast'?(row.models[h]??'未训练'):'历史收盘',kind==='forecast'?(row.forecast_as_of?(row.forecast_as_of[h]??''):row.as_of):'',dates?.start??'',dates?.end??'',dates?.estimated??''].join(','));
     }
     return '\ufeff'+lines.join('\r\n');
   }
