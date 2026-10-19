@@ -2,6 +2,8 @@
 
 此目录保留训练和测试相关代码、算法参考及已训练参数。每日服务、行情增量更新、实际运行的回归推理和H5页面均放在 [html](../html/README.md)。研究数据库管理工具放在 [data/tools](../data/tools/README.md)。
 
+非线性训练目标对照（原始收益、asinh、双边指数）：[实验说明](training/TRANSFORMS.md)。权重和报告单独保存，网页模型保持不变。
+
 |位置|用途|
 |---|---|
 |[training](training/README.md)|训练、滚动验证、历史测试、报告和模型重放|

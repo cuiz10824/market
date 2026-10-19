@@ -1,0 +1,12 @@
+{
+  "status": "independent_replay_passed",
+  "native_bundles": 60,
+  "raw_prior_experiment_parity": 12,
+  "replayed_masked_pairs": 770780,
+  "test_csv_pairs": 119910,
+  "candidate_metric_rows_verified": 200,
+  "training_cutoffs_verified": true,
+  "choices_validation_only": true,
+  "original_artifacts_unchanged": true,
+  "production_models_unchanged": true
+}

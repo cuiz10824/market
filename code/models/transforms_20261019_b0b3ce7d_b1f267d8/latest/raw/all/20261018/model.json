@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "task": "transformed_shared_neural_return",
+  "architecture": "tcn",
+  "lookback": 756,
+  "sequence_length": 152,
+  "channels": [
+    "log_close_vs_origin_close",
+    "opening_gap",
+    "high_low_range",
+    "intrabar_return",
+    "relative_daily_volume",
+    "block_return"
+  ],
+  "codes": [
+    "000510",
+    "000300",
+    "000928",
+    "000933",
+    "000932",
+    "000930",
+    "000934",
+    "000935"
+  ],
+  "horizons": [
+    1,
+    5,
+    21,
+    63,
+    126
+  ],
+  "target_scales": [
+    0.009999999776482582,
+    0.022360678762197495,
+    0.04582575708627701,
+    0.07937254011631012,
+    0.1122497171163559
+  ],
+  "target_transform": {
+    "kind": "raw"
+  },
+  "metadata": {
+    "run_id": "transforms_20261019_b0b3ce7d_b1f267d8",
+    "protocol_sha256": "b0b3ce7dc23a37f8402bc67c9d896b4fa2529c0ac4c5ebe3153bbf1839135027",
+    "source_sha256": {
+      "code/training/train_transforms.py": "2b3842c013d26ad4eea4dd13b99f3f7a44608600a307a134b04d68dac9b4cb28",
+      "code/training/target_transforms.py": "ceb0c2f2ab9d0833615b891a008afc2ab58d2ac44115ee672f253c29ee7679df",
+      "code/training/transform_engine.py": "f1af38c99555f79756e0b679adeab1d44bcb09f0b75d18b76959fe3a55a30358",
+      "code/training/neural_engine.py": "4c892911c0ce523ed5f24257368a020aa3f2083b6b6d05366ea0b9a5e3f739a8",
+      "code/research/neural_models.py": "66cd1b388df95616c3eaa2b59bf306232167c6d2f964f55a53d650d1c0f19a3e",
+      "code/research/sequence_data.py": "a1afa07e5f58f187a89313ae46c6c6e3d60a248cd31a71caeb738ac128ab6c7d",
+      "code/training/train_enhanced.py": "a23d8b8247229f98ca35136f7066d3a84b32f4739dea2abce33ac4c2c665f323",
+      "data/active_indices.json": "7af9aab01767c4754add5c699799752de0ea22c1a7bcd461e54160ae662775a1"
+    },
+    "database_sha256": "95bacd54af3a5ab5d102ac836b67d0ea5969da79f585146f647599a58e6c4511",
+    "research_only": true,
+    "auto_deploy": false,
+    "versions": {
+      "torch": "2.14.1+cpu",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "safetensors": "0.8.0"
+    },
+    "role": "latest",
+    "seed": 20261018,
+    "cutoff": null,
+    "training_rows": 5353,
+    "fit_origin_start": "2010-03-15",
+    "fit_origin_end": "2026-10-13",
+    "fit_label_ends": {
+      "1": "2026-10-14",
+      "5": "2026-10-13",
+      "21": "2026-10-14",
+      "63": "2026-10-16",
+      "126": "2026-10-14"
+    },
+    "label_counts": {
+      "1": 5353,
+      "5": 5345,
+      "21": 5321,
+      "63": 5257,
+      "126": 5153
+    },
+    "selected_epoch": 9,
+    "epochs_executed": 9
+  },
+  "weights": {
+    "file": "weights.safetensors",
+    "sha256": "5ec7a210085ac136dd03c648ccdff27df73438fe7752d91dffbbbe32945e977b"
+  }
+}

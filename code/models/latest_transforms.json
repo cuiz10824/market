@@ -1,0 +1,8 @@
+{
+  "run_id": "transforms_20261019_b0b3ce7d_b1f267d8",
+  "research_only": true,
+  "auto_deploy": false,
+  "index": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/index.json",
+  "report": "data/reports/training/transforms_20261019_b0b3ce7d_b1f267d8/summary.json",
+  "verification": "data/reports/training/transforms_20261019_b0b3ce7d_b1f267d8/verification.json"
+}

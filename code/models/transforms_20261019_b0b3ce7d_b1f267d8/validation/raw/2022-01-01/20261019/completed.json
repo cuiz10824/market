@@ -1,0 +1,19 @@
+{
+  "role": "validation",
+  "candidate": "raw",
+  "seed": 20261019,
+  "start": "2022-01-01",
+  "end": "2024-01-01",
+  "bundle": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/model.json",
+  "predictions": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/predictions.npz",
+  "log": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/fit_log.json",
+  "selected_epoch": 2,
+  "epochs_executed": 5,
+  "elapsed_seconds": 6.432615962999989,
+  "files": {
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/model.json": "5ca46506b4a9ee7ffb4c817452bcad24f973ae3311c5c3594b4f79d2b4d57be9",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/weights.safetensors": "314e212825a67ab8b87c8789824c78f14d781cbd65ab84d407ecf178ff9c813f",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/predictions.npz": "16df0ada6aab0c729ca09834d3671ea205f7bec6d5f346eb55861ab24fe98396",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/raw/2022-01-01/20261019/fit_log.json": "7f20c423c94b6861bcf027afd74abe3817d8c59c1b5710d6dfc153879c043b92"
+  }
+}

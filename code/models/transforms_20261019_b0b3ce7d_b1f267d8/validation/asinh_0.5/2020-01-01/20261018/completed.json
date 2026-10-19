@@ -1,0 +1,19 @@
+{
+  "role": "validation",
+  "candidate": "asinh_0.5",
+  "seed": 20261018,
+  "start": "2020-01-01",
+  "end": "2022-01-01",
+  "bundle": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/model.json",
+  "predictions": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/predictions.npz",
+  "log": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/fit_log.json",
+  "selected_epoch": 12,
+  "epochs_executed": 12,
+  "elapsed_seconds": 14.467556196992518,
+  "files": {
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/model.json": "7c781305d7b75dbf14b3f17f7445a95c3f54a5d24184d2fdfe078ee3c1b688f9",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/weights.safetensors": "ec521fb4707c5d9f50e762b7f66aff2d78aa8bc16693182c656d0027a94a30d6",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/predictions.npz": "b4bbdc2e3053878aca7cddb34b6af099e4127be931d3389b9c62177dd5442a89",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/validation/asinh_0.5/2020-01-01/20261018/fit_log.json": "cc38b2d36fbed829ad27db93b9b36d89c0c6baefb5620312407c19929ca3bf32"
+  }
+}

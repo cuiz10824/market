@@ -1,0 +1,110 @@
+{
+  "codes": [
+    "000510",
+    "000300",
+    "000928",
+    "000933",
+    "000932",
+    "000930",
+    "000934",
+    "000935"
+  ],
+  "horizons": [
+    1,
+    5,
+    21,
+    63,
+    126
+  ],
+  "development_windows": [
+    [
+      "2018-01-01",
+      "2020-01-01"
+    ],
+    [
+      "2020-01-01",
+      "2022-01-01"
+    ],
+    [
+      "2022-01-01",
+      "2024-01-01"
+    ]
+  ],
+  "holdout_starts": [
+    "2024-01-01",
+    "2025-01-01"
+  ],
+  "a500_holdout_start": "2025-01-01",
+  "test_status": "Previously observed dates; exploratory comparison, NOT fresh untouched holdout.",
+  "schema_version": 1,
+  "experiment": "shared_tcn_target_transforms_v1",
+  "architectures": [
+    "tcn"
+  ],
+  "lookbacks": [
+    756,
+    1260
+  ],
+  "block_sessions": 5,
+  "input_version": "six_causal_ohlcv_block_channels_v1",
+  "target": "close[t+h]/close[t]-1",
+  "label_policy": "Mask each unavailable label independently; every training label ends strictly before split. No labels used for input normalization.",
+  "target_scale_policy": "Fixed 0.01*sqrt(h); equal mean absolute scaled error across the five heads. No future-fitted scale.",
+  "train_stride": 5,
+  "early_stop_validation_stride": 5,
+  "report_validation_stride": 1,
+  "batch_size": 128,
+  "max_epochs": 12,
+  "minimum_epochs": 2,
+  "patience": 3,
+  "learning_rate": 0.001,
+  "weight_decay": 0.001,
+  "gradient_clip": 1.0,
+  "threads": 2,
+  "selection": "Choose among5 candidates per index/horizon using equal-fold mean ORIGINAL return MAE over3 development windows; freeze all40 choices and per-candidate median6 validation epochs BEFORE held-out fitting/scoring. Also report all candidates, zero, matched historical mean, validation-selected transforms and validation-selected raw-or-transform.",
+  "pooling": "One shared five-output network across8 indices, with an index-ID embedding. Daily prices aggregated into nonoverlapping five-session OHLCV blocks; first block may be shorter.",
+  "origins": "All lookbacks share origins with complete maximum1260+1-session history for each index. Training minibatches take every5th observed exchange origin; validation reports and test use daily origins.",
+  "architecture_spec": {
+    "tcn": "8 channels,8 causal kernel3 residual blocks with dilations1..128,receptive field511 blocks,dropout0.1",
+    "patchtst": "8-block patches (about40 sessions),8-dimensional embedding,2 heads,1 encoder layer,FF16,dropout0.1; channel-independent encoder and learned channel mixing",
+    "linear": "Shared temporal projection per channel, learned channel mixing; DLinear7-block moving average; NLinear removes last block without price-level addition to return head"
+  },
+  "limitations": [
+    "Previously observed test dates: exploratory only",
+    "Two seeds, fixed small CPU budget; no exhaustive hyperparameter search",
+    "Five-session aggregation loses intrablock ordering",
+    "Historical index backfill and correlated overlapping labels remain",
+    "These are adapted architecture implementations, not exact upstream benchmark reproductions"
+  ],
+  "architecture": "tcn",
+  "lookback": 756,
+  "seeds": [
+    20261018,
+    20261019
+  ],
+  "candidates": {
+    "raw": {
+      "kind": "raw"
+    },
+    "asinh_0.5": {
+      "kind": "asinh",
+      "alpha": 0.5
+    },
+    "asinh_1": {
+      "kind": "asinh",
+      "alpha": 1.0
+    },
+    "signed_exp_0.1": {
+      "kind": "signed_exp",
+      "alpha": 0.1
+    },
+    "signed_exp_0.25": {
+      "kind": "signed_exp",
+      "alpha": 0.25
+    }
+  },
+  "target_transform_policy": "u=return/(0.01*sqrt(h)); raw=u; asinh=asinh(alpha*u)/alpha; signed_exp=sign(u)*expm1(alpha*abs(u))/alpha. All slopes at zero equal1; no clipping, post-hoc scaling or future-fitted parameters.",
+  "early_stop_policy": "Original-return scaled MAE only; invert outputs before scoring. Average original-return predictions across the two seeds.",
+  "lookback_policy": "Hold756-session TCN input fixed at previous validation-selected length; require1260+1 complete sessions for same eligible origins as previous neural experiment. No new architecture or lookback search.",
+  "auto_deploy": false
+}

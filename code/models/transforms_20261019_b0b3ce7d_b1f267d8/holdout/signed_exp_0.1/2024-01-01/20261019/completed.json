@@ -1,0 +1,19 @@
+{
+  "role": "holdout",
+  "candidate": "signed_exp_0.1",
+  "seed": 20261019,
+  "start": "2024-01-01",
+  "end": null,
+  "bundle": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/model.json",
+  "predictions": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/predictions.npz",
+  "log": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/fit_log.json",
+  "selected_epoch": 9,
+  "epochs_executed": 9,
+  "elapsed_seconds": 21.16952355799731,
+  "files": {
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/model.json": "18f7e006d1f86e2f6179a40a6588bf68e152bc879a83edf7fa9a4239c3003424",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/weights.safetensors": "016c194dbcfa850dc6f5d875e02f2aea9ae678e3ffbe33bf1a446e5926e49f16",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/predictions.npz": "9584bb068543100b110d36e55e33aa0e103e5cb383c01b1c1b9fae3435637933",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/signed_exp_0.1/2024-01-01/20261019/fit_log.json": "8b761a5afe7603797e209b80a4efbb5c20e638e84f8905570d2d8711360a47d9"
+  }
+}

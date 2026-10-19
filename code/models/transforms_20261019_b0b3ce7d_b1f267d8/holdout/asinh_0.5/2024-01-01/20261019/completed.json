@@ -1,0 +1,19 @@
+{
+  "role": "holdout",
+  "candidate": "asinh_0.5",
+  "seed": 20261019,
+  "start": "2024-01-01",
+  "end": null,
+  "bundle": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/model.json",
+  "predictions": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/predictions.npz",
+  "log": "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/fit_log.json",
+  "selected_epoch": 9,
+  "epochs_executed": 9,
+  "elapsed_seconds": 15.126942760995007,
+  "files": {
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/model.json": "28496fcea962387463b5078807ddcf411419932024dee3651f3a940e3f8ce39e",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/weights.safetensors": "19edc777b4a697c5f01a2465d20107c0475b2bda5c09b92af0763eb2bce73c3e",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/predictions.npz": "a39d64731e7239f4451fb613a5962eb159634dbafa1c0aa99c7b700047d672bc",
+    "code/models/transforms_20261019_b0b3ce7d_b1f267d8/holdout/asinh_0.5/2024-01-01/20261019/fit_log.json": "b430048aa4f530513fa1b745b49a85815e33a7583f1966643583b2a4c6afee4f"
+  }
+}
