@@ -5,7 +5,7 @@
     "failed": 0
   },
   "daily_tests": {
-    "passed": 15,
+    "passed": 16,
     "failed": 0
   },
   "frontend_tests": {
@@ -37,7 +37,8 @@
     "close-only update retains explicit old forecast basis",
     "missing history does not fill zero",
     "volume-unit mismatch rejected",
-    "weight checksum mismatch rejected"
+    "weight checksum mismatch rejected",
+    "OHLCV catch-up uses candle cache date after close-only updates"
   ],
   "windows": "CPU dependency bootstrap and CRLF inspected; not executed on a Windows host"
 }

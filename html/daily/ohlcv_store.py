@@ -35,7 +35,10 @@ class OHLCVStore:
 
     def fetch(self,item,last_date):
         try:
-            bars=fetch_bars(item,last_date);self._validate(pd.DataFrame(bars))
+            # Close-only fallback may be newer than our last candle; fetch from
+            # the actual candle cache so missing OHLCV days can be recovered.
+            candle_date=str(self.bars[item['code']].date.max())
+            bars=fetch_bars(item,min(last_date,candle_date));self._validate(pd.DataFrame(bars))
             if not bars:raise ValueError('No completed OHLCV candles')
             with self.lock:self.pending[item['code']]=bars;self.errors.pop(item['code'],None)
             return {r['date']:r['close'] for r in bars},'腾讯'

@@ -67,6 +67,15 @@ class BestRuntimeTests(unittest.TestCase):
             folder=Path(temp);(folder/'model.json').write_text(json.dumps(bundle));(folder/bundle['weights']['file']).write_bytes(b'invalid')
             with self.assertRaisesRegex(ValueError,'checksum'):NeuralPredictor(folder/'model.json')
 
+    def test_candle_catchup_starts_from_candle_cache_not_newer_close_only_date(self):
+        runtime=self.service.learned
+        item=next(i for i in self.service.items if i['code']=='000300')
+        candles=runtime.bars['000300'].tail(20).to_dict('records')
+        with patch('daily.ohlcv_store.fetch_bars',return_value=candles) as fetch:
+            runtime.fetch(item,'2026-12-01')
+        fetch.assert_called_once_with(item,'2026-10-16')
+        runtime.pending.pop('000300',None)
+
     def test_new_prices_without_ohlcv_keep_previous_basis_and_missing_history_never_fills_zero(self):
         base=self.service
         def fake(item,last_date):
