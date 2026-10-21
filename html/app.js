@@ -50,7 +50,13 @@ function render(next){
   const errors=Object.keys(payload.last_refresh.errors||{}).length;
   const modelErrors=Object.keys(payload.model_selection?.errors||{}).length;
   const zero=payload.rows.reduce((n,row)=>n+Object.values(row.models).filter(v=>v==='零变化基准').length,0);
-  const details=[offline?'当前为保存的快照。双击「启动网页.bat」可更新行情并重新预测。':'启动时和每30分钟检查已收盘行情；页面每60秒读取最新结果。',
+  const agent=payload.agent;
+  const agentTime=value=>value?new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'}):'尚无';
+  const agentLabels={idle:'等待首次运行',running:'正在采集与预测',ready:'已完成',partial:'部分数据待补齐',error:'更新失败，将重试',interrupted:'上次运行中断，将补跑',waiting:'等待正在执行的更新'};
+  $('agent-status').textContent=agent?
+    `${offline?'自动更新记录（保存快照）':'自动更新'}：${agent.enabled?'每周一09:00补齐上周行情；日常每30分钟检查收盘数据':'自动调度已暂停，仅支持手动刷新'}。状态：${agentLabels[agent.status]||agent.status}；本轮核验 ${agent.target_week_start} ～ ${agent.target_week_end}；最近成功 ${agentTime(agent.last_success)}${!offline&&agent.enabled?'；下次检查 '+agentTime(agent.next_run):''}${agent.coverage?.calendar_warning?'；'+agent.coverage.calendar_warning:''}${agent.last_error?'；'+agent.last_error:''}`:
+    '自动更新：启动「启动网页.bat」后启用；可用「安装自动更新.bat」设置Windows后台运行。';
+  const details=[offline?'当前为保存的快照。双击「启动网页.bat」可更新行情并重新预测。':'每周一09:00自动补齐上周行情，失败后重试；日常每30分钟检查已收盘行情；页面每60秒读取最新结果。',
     payload.model_selection?`已按历史验证误差选用${payload.model_selection.available_tasks}个回归预测，未使用固定零变化基准。`:`${payload.rows.length*M.horizons.length}个预测中有${zero}个使用零变化基准，0%不是确定不涨不跌。`,
     payload.model_selection?.stale_tasks?`${payload.model_selection.stale_tasks}个预测使用最后可用日期，日期逐格标注。`:'',
     payload.model_selection?.missing_tasks?`${payload.model_selection.missing_tasks}个预测输入未就绪，暂显示“—”。`:'',

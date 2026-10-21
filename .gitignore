@@ -3,5 +3,7 @@ __pycache__/
 .venv/
 .venv-daily/
 data/daily/*.sqlite3*
+data/daily/weekly_agent.json
+data/daily/weekly_agent.log*
 .model-cache/
 .DS_Store

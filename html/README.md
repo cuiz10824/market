@@ -1,10 +1,28 @@
 # 每日预测和网页
 
-Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库根目录的 `.venv-daily` 并安装 `requirements.txt`，随后打开 `http://127.0.0.1:8765`。保持命令窗口开启。日常推理安装 NumPy、LightGBM、pandas、CatBoost、CPU PyTorch和safetensors。启动批处理会先安装官方CPU版PyTorch，首次安装需要联网；不需要显卡。
+Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库根目录的 `.venv-daily` 并安装 `requirements.txt`，随后打开 `http://127.0.0.1:8765`。手动启动时保持命令窗口开启；也可按下文安装后台任务。日常推理安装 NumPy、LightGBM、pandas、CatBoost、CPU PyTorch和safetensors。启动批处理会先安装官方CPU版PyTorch，首次安装需要联网；不需要显卡。
 
 当前每日输出由 `daily/model_selection.json` 控制：40组分别在已训练的CatBoost、LightGBM、DLinear、NLinear、TCN、PatchTST候选中按滚动验证MAE取最小者，不再要求先胜过零预测；固定零与历史均值基准不参与选择。模型真实结果即使很小也保留精度，不人为添加涨跌。选择细节见 [每日选择报告](../data/reports/deployment/2026-10-19/README.md)。这不意味着每个模型都已优于零基准。
 
-`index.html` 是自包含文件，内置样式、脚本、行情与预测，即使只下载这一个文件也能显示，无需依赖旁边的CSS/JS。直接双击 `index.html` 无需 Python，可查看随仓库保存的真实数据与模型预测快照；此方式不能自行联网或执行 Python。`每日更新.bat` 用于只更新并生成快照，之后可直接打开 HTML。若希望每天定时运行，可在 Windows 任务计划程序中调用该批处理；本仓库未擅自注册系统任务。
+`index.html` 是自包含文件，内置样式、脚本、行情与预测，即使只下载这一个文件也能显示，无需依赖旁边的CSS/JS。直接双击 `index.html` 无需 Python，可查看随仓库保存的真实数据与模型预测快照；此方式不能自行联网或执行 Python。`每日更新.bat` 用于只更新并生成快照，之后可重新打开 HTML。要让已打开的网页自动同步，使用 `启动网页.bat` 打开的本地服务页面。
+
+## 自动更新代理
+
+每周一北京时间09:00，检查上周完整交易周的8个指数收盘及OHLCV，核对实际交易日期、缺口和40个预测的基准日期。调用已经训练好的模型，不重新训练。错过周一时，下一次启动立即补跑；未启动过也会先检查已有历史与缺失行情。日常继续每30分钟检查已收盘行情，网页每60秒读取最新结果，收盘后新数据被来源公布并通过校验后即可重算。每日15:10前不接受当日未完成日线。
+
+采集、校验、推理、导出按顺序执行。同一个服务只允许一项更新运行；失败或部分数据缺失时保留可用结果，每30分钟重试，未补齐不会标成整周成功。遗漏的增量收盘和量价记录可以补回，已有历史不覆盖。来源不可用、历史超出来源提供的窗口或年度交易日历尚未收录时，会记录缺口和原因，不能伪造补齐。2026休市表已收录，后续年份需根据交易所公告更新daily/trading_calendar.json；日常行情检查仍可执行。
+
+网页显示代理状态、核验周、最近成功时间和下次检查。状态及覆盖检查存在`data/daily/weekly_agent.json`，日志存在`data/daily/weekly_agent.log`（自动轮转）；行情与量价继续存在同目录独立SQLite库。这些属于这台电脑的运行数据，不自动提交GitHub，原训练库和权重不改动。
+
+Windows后台运行：
+
+1. 下载完整仓库，双击 `安装自动更新.bat`。它安装现有Python依赖，然后为当前Windows用户注册并立即启动一个后台任务。任务名称带仓库路径指纹，不需要输入账号密码。
+2. 任务在每周一09:00（Windows本地时间）和用户登录时启动常驻程序；程序内部按北京时间调度并补跑。已运行则不重复启动；已有手动窗口占用端口时，后台等待，窗口关闭后接管。
+3. 双击 `启动网页.bat` 查看结果。后台已运行时会打开已有页面，不创建第二个采集程序。关闭浏览器仍继续更新。
+4. 电脑需开机、联网且该用户已登录。关机、睡眠或退出登录期间不能执行；唤醒或重新登录后补跑。仓库移动后请先卸载旧任务再重新安装。
+5. 不需要后台运行时双击 `卸载自动更新.bat`，停止并删除本仓库后台任务；数据保留。手动启动的窗口需自行关闭。
+
+Windows任务注册脚本需在Windows上执行；云环境只测试Python调度、采集、推理和网页流程。
 
 ## 目录与流程
 
@@ -14,7 +32,8 @@ Windows 安装 Python 3.12，双击 `启动网页.bat`。首次会创建仓库�
 - `daily/service.py`：原数据库 + `data/daily/market.sqlite3` 增量；以沪深300新日线扩展观测交易日历，校验其他指数连续性。仅为8个指数采集新行情；范围由data/active_indices.json统一配置。`best_runtime.py`统一调用每日所选模型，`ohlcv_store.py`保留验证后的量价增量。
 - `daily/features.py / rich_features.py / cycle_features.py / neural_features.py`：与训练核对一致的价格、量价、长期和序列特征。
 - `daily/regression.py / enhanced_predictor.py / neural_predictor.py`：只做保存权重推理，验证SHA256；神经权重使用safetensors，不加载pickle。
-- `server.py`：只绑定本机地址，启动时及每30分钟检查行情；`GET /api/dashboard` 读取结果，`POST /api/refresh` 请求更新。
+- `server.py`：只绑定本机地址；常驻代理每60秒检查是否到期，启动和日常每30分钟更新，周一09:00核验完整周；`GET /api/dashboard` 读取结果（含agent状态），`POST /api/refresh` 手动请求更新。
+- `daily/agent.py`：持久化每周任务状态、重试和完整性检查，重启可恢复，所有日期按北京时间计算。
 - `predict.py`：执行一次，可加 `--refresh` 更新日线，生成 `snapshot.js`。
 - `index.template.html` 是页面模板，`daily/page.py` 在每次预测导出时生成自包含的 `index.html`，同时预先渲染表格，脚本不可用时仍显示数据。修改排版时编辑模板，避免生成时覆盖。
 - `index.html / app.js / style.css / model.js`：上栏实际涨跌，下栏模型预测；每60秒读取服务结果，可手动刷新、导出CSV。白底黑字，上涨红、下跌绿。

@@ -1,14 +1,18 @@
 """Local dashboard server: scheduled close-data refresh and saved regression inference."""
 import argparse
 import json
+import logging
+from logging.handlers import RotatingFileHandler
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from functools import partial
 from pathlib import Path
 import threading
 import urllib.parse
+import urllib.request
 import webbrowser
 
 from daily.service import DailyService
+from daily.agent import WeeklyAgent
 
 HTML=Path(__file__).resolve().parent
 STATIC={'/','/index.html','/style.css','/model.js','/app.js','/snapshot.js'}
@@ -16,6 +20,9 @@ STATIC={'/','/index.html','/style.css','/model.js','/app.js','/snapshot.js'}
 
 def handler_for(service):
     class Handler(SimpleHTTPRequestHandler):
+        def log_message(self,format,*args):
+            logging.getLogger('market.agent').info('%s - %s',self.address_string(),format%args)
+
         def allowed_host(self):
             return self.headers.get('Host') in (f'127.0.0.1:{self.server.server_port}',f'localhost:{self.server.server_port}')
 
@@ -51,7 +58,9 @@ def handler_for(service):
             self.send_header('Content-Type','application/json; charset=utf-8')
             self.send_header('Cache-Control','no-store')
             self.send_header('Content-Length',str(len(body)))
-            self.end_headers();self.wfile.write(body)
+            self.end_headers()
+            try:self.wfile.write(body)
+            except (BrokenPipeError,ConnectionResetError):pass
 
     return partial(Handler,directory=str(HTML))
 
@@ -59,9 +68,10 @@ def handler_for(service):
 def launch_refresh(service):
     def job():
         try:
-            if service.refresh():service.export_snapshot()
+            if hasattr(service,'agent'):service.agent.run(force=True)
+            elif service.refresh():service.export_snapshot()
         except Exception as exc:
-            print(f'行情更新未完成，保留原有数据：{exc}',flush=True)
+            logging.getLogger('market.agent').exception('行情更新未完成，保留原有数据：%s',exc)
     threading.Thread(target=job,daemon=True).start()
 
 
@@ -69,16 +79,50 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--no-browser',action='store_true')
     parser.add_argument('--offline',action='store_true',help='启动时不联网；仅手动刷新')
+    parser.add_argument('--background',action='store_true',help='后台任务：端口被手动窗口占用时等待接管')
     parser.add_argument('--port',type=int,default=8765)
     args=parser.parse_args()
-    service=DailyService()
-    service.export_snapshot()
-    server=ThreadingHTTPServer(('127.0.0.1',args.port),handler_for(service))
+    # Bind before loading models, so a scheduled launch cannot run a second updater.
+    while True:
+        try:
+            server=ThreadingHTTPServer(('127.0.0.1',args.port),SimpleHTTPRequestHandler)
+            break
+        except OSError as exc:
+            if exc.errno not in (48,98,10048):raise
+            if args.background:
+                threading.Event().wait(30)
+                continue
+            print(f'端口{args.port}已在使用；未启动第二个更新程序。',flush=True)
+            if not args.no_browser:
+                try:
+                    with urllib.request.urlopen(f'http://127.0.0.1:{args.port}/api/dashboard',timeout=3) as response:
+                        existing=json.load(response)
+                    if existing.get('schema_version')==1 and existing.get('unit')=='percent':
+                        webbrowser.open(f'http://127.0.0.1:{args.port}')
+                except Exception:
+                    pass
+            return
+    try:
+        service=DailyService()
+        folder=service.store.parent
+        folder.mkdir(parents=True,exist_ok=True)
+        log=RotatingFileHandler(folder/'weekly_agent.log',maxBytes=2_000_000,backupCount=2,encoding='utf-8')
+        log.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
+        logging.getLogger('market.agent').addHandler(log)
+        logging.getLogger('market.agent').setLevel(logging.INFO)
+        agent=WeeklyAgent(service,enabled=not args.offline)
+        service.export_snapshot()
+        server.RequestHandlerClass=handler_for(service)
+    except Exception:
+        server.server_close()
+        raise
     stop=threading.Event()
     if not args.offline:
         launch_refresh(service)
         def scheduled():
-            while not stop.wait(1800):launch_refresh(service)
+            while not stop.wait(60):
+                try:agent.run()
+                except Exception:logging.getLogger('market.agent').exception('自动任务暂未完成，将继续重试')
         threading.Thread(target=scheduled,daemon=True).start()
     url=f'http://127.0.0.1:{server.server_port}'
     print(f'A股行业观察：{url}；关闭此窗口停止每日更新。',flush=True)

@@ -16,6 +16,7 @@ class OHLCVStore:
         with sqlite3.connect(database.resolve().as_uri()+'?mode=ro',uri=True) as db:
             frame=pd.read_sql_query('SELECT * FROM bars ORDER BY code,date',db)
         self.bars={c:f.drop(columns='code').reset_index(drop=True) for c,f in frame.groupby('code') if c in codes}
+        self.seed_end={c:str(f.date.max()) for c,f in self.bars.items()}
         store.parent.mkdir(parents=True,exist_ok=True)
         with sqlite3.connect(store) as db:
             db.execute('CREATE TABLE IF NOT EXISTS bars(code TEXT,date TEXT,open REAL,high REAL,low REAL,close REAL,volume REAL,PRIMARY KEY(code,date))')
@@ -56,8 +57,8 @@ class OHLCVStore:
                 overlap=[r for r in incoming if r['date'] in previous.index]
                 if len(overlap)<5 or any(any(abs(previous.loc[r['date'],field]-r[field])>.020001 for field in ('open','high','low','close')) or abs(previous.loc[r['date'],'volume']/r['volume']-1)>.005 for r in overlap):
                     self.errors[code]='量价重叠校验失败，预测保留最后可用日期';continue
-                new=[r for r in incoming if r['date']>self.bars[code].date.max() and r['date'] in prices]
+                new=[r for r in incoming if r['date']>self.seed_end[code] and r['date'] not in previous.index and r['date'] in prices]
                 if any(abs(r['close']-prices[r['date']])>.020001 for r in new):
                     self.errors[code]='量价收盘与行情不一致，预测保留最后可用日期';continue
                 db.executemany('INSERT OR IGNORE INTO bars VALUES(?,?,?,?,?,?,?)',[(code,)+tuple(r[f] for f in fields) for r in new])
-                if new:self.bars[code]=pd.concat([self.bars[code],pd.DataFrame(new)],ignore_index=True)
+                if new:self.bars[code]=pd.concat([self.bars[code],pd.DataFrame(new)],ignore_index=True).sort_values('date').reset_index(drop=True)

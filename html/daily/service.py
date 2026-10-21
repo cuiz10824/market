@@ -36,7 +36,7 @@ def merge_checked(old,new,calendar):
     if unknown:
         raise ValueError('新增行情未在沪深300交易日历中得到确认')
     result=dict(old)
-    result.update({day:value for day,value in new.items() if day>max(old)})
+    result.update({day:value for day,value in new.items() if day not in old})
     last=max(result)
     dates=[d for d in calendar if d<=last][-253:]
     if len(dates)<253 or any(day not in result for day in dates):
@@ -152,7 +152,8 @@ class DailyService:
 
     def dashboard(self):
         with self.lock:
-            return dict(self.payload,refreshing=self.refreshing)
+            return dict(self.payload,refreshing=self.refreshing,
+                        agent=self.agent.snapshot() if hasattr(self,'agent') else None)
 
     def refresh(self):
         """One caller at a time; partial failures preserve that index's previous history."""

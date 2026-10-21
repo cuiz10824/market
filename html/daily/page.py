@@ -71,6 +71,10 @@ def render_page(root,payload):
     template=template.replace('>等待数据<','>已保存的本地快照<')
     template=template.replace('正在载入历史收盘数据与已训练的回归模型结果。联网更新请使用「启动网页.bat」。',
                               '当前显示已保存的真实收盘数据和模型预测。联网更新请使用「启动网页.bat」。')
+    agent=payload.get('agent')
+    if agent:
+        message='自动更新记录（保存快照）：每周一09:00补齐上周行情；核验周 '+agent['target_week_start']+' ～ '+agent['target_week_end']+'；最近成功 '+(agent.get('last_success') or '尚无')+'；状态 '+agent['status']+'。启动网页程序后自动运行。'
+        template=re.sub(r'(<div id="agent-status"[^>]*>).*?(</div>)',lambda m:m[1]+html.escape(message)+m[2],template)
     return template
 
 
