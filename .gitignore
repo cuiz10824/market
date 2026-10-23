@@ -2,6 +2,8 @@ __pycache__/
 *.pyc
 .venv/
 .venv-daily/
+.venv-bear/
+code_bear/.mplcache/
 data/daily/*.sqlite3*
 data/daily/weekly_agent.json
 data/daily/weekly_agent.log*

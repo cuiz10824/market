@@ -1,0 +1,1045 @@
+{
+  "run_id": "20261023_8db625ff022c_05c39ebf_b9b07209",
+  "models": [
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/majority/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/persistence/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/ma_rule/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/logistic/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/63/lightgbm/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/majority/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/persistence/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/ma_rule/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/logistic/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/126/lightgbm/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2010-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2010-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2010-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2014-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2014-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2014-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/majority/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/persistence/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/ma_rule/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/logistic/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "validation",
+      "cutoff": "2018-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2018-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/validation/252/lightgbm/2018-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/majority/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/persistence/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/ma_rule/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/logistic/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/63/lightgbm/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "majority",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/majority/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/majority/all/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/persistence/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/persistence/all/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "ma_rule",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/ma_rule/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/ma_rule/all/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "logistic",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/logistic/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/logistic/all/predictions.npz"
+    },
+    {
+      "horizon": 63,
+      "candidate": "lightgbm",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/lightgbm/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/63/lightgbm/all/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/majority/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/persistence/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/ma_rule/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/logistic/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2026-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2026-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/126/lightgbm/2026-01-01/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "majority",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/majority/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/majority/all/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/persistence/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/persistence/all/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "ma_rule",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/ma_rule/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/ma_rule/all/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "logistic",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/logistic/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/logistic/all/predictions.npz"
+    },
+    {
+      "horizon": 126,
+      "candidate": "lightgbm",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/lightgbm/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/126/lightgbm/all/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2022-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2022-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2022-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2023-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2023-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2023-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2024-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2024-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2024-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/majority/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/persistence/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/ma_rule/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/logistic/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "test",
+      "cutoff": "2025-01-01",
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2025-01-01/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/test/252/lightgbm/2025-01-01/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "majority",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/majority/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/majority/all/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "persistence",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/persistence/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/persistence/all/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "ma_rule",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/ma_rule/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/ma_rule/all/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/logistic/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/logistic/all/predictions.npz"
+    },
+    {
+      "horizon": 252,
+      "candidate": "lightgbm",
+      "role": "latest",
+      "cutoff": null,
+      "bundle": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/lightgbm/all/model.json",
+      "predictions": "models/20261023_8db625ff022c_05c39ebf_b9b07209/latest/252/lightgbm/all/predictions.npz"
+    }
+  ]
+}

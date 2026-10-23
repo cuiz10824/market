@@ -1,0 +1,48 @@
+{
+  "run_id": "20261023_8db625ff022c_05c39ebf_b9b07209",
+  "dataset": {
+    "dataset_id": "20261023_8db625ff022c",
+    "csv": "data/20261023_8db625ff022c/sh000001.csv",
+    "manifest": "data/20261023_8db625ff022c/manifest.json"
+  },
+  "as_of": "2026-10-22",
+  "predictions": [
+    {
+      "horizon": 63,
+      "candidate": "persistence",
+      "as_of": "2026-10-22",
+      "label": "震荡/混合",
+      "scores": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "score_type": "deterministic_rule"
+    },
+    {
+      "horizon": 126,
+      "candidate": "persistence",
+      "as_of": "2026-10-22",
+      "label": "震荡/混合",
+      "scores": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "score_type": "deterministic_rule"
+    },
+    {
+      "horizon": 252,
+      "candidate": "logistic",
+      "as_of": "2026-10-22",
+      "label": "震荡/混合",
+      "scores": [
+        0.0705168413542211,
+        0.8564531089664738,
+        0.07303004967930529
+      ],
+      "score_type": "uncalibrated_model_scores"
+    }
+  ],
+  "research_only": true
+}

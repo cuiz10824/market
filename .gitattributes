@@ -21,3 +21,13 @@ data/enhanced/**/*.csv whitespace=cr-at-eol
 code/references/kronos/** -text
 code/references/kronos/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 code/training/enhanced_protocol.json text eol=lf
+code_bear/*.py text eol=lf
+code_bear/bear/*.py text eol=lf
+code_bear/tests/*.py text eol=lf
+code_bear/protocol.json text eol=lf
+code_bear/requirements.txt text eol=lf
+code_bear/data/** -text
+code_bear/models/** -text
+code_bear/models/**/*.lgb.txt whitespace=-blank-at-eol,-blank-at-eof
+code_bear/reports/** -text
+code_bear/reports/**/*.csv whitespace=cr-at-eol

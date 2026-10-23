@@ -1,0 +1,371 @@
+{
+  "dataset_id": "20261023_8db625ff022c",
+  "index": {
+    "symbol": "sh000001",
+    "code": "000001",
+    "name": "上证指数",
+    "exchange": "SSE"
+  },
+  "first_date": "1990-12-19",
+  "last_date": "2026-10-22",
+  "rows": 8737,
+  "retrieved_at": "2026-10-23T11:59:01.096218+08:00",
+  "fields": [
+    "date",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume"
+  ],
+  "csv_sha256": "8db625ff022cd4401abbe82d080f21a653343fc17137b44c6df4da41cedbb0a5",
+  "adjustment": "unadjusted index day field; index is not a fund total-return series",
+  "volume_unit": "Tencent native units, not independently unit-calibrated; relative same-source volume features only",
+  "amount": "Not supplied: no invented amount column",
+  "calendar_coverage": {
+    "status": "all_reference_sessions_present",
+    "reference": "data/sources/investment_data/2026-10-17/selected.zip",
+    "reference_sha256": "a25604b0941f1a8470773613f93c22d4b93b469ec7ef2e771816df8f5331a1f7",
+    "start": "2000-01-04",
+    "end": "2026-10-16",
+    "sessions": 6489,
+    "missing": []
+  },
+  "sources": [
+    {
+      "year": 1990,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1990-01-01%2C1990-12-31%2C640%2Cqfq",
+      "response_sha256": "b6ac724dd14c81c2c09232f6cddd3a055797b9fcfa52caf25ab0a381517a9baf",
+      "requested_start": "1990-01-01",
+      "requested_end": "1990-12-31",
+      "overlap_rows": 0,
+      "rows_for_year": 9
+    },
+    {
+      "year": 1991,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1990-11-01%2C1991-12-31%2C640%2Cqfq",
+      "response_sha256": "2780c3f2432304ea2e9687c227f333ab91ea2a80a946b92f64873b876d9a1bcf",
+      "requested_start": "1990-11-01",
+      "requested_end": "1991-12-31",
+      "overlap_rows": 9,
+      "rows_for_year": 253
+    },
+    {
+      "year": 1992,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1991-11-01%2C1992-12-31%2C640%2Cqfq",
+      "response_sha256": "4286fda4d1d7c217f38f499897b98c73495d1153ad367bdf3995c4da551ab220",
+      "requested_start": "1991-11-01",
+      "requested_end": "1992-12-31",
+      "overlap_rows": 262,
+      "rows_for_year": 251
+    },
+    {
+      "year": 1993,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1992-11-01%2C1993-12-31%2C640%2Cqfq",
+      "response_sha256": "3fc1c99e4881c927cc6c558f65ab2e4d5f143ed59dcb35719eab5fcf857b8c9e",
+      "requested_start": "1992-11-01",
+      "requested_end": "1993-12-31",
+      "overlap_rows": 386,
+      "rows_for_year": 254
+    },
+    {
+      "year": 1994,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1993-11-01%2C1994-12-31%2C640%2Cqfq",
+      "response_sha256": "10eb9781751e2ed04458f28ae2083efb8a430d061d12041ab559c9c8a7eaae04",
+      "requested_start": "1993-11-01",
+      "requested_end": "1994-12-31",
+      "overlap_rows": 389,
+      "rows_for_year": 251
+    },
+    {
+      "year": 1995,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1994-11-01%2C1995-12-31%2C640%2Cqfq",
+      "response_sha256": "a332ce4671dfbcb65a27a9696461d3035cb077106660680781dcba5179f783d1",
+      "requested_start": "1994-11-01",
+      "requested_end": "1995-12-31",
+      "overlap_rows": 389,
+      "rows_for_year": 251
+    },
+    {
+      "year": 1996,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1995-11-01%2C1996-12-31%2C640%2Cqfq",
+      "response_sha256": "eacc21d1196a48a34013b3aa5a3ef6c37d4424f23adecd2c8457a6d497b1b646",
+      "requested_start": "1995-11-01",
+      "requested_end": "1996-12-31",
+      "overlap_rows": 393,
+      "rows_for_year": 247
+    },
+    {
+      "year": 1997,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1996-11-01%2C1997-12-31%2C640%2Cqfq",
+      "response_sha256": "e9d4a440a93c07c0722ec2739afdd87e3741ec1a60a5a2a36057bd0ee03aa196",
+      "requested_start": "1996-11-01",
+      "requested_end": "1997-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 1998,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1997-11-01%2C1998-12-31%2C640%2Cqfq",
+      "response_sha256": "934b35a80a623067698b6b79f39f98cadc9a29b40e4ba54dfa202e313b864caa",
+      "requested_start": "1997-11-01",
+      "requested_end": "1998-12-31",
+      "overlap_rows": 394,
+      "rows_for_year": 246
+    },
+    {
+      "year": 1999,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1998-11-01%2C1999-12-31%2C640%2Cqfq",
+      "response_sha256": "9872f005d857a3fd33030d256fd721ef21c1dbef7c89fa171fd921741919d7a5",
+      "requested_start": "1998-11-01",
+      "requested_end": "1999-12-31",
+      "overlap_rows": 401,
+      "rows_for_year": 239
+    },
+    {
+      "year": 2000,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C1999-11-01%2C2000-12-31%2C640%2Cqfq",
+      "response_sha256": "991bf1e4e85810c24ab08210ec393329bd4713a46f22c95f96c4ef4191cca8e2",
+      "requested_start": "1999-11-01",
+      "requested_end": "2000-12-31",
+      "overlap_rows": 401,
+      "rows_for_year": 239
+    },
+    {
+      "year": 2001,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2000-11-01%2C2001-12-31%2C640%2Cqfq",
+      "response_sha256": "a82f916640a067b6c5ed3d05bdf1edb953f5132c620d82521ce56b57ead90fc5",
+      "requested_start": "2000-11-01",
+      "requested_end": "2001-12-31",
+      "overlap_rows": 400,
+      "rows_for_year": 240
+    },
+    {
+      "year": 2002,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2001-11-01%2C2002-12-31%2C640%2Cqfq",
+      "response_sha256": "18e2b439e5bd1c23e4cca6baaa2a21ab90bd3d76e601137a004d12a095923734",
+      "requested_start": "2001-11-01",
+      "requested_end": "2002-12-31",
+      "overlap_rows": 403,
+      "rows_for_year": 237
+    },
+    {
+      "year": 2003,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2002-11-01%2C2003-12-31%2C640%2Cqfq",
+      "response_sha256": "68304ce319c79405abf6e7937d20298048cfce1518760e3b10baa5d9ab922169",
+      "requested_start": "2002-11-01",
+      "requested_end": "2003-12-31",
+      "overlap_rows": 399,
+      "rows_for_year": 241
+    },
+    {
+      "year": 2004,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2003-11-01%2C2004-12-31%2C640%2Cqfq",
+      "response_sha256": "27873ef42110fe567e214255e2c10068b9f96510361564194a35d7b71cf6cfb8",
+      "requested_start": "2003-11-01",
+      "requested_end": "2004-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2005,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2004-11-01%2C2005-12-31%2C640%2Cqfq",
+      "response_sha256": "75502f8f020d6e9d8bcddcc2c0ae1859d16f7ff121155f53ac5dabeb041267f7",
+      "requested_start": "2004-11-01",
+      "requested_end": "2005-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2006,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2005-11-01%2C2006-12-31%2C640%2Cqfq",
+      "response_sha256": "49268d7a56b2c43551abad1215f5710b591ad38ee7b831be2fafcc8050d8e2a3",
+      "requested_start": "2005-11-01",
+      "requested_end": "2006-12-31",
+      "overlap_rows": 399,
+      "rows_for_year": 241
+    },
+    {
+      "year": 2007,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2006-11-01%2C2007-12-31%2C640%2Cqfq",
+      "response_sha256": "1fa571866b92cb1f1e8d76408cfb409059dc1187b957cb1777554d9a09b4ce43",
+      "requested_start": "2006-11-01",
+      "requested_end": "2007-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2008,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2007-11-01%2C2008-12-31%2C640%2Cqfq",
+      "response_sha256": "f253b7a9a0a3db98a38ed69d7d0a6e0e2963d42c8f809cf74615675dca96ace1",
+      "requested_start": "2007-11-01",
+      "requested_end": "2008-12-31",
+      "overlap_rows": 394,
+      "rows_for_year": 246
+    },
+    {
+      "year": 2009,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2008-11-01%2C2009-12-31%2C640%2Cqfq",
+      "response_sha256": "1db739227f9dbd0fcae6c6cd93ccff8bed8085dc32d0982d0061d56aec914e95",
+      "requested_start": "2008-11-01",
+      "requested_end": "2009-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2010,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2009-11-01%2C2010-12-31%2C640%2Cqfq",
+      "response_sha256": "94e4adf91d3a8799167e118757aaa5b2376cca947b6ce83559a10fc042a22791",
+      "requested_start": "2009-11-01",
+      "requested_end": "2010-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2011,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2010-11-01%2C2011-12-31%2C640%2Cqfq",
+      "response_sha256": "3aae34a5a4baa32ef9562e58b7c74a0f571230c0642a849fbbb8039ac5d35bdc",
+      "requested_start": "2010-11-01",
+      "requested_end": "2011-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2012,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2011-11-01%2C2012-12-31%2C640%2Cqfq",
+      "response_sha256": "b1f609d111384150f49fee86f0e4a917ceed41f7ce5d74c031461ee2c32cf892",
+      "requested_start": "2011-11-01",
+      "requested_end": "2012-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2013,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2012-11-01%2C2013-12-31%2C640%2Cqfq",
+      "response_sha256": "77be92ea88ef94639827c42076716e45afde643744d0e3241fa9ff6bd1f00212",
+      "requested_start": "2012-11-01",
+      "requested_end": "2013-12-31",
+      "overlap_rows": 402,
+      "rows_for_year": 238
+    },
+    {
+      "year": 2014,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2013-11-01%2C2014-12-31%2C640%2Cqfq",
+      "response_sha256": "48cceb727ad6d5d0cca1ae76906bcabf6fcd3832e896237c7271f405f2b016c6",
+      "requested_start": "2013-11-01",
+      "requested_end": "2014-12-31",
+      "overlap_rows": 395,
+      "rows_for_year": 245
+    },
+    {
+      "year": 2015,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2014-11-01%2C2015-12-31%2C640%2Cqfq",
+      "response_sha256": "da36ee188c0d98bce402f4bc93eb0576b2272c4e775899c8a2bb1c47125bd6ff",
+      "requested_start": "2014-11-01",
+      "requested_end": "2015-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2016,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2015-11-01%2C2016-12-31%2C640%2Cqfq",
+      "response_sha256": "74c050b287e7bf643b518d792f9b54234287e4e57482274f5ba5dfc879e58bb3",
+      "requested_start": "2015-11-01",
+      "requested_end": "2016-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2017,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2016-11-01%2C2017-12-31%2C640%2Cqfq",
+      "response_sha256": "fb6066ba6020780d1c30029880e06402628a7db7976a4bfa1e5be05bea442afb",
+      "requested_start": "2016-11-01",
+      "requested_end": "2017-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2018,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2017-11-01%2C2018-12-31%2C640%2Cqfq",
+      "response_sha256": "1ba18d03f1f90a45140d44d7e47e24c15ac547d5341c1346ba0274588432d286",
+      "requested_start": "2017-11-01",
+      "requested_end": "2018-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2019,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2018-11-01%2C2019-12-31%2C640%2Cqfq",
+      "response_sha256": "a2d54f05c46665161eacad2e3b0b146bcb87ec16b19263bb3532f13b64fc71ea",
+      "requested_start": "2018-11-01",
+      "requested_end": "2019-12-31",
+      "overlap_rows": 396,
+      "rows_for_year": 244
+    },
+    {
+      "year": 2020,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2019-11-01%2C2020-12-31%2C640%2Cqfq",
+      "response_sha256": "e9c4296a8f99398894f52920e2bac72b451d8e73cfbefd835cff24794f4d4238",
+      "requested_start": "2019-11-01",
+      "requested_end": "2020-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2021,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2020-11-01%2C2021-12-31%2C640%2Cqfq",
+      "response_sha256": "f3258521a0296ffc4c4563d99455922dfa2e1098a9cac3d5fb4e8485b651da8f",
+      "requested_start": "2020-11-01",
+      "requested_end": "2021-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2022,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2021-11-01%2C2022-12-31%2C640%2Cqfq",
+      "response_sha256": "949685fb3b128932861f928f1d77ec0d46c0375a4e5ef8b87b1c1bb1ec7e7576",
+      "requested_start": "2021-11-01",
+      "requested_end": "2022-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2023,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2022-11-01%2C2023-12-31%2C640%2Cqfq",
+      "response_sha256": "0bedd0c9b2f0fb2da1b07fd7fed5721f39d26fda3ccb113a3739edbe9a4a4b2b",
+      "requested_start": "2022-11-01",
+      "requested_end": "2023-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2024,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2023-11-01%2C2024-12-31%2C640%2Cqfq",
+      "response_sha256": "a8dbe27f30165f3a8ffba33ceb8aa7e9aa68c6a32fc6a4d5e79c58f6fad35e95",
+      "requested_start": "2023-11-01",
+      "requested_end": "2024-12-31",
+      "overlap_rows": 398,
+      "rows_for_year": 242
+    },
+    {
+      "year": 2025,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2024-11-01%2C2025-12-31%2C640%2Cqfq",
+      "response_sha256": "26a1a434f54b8e906e7b78a79487214085cffa01e30999de26a891f83cef8734",
+      "requested_start": "2024-11-01",
+      "requested_end": "2025-12-31",
+      "overlap_rows": 397,
+      "rows_for_year": 243
+    },
+    {
+      "year": 2026,
+      "url": "https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param=sh000001%2Cday%2C2025-11-01%2C2026-10-23%2C640%2Cqfq",
+      "response_sha256": "3ac914c556a78f731ebcc842f6293f0a5b8a829b77f3a3287667609bb35339cb",
+      "requested_start": "2025-11-01",
+      "requested_end": "2026-10-23",
+      "overlap_rows": 448,
+      "rows_for_year": 192
+    }
+  ],
+  "weekend_dates": [],
+  "zero_volume_dates": []
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "index": {
+    "code": "000001",
+    "symbol": "sh000001",
+    "name": "上证指数"
+  },
+  "horizons": [
+    63,
+    126,
+    252
+  ],
+  "thresholds": {
+    "63": 0.06,
+    "126": 0.1,
+    "252": 0.15
+  },
+  "path_occupancy": 0.6,
+  "label_definition": "bull: forward cumulative return >=threshold AND >=60% future closes above origin; bear symmetric; otherwise mixed/sideways; last h origins unlabelled. Labels end at t+h.",
+  "feature_warmup": 1270,
+  "validation_windows": [
+    [
+      "2010-01-01",
+      "2014-01-01"
+    ],
+    [
+      "2014-01-01",
+      "2018-01-01"
+    ],
+    [
+      "2018-01-01",
+      "2022-01-01"
+    ]
+  ],
+  "test_years": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "candidates": [
+    "majority",
+    "persistence",
+    "ma_rule",
+    "logistic",
+    "lightgbm"
+  ],
+  "selection": "Per horizon maximize equal-fold mean macro-F1 on three validation windows, ties keep first/simpler candidate. Hyperparameters fixed; no selection from test.",
+  "test_protocol": "Expanding annual refit, every training label ends strictly before Jan1; test origins in year, score only known forward labels. Predictions are at origin close.",
+  "test_status": "Historical exploratory comparison, not a sealed prospective test; the user has already shown a 2019-2026 chart.",
+  "seed": 20261023,
+  "threads": 2,
+  "retrospective_reversal": 0.2,
+  "retrospective_policy": "20% directional-change pivots are hindsight descriptions only, with confirmation dates and last leg unconfirmed; never training features or labels.",
+  "auto_deploy": false,
+  "longest_feature_history": "1250-session moving average with20-session slope =>1270 completed sessions"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "native_models": 130,
+  "test_csv_rows": 15210,
+  "raw_responses_verified": 37,
+  "sqlite_csv_match": true,
+  "labels_recomputed": true,
+  "purged_cutoffs": true,
+  "selection_validation_only": true,
+  "dataset_sha256": "8db625ff022cd4401abbe82d080f21a653343fc17137b44c6df4da41cedbb0a5"
+}
